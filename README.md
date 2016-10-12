@@ -398,7 +398,7 @@ Try adding a float to the element that has collapsed (add the bold text).
 
 Note that the width has changed. Boxes are 100% width by default (they stretch to fill their container). Floating the collapsed element causes it to contract to contain its children.
 
-Since we want the <ul> to extend the width of the window let's fix the width.
+Since we want the `<ul>` to extend the width of the window let's fix the width.
 
 ```css
 #nav {
@@ -409,7 +409,7 @@ Since we want the <ul> to extend the width of the window let's fix the width.
 
 Remember, when you float an element you usually have to specify a width.
 
-Extend the background property to add a background graphic to the <ul>.
+Extend the background property to add a background graphic to the `<ul>`.
 
 ```css
 #nav { 
