@@ -481,7 +481,7 @@ a { 
 	background: #f9eaa9 url(i/off_bg.gif) repeat-x top left;
 ```
 
-Note what happened to the background graphic we placed in the <ul>. It is hidden behind the (now not transparent) anchors. 
+Note what happened to the background graphic we placed in the `<ul>`. It is hidden behind the (now not transparent) anchors. 
 
 Now, as with the previous exercise, we will create hover states for our tabs. This time we'll swap out the background image.
 
@@ -504,7 +504,7 @@ The slightly darker color helps the inactive tabs to appear to recede into the b
 
 Finishing touches
 
-This part is a but tricky since it uses padding to show or hide the background graphic running along the bottom of the <ul>. We will be increasing the height by one pixel on hover to hide the image. 
+This part is a but tricky since it uses padding to show or hide the background graphic running along the bottom of the `<ul>`. We will be increasing the height by one pixel on hover to hide the image. 
 
 Recall that the padding on the bottom of the anchor tags was 4px. Let's increase the padding on the hover state to 5px.
 
