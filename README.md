@@ -417,6 +417,7 @@ Extend the background property to add a background graphic to the `<ul>`.
 	background:#ffcb2d url(i/nav_bg.gif); 
 	...
 }
+```
 
 Add positioning to the background.
 
