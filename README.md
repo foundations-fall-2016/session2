@@ -1,27 +1,45 @@
 #FOUNDATIONS Session Two
 
-##Sushi Cleanup
+##Sushi Review and Cleanup
 
 * create a separate css file and link it back to the documents
-* reset the browser defaults:
+* reset the browser defaults
 
-An elements margins may stick out from its containing elements. Combined with the fact that various browsers may use different settings for default margins and padding on items it makes it very hard to accurately style a page.
+Do a before and after examination of the anchors tags using inline block
 
-Add a simple reset to the CSS style sheet:
+```css
+.nav a {
+	...
+	display: inline-block;
+}
+```
+
+An element's margins may stick out from its containing elements. Combined with the fact that various browsers may use different settings for default margins and padding on items it makes it very hard to accurately style a page.
+
+Add a simple reset to the CSS style sheet and add margins to the paragraphs:
 
 ```css
 * { 
 	margin:0;  
 	padding:0; 
 }
+p {
+	margin: 1em 0;
+}
 ```
 
-##Google font
+N.B. Vendor prefixes may be required for newer css properties. e.g. [shape-outside](https://css-tricks.com/almanac/properties/s/shape-outside/):
 
 ```css
-@import url('http://fonts.googleapis.com/css?family=Lato:300,400,700');
-$font-family: 'Lato', sans-serif;
+article img {
+	float:right;
+  	-webkit-shape-outside: circle(50%);
+  	shape-outside: circle(50%);
+}
 ```
+[See Can I Use](http://caniuse.com/#search=shape-outside) for full information.
+
+
 
 ##Floating Image Gallery
 * keep as many images as possible above the fold
@@ -32,20 +50,26 @@ $font-family: 'Lato', sans-serif;
 The following classes are used in the html:
 
 * pic - any div with a picture
-* ls - landscape 128 x 96
-* pt - portrait 96 x 128
+* ls - landscape (128 x 96)
+* pt - portrait (96 x 128)
 * tn - thumbnail link
 * title / catno / price (not shown in this template)
 
 
-###CONTACT SHEET  
+###CONTACT SHEET
+
+Google font
+
+```css
+@import url('http://fonts.googleapis.com/css?family=Lato:300,400,700');
+```
 
 (start-contact.html)
 
 Add and examine the normalize.css file
 
 ```html
-<link rel="stylesheet" href="styles/reset-min.css" />
+<link rel="stylesheet" href="styles/normalize.css" />
 ```
 
 Add the base styles:
@@ -54,44 +78,54 @@ Add the base styles:
 body {
 	background:#eed;
 	padding:1em;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: 'Lato', sans-serif;
 	font-size: 62.5%; 
 }
 #footer {
 	padding-top: 3em;
-	font-size: 1.2em; 
+	font-size: 1.25em; 
 }
 ```
 
-Note the relation between the font size and padding in the inspector. Try changing the base font size to 1em to see what happens. Add:
+Note the footer font size and padding in the inspector. Try changing the base font size to 100%. Look at computed (as opposed to rules) in the inspector. 
+
+```css
+body {
+	background:#eed;
+	padding:1em;
+	font-family: 'Lato', sans-serif;
+	font-size: 100%; 
+}
+#footer {
+	padding-top: 3rem;
+	font-size: 1.25rem; 
+}
+```
+ems vs rems
+
+Add:
 
 ```css
 .pic {
   float: left; 
   height: 128px; 
   width: 128px;
-  background: #fff;
   border: 1px solid black;
 }
+```
 Edit
+```
 #footer { 
-	padding-top: 3em; 
-	font-size: 1.2em;
+	...
 	clear:both;
 }
 ```
 
-Note the clear property and the effect it has on the collapsed body. No floating elements are allowed on the left or the right side of a cleared both item. See Coyer’s article.
-
-Also note that the Yahoo reset removes borders from images when displayed as part of a link and the use of multiple class names in the HTML. Edit .pic:
+Note the clear property and the effect it has on the collapsed body. No floating elements are allowed on the left or the right side of a cleared both item. 
 
 ```css
 .pic {
-  float: left; 
-  height: 128px; 
-  width: 128px;
-  background: #fff;
-  border: 1px solid black;
+  ...
   margin: 5px 3px; 
 }
 ```
@@ -119,21 +153,18 @@ We want all images to be centered vertically and horizontally within a square.
 }
 ```
 
-Edit the pic class to show more background in preparation for the background image which is 160px square.
+Examine the frame-ls and -pt images - they are 160px square
 
+Edit the pic class to add more padding and the background images:
 
 ```css
 .pic {
-  float: left; 
-  height: 128px; 
-  width: 128px;
-  background: #fff;
-  border: 1px solid black;
-  margin: 5px 3px; 
+  ...
   padding: 16px; 
   background: url(styles/img/frame-ls.gif) center no-repeat;
 }
 ```
+background-image vs <img>?
 
 Override the portrait style frames to use a different image.
 
@@ -159,13 +190,13 @@ Remove the border from the pic divs.
 
 ```css
 .pic .tn {
-  float: left;
+	float: left;
  }
 
 .pic {
-  margin: 10px;
-  clear: left;
-  width: 350px;
+	margin: 10px;
+	clear: left;
+	width: 350px;
 }
 ```
 
@@ -173,8 +204,8 @@ Portrait - align the image thumbnails:
 
 ```css
 .pt .tn {
-    width: 96px;
-    margin-right: 32px;
+	width: 96px;
+	margin-right: 32px;
 }
 ```
 
@@ -182,11 +213,11 @@ Landscape - align the image thumbnails
 
 ```css
 .ls .tn {
-  width: 128px 
+	width: 128px 
 }
 
 .tn img {
-    border: 1px solid #333;
+	border: 1px solid #333;
 }
 ```
 
@@ -194,28 +225,29 @@ Add margins and padding to separate text and pic and remove bullets
 
 ```css
 .pic ul {
-  margin-left:140px;
-  list-style: none;
-  border: 3px double #552;
+	padding: 0;
+	margin-left:140px;
+	list-style: none;
+	border: 3px double #552;
 }
 ```
 Format content:
 
 ```css
 .pic .title {
-  font-weight: bold;
-  font-size:1.5em;
-  padding-top:0.5em;
-  border-bottom:1px solid #333;
-  padding-left:0.5em;
+	font-weight: bold;
+	font-size: 1.5rem;
+	padding-top: 0.5rem;
+	border-bottom: 1px solid #333;
+	padding-left: 0.5rem;
 }
 .pic .catno {
-  color: #777; 
-  text-align: right;  
+	color: #777; 
+	text-align: right;  
 }
 .pic .price {
-  color: #777; 
-  text-align: right;
+	color: #777; 
+	text-align: right;
 }
 ```
 
@@ -225,7 +257,7 @@ Establish a base height for the list items
 
 ```css
 .pic li {
-  line-height: 1.2em; 
+	line-height: 1.2rem; 
 }
 ```
 
@@ -234,7 +266,8 @@ EDIT - Move catno over
 ```css
 .pic.catno {
   ...
-  margin-right: 4.5em;  }
+	margin-right: 4.5rem;  
+}
 ```
 
 EDIT - Slide price up
@@ -242,7 +275,8 @@ EDIT - Slide price up
 ```css
 .pic .price {
   ... 
-  margin: -1.2em 0 0 0;  }
+	margin: -1.2rem 0 0 0;
+}
 ```
 
 Boxing the information - vertical borders left of catno and between catno and price - auto allows movement to right as needed
@@ -252,15 +286,17 @@ EDIT
 ```css
 .pic .price {
   ...
-  margin: -1.2em 0 0 auto;
-  width: 4em;
-  border-left: 1px solid #333;    }
+	margin: -1.2rem 0 0 auto;
+	width: 4rem;
+	border-left: 1px solid #333;
+}
 
 .pic .catno {
   ...
-  margin: 0 4.5em 0 auto; 
-  width: 4em;
-  border-left: 1px solid #333;  }
+	margin: 0 4.5em 0 auto;
+	width: 4rem;
+	border-left: 1px solid #333;
+}
 ```
 
 EDIT  move the price over a bit to avoid double border
@@ -268,14 +304,15 @@ EDIT  move the price over a bit to avoid double border
 ```css
 .pic .price {
   ...
-  margin: -1.2em 3px 0 auto; }
+	margin: -1.2rem 3px 0 auto;
+}
 ```
 
 Increase spacing between items
 ```css
 .tn img {
   ...
-  margin-bottom: 1em;
+	margin-bottom: 1rem;
 }
 ```
 
