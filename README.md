@@ -365,7 +365,7 @@ li {
 }
 ```
 
-Notice what happened to the <ul>'s height. The <li> items no longer force the parent <ul> element to expand to contain them. This behavior, know as collapsing, occurs whenever all the direct children of a container element are floated. In this case the <ul>  has collapsed. This behavior is important as collapsing is a common design issue. We will cover a number of methods to prevent this.
+Notice what happened to the `<ul>`'s height. The `<li>` items no longer force the parent `<ul>` element to expand to contain them. This behavior, know as collapsing, occurs whenever all the direct children of a container element are floated. In this case the `<ul>`  has collapsed. This behavior is important as collapsing is a common design issue. We will cover a number of methods to prevent this.
 
 * Apply CSS overflow: auto; to the collapsed element:
 * float a float (or "FNE" - float nearly everything) - apply a float to the collapsed element
