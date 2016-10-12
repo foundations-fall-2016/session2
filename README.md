@@ -516,7 +516,7 @@ a:hover { 
 }
 ```
 
-If you roll over the tabs now the height of the anchor increases by one pixel causing the <ul> to expand as well and thus showing the border along the bottom under the inactive tabs. Due to the fact that there is no selected tab (only hovered) the height of the element appears to jump slightly. Let's assume that one of the tabs will always be highlighted.
+If you roll over the tabs now the height of the anchor increases by one pixel causing the `<ul>` to expand as well and thus showing the border along the bottom under the inactive tabs. Due to the fact that there is no selected tab (only hovered) the height of the element appears to jump slightly. Let's assume that one of the tabs will always be highlighted.
 
 Create a second selector to highlight one of the anchors.
 
@@ -593,8 +593,6 @@ Now when you navigate between the two pages you should see a friendly reminder o
 
 
 ##Homework
-
-Note: the finished files I was working on in class can be [downloaded](http://daniel.deverell.com/css-files/foundation-fall-2016/session1-master.zip) for reference.
 
 1. 
 
