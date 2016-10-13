@@ -583,6 +583,16 @@ a:hover,
 
 Now when you navigate between the two pages you should see a friendly reminder of what page you are on courtesy of the CSS file.
 
+###Removing the on- off- images
+
+[Gradient editor](http://www.colorzilla.com/gradient-editor/)
+
+Edit the background properties for the tabs:
+
+background-image: linear-gradient(to bottom, rgba(255,236,165,1) 0%,rgba(232,213,149,1) 6%,rgba(253,233,162,1) 94%,rgba(253,233,162,1) 100%);
+
+background-image: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(224,226,240,1) 6%,rgba(254,254,254,1) 53%);
+
 
 ##Homework
 
@@ -595,8 +605,7 @@ Now when you navigate between the two pages you should see a friendly reminder o
 
 Notes
 
-background-image: linear-gradient(rgb(240, 190, 60), rgb(254, 201, 70));
 
-background-image: linear-gradient(to bottom, rgba(255,236,165,1) 0%,rgba(232,213,149,1) 6%,rgba(253,233,162,1) 94%,rgba(253,233,162,1) 95%,rgba(253,233,162,0) 100%);
+
 
 
