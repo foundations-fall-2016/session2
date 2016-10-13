@@ -320,6 +320,10 @@ Increase spacing between items
 
 In this exercise we will focus on list styling and navigation but instead of using `display: inline` or  `display: inline-block` to create horizontal navigation we will use floats.
 
+* Install [package control](https://packagecontrol.io)
+* Install [emmet](https://packagecontrol.io/packages/Emmet)
+* Review [emmet syntax](http://docs.emmet.io/abbreviations/syntax/)
+
 Create an HTML file with the following code and save it as `cuisines.html`. Take a moment to examine the default margin and padding using the inspector.
 
 ```html
