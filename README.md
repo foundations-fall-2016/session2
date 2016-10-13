@@ -56,7 +56,7 @@ The following classes are used in the html:
 * title / catno / price (list item classes)
 
 
-###CONTACT SHEET
+###Part One - Contact Sheet
 
 Examine the images to see the design goals.
 
@@ -184,9 +184,7 @@ Add a dimensional border to the images.
 
 Remove the border from the pic divs.
 
-###Catalog View  
-
-(3-catalog.html)
+###Part Two - Catalog View
 
 ```css
 .pic .tn {
