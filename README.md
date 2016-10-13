@@ -592,3 +592,11 @@ Now when you navigate between the two pages you should see a friendly reminder o
 
 ##Reading 
 * CSS Mastery: Advanced Web Standards Solutions - chapters 4-5
+
+Notes
+
+background-image: linear-gradient(rgb(240, 190, 60), rgb(254, 201, 70));
+
+background-image: linear-gradient(to bottom, rgba(255,236,165,1) 0%,rgba(232,213,149,1) 6%,rgba(253,233,162,1) 94%,rgba(253,233,162,1) 95%,rgba(253,233,162,0) 100%);
+
+
