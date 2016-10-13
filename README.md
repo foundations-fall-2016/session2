@@ -324,18 +324,29 @@ In this exercise we will focus on list styling and navigation but instead of usi
 * Install [emmet](https://packagecontrol.io/packages/Emmet)
 * Review [emmet syntax](http://docs.emmet.io/abbreviations/syntax/)
 
-Create an HTML file with the following code and save it as `cuisines.html`. Take a moment to examine the default margin and padding using the inspector.
+Create an HTML file with the following code and save it as `cuisines.html` using emmet:
+
+```sh
+!
+
+ul>li*4>a[href="#"]{link}
+
+nav>ul>li.t-cuisines*4>a[href="cuisines.html"]{cuisines}
+```
+Edit the html to complete the classes and links:
 
 ```html
-<ul id="nav">
-	<nav>
+<nav>
+	<ul id="nav">
 		<li class="t-cuisines"><a href="cuisines.html" >Cuisines</a></li>
-		<li><a href="#">Chefs</a></li>
-		<li><a href="#">Reviews</a></li>
-		<li><a href="#">Delivery</a></li>
-	</nav>
-</ul>
+		<li class="t-chefs"><a href="chefs.html">Chefs</a></li>
+		<li class="t-reviews"><a href="reviews.html">Reviews</a></li>
+		<li class="t-delivery"><a href="delivery.html">Delivery</a></li>
+	</ul>
+</nav>
 ```
+
+Take a moment to examine the default margin and padding using the inspector.
 
 Add some basic formatting.
 
