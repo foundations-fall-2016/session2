@@ -3,8 +3,11 @@
 ##Server Accounts
 
 Username is the first seven letters of your last name + first letter of first name
+
 Password is first initial, last initial, 123890
+
 e.g. devereld // dd123890
+
 Hostname is oit2.scps.nyu.edu
 
 Test to see if your account is active by entering this URL into a new browser tab (use your username after the tilde):
