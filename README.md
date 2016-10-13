@@ -470,7 +470,7 @@ Add padding, margins to separate, and a border to make them more tab-like.
 ```css
 a {
 	...
-	padding: 4px 8px; 
+	padding: 4px 8px;
 	border: 1px solid #9b8748;
 	margin: 0 6px 0 0;
 }
@@ -480,11 +480,7 @@ Although it may be a little difficult to discern, the same issue we had with col
 
 ```css
 a { 
-	text-decoration:none;
-	color:#333; 
-	padding: 4px 8px;
-	border: 1px solid #9b8748;
-	margin: 0 6px 0 0;
+	...
 	border-bottom: none;
 	float:left;
 }
@@ -501,10 +497,10 @@ a { 
 
 Note what happened to the background graphic we placed in the `<ul>`. It is hidden behind the (now not transparent) anchors. 
 
-Now, as with the previous exercise, we will create hover states for our tabs. This time we'll swap out the background image.
+Now we create hover states for our tabs by swapping out the background image:
 
 ```css
-a:hover { 
+a:hover {
 	background: #fff url(i/on_bg.gif) repeat-x top left; 
 }
 ```
@@ -512,15 +508,13 @@ a:hover { 
 Let's match the border color to the image's.
 
 ```css
-a:hover { 
+a:hover {
 	background: #fff url(i/on_bg.gif) repeat-x top left; 
-	border-color:#727377; 
+	border-color: #727377; 
 }
 ```
 
-The slightly darker color helps the inactive tabs to appear to recede into the background.
-
-Finishing touches
+###Finishing touches
 
 This part is a but tricky since it uses padding to show or hide the background graphic running along the bottom of the `<ul>`. We will be increasing the height by one pixel on hover to hide the image. 
 
@@ -529,7 +523,7 @@ Recall that the padding on the bottom of the anchor tags was 4px. Let's increase
 ```css
 a:hover { 
 	background: #fff url(i/on_bg.gif) repeat-x top left; 
-	border-color:#727377; 
+	border-color:#727377;
 	padding-bottom:5px; 
 }
 ```
@@ -539,58 +533,39 @@ If you roll over the tabs now the height of the anchor increases by one pixel ca
 Create a second selector to highlight one of the anchors.
 
 ```css
-a:hover, #t-cuisines a { 
-	background: #fff url(i/on_bg.gif) repeat-x top left; 
-	border-color:#727377; 
-	padding-bottom:5px; 
+a:hover, .t-cuisines a {
+	...
 }
 ```
 
 Note that when you use two selectors they must be separated by a comma.
 
-Let's extend the tabs treatment so it acts as navigation by adding an id to the page itself. (Note that the naming convention of the id's uses "t-". The t stands for tabs.
-
-```html
-<body id="cuisines">
-	<ul id="nav">
-		<li id="t-cuisines"><a href="cuisines.html">...
-		<li id="t-chefs"><a href="chefs.html">...
-		<li id="t-reviews"><a href="reviews.html">...
-		<li id="t-delivery"><a href="delivery.html">...
-	</ul>
-</body>
-```
-
 Now, if we add an id to the body tag we can edit the selector to make it page specific.
 Add id="cuisines" to the body tag.
 
 ```html
-<body id="cuisines">
+<body id="p-cuisines">
 ```
 
 Edit the second selector to make the tab highlighting specific to this page.
 
 ```css
 a:hover, 
-body#cuisines #t-cuisines a 
+#p-cuisines .t-cuisines a 
 {
-	background: #fff url(i/on_bg.gif) repeat-x top left;
-	border-color:#727377;
-	padding-bottom:5px;
+	...
 }
 ```
 
-We are going to create a second HTML page shortly so, to make our lives easier, let's copy our code into an external CSS file and save it as styles.css into a new directory called css.
-
-Last time we used the CSS method @import to bring the styles back in, let's use the HTML method this time.
+We are going to create a second HTML page shortly so let's copy our code into an external file and save it as styles.css into a new css directory:
 
 ```html
-<link href="styles.css" rel="stylesheet" type="text/css">
+<link href="css/styles.css" rel="stylesheet" type="text/css">
 ```
 
-Note that the paths to the images are no longer correct.
+Note that the paths to the images are no longer correct and need to be changed.
 
-Save a new copy of the HTML page as chefs.html and edit the ID for the chefs page.
+Save a new copy of the HTML page as chefs.html and edit the ID:
 
 ```html
 <body id="chefs">
@@ -600,10 +575,9 @@ Add a new selector to the CSS.
 
 ```css
 a:hover, 
- body#cuisines #t-cuisines a , body#chefs #t-chefs a {
-	background: #fff url(i/on_bg.gif) repeat-x top left;
-	border-color:#727377;
-	padding-bottom:5px;
+ #p-cuisines .t-cuisines a , 
+#p-chefs .t-chefs a {
+	...
 }
 ```
 
@@ -612,7 +586,7 @@ Now when you navigate between the two pages you should see a friendly reminder o
 
 ##Homework
 
-1. 
+1. Incorporate the new float-based tabs into your Brooklyn Eats homework from last week.
 
 
 
