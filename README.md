@@ -50,21 +50,21 @@ article img {
 The following classes are used in the html:
 
 * pic - any div with a picture
-* ls - landscape (128 x 96)
-* pt - portrait (96 x 128)
+* ls - landscape (image size 128 x 96)
+* pt - portrait (image size 96 x 128)
 * tn - thumbnail link
-* title / catno / price (not shown in this template)
+* title / catno / price (list item classes)
 
 
 ###CONTACT SHEET
 
-Google font
+Examine the images to see the design goals.
+
+Add Google font:
 
 ```css
 @import url('http://fonts.googleapis.com/css?family=Lato:300,400,700');
 ```
-
-(start-contact.html)
 
 Add and examine the normalize.css file
 
@@ -585,7 +585,10 @@ Now when you navigate between the two pages you should see a friendly reminder o
 
 ###Removing the on- off- images
 
-[Gradient editor](http://www.colorzilla.com/gradient-editor/)
+Images take time to download - let's remove as many as we can.
+
+* [Intro to gradients in css](https://css-tricks.com/css3-gradients/)
+* [Gradient editor](http://www.colorzilla.com/gradient-editor/)
 
 Edit the background properties for the tabs:
 
