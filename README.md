@@ -612,7 +612,7 @@ background-image: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(224,226
 
 ##Homework
 
-1. Incorporate the new float-based tabs into your Brooklyn Eats homework from last week.
+1. Incorporate the new float-based tabs into your Brooklyn Eats homework from last week. Upload your page(s) to your NYU account.
 
 
 
