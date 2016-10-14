@@ -345,7 +345,7 @@ My final files are available [here](http://daniel.deverell.com/css-files/foundat
 
 1. Review the steps we used to create a tab navigation interface.
 
-2. Incorporate the new float-based tabs into your last week's homework. Be sure you can navigate between at least two pages and upload them to your NYU server space. Email me the link.
+2. Incorporate the new float-based tabs into your homework from last week. Be sure you can navigate between at least two pages and upload them to your NYU server space. Test and email me the link.
 
 
 
