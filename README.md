@@ -341,7 +341,11 @@ background-image: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(224,226
 
 My final files are available [here](http://daniel.deverell.com/css-files/foundation-fall-2016/session2-master.zip)
 
-1. Do the homework from last week. Incorporate the new float-based tabs into your last week's homework. Be sure you can navigate between at least two pages and upload them to your NYU server space. Email me the link.
+1. Do the homework from last week. 
+
+1. Review the steps we used to create a tab navigation interface.
+
+2. Incorporate the new float-based tabs into your last week's homework. Be sure you can navigate between at least two pages and upload them to your NYU server space. Email me the link.
 
 
 
