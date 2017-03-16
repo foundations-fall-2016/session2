@@ -1,19 +1,20 @@
-#FOUNDATIONS Session Two
+# FOUNDATIONS Session Two
 
-##Server Accounts
+## Server Accounts
 
-Username is the first seven letters of your last name + first letter of first name
+Your username is the first seven letters of your last name + the first letter of first name. e.g devereld
 
-Password is first initial, last initial, 123890
-
-e.g. devereld // dd123890
-
-Hostname is oit2.scps.nyu.edu
+(If your name is less than 7 characters your username is your last name plus the first letter of your first name.)
 
 Test to see if your account is active by entering this URL into a new browser tab (use your username after the tilde):
 
 http://oit2.scps.nyu.edu/~******/
-Try using an FTP client.
+
+Your password is your first initial plus your last initial plus 123890. e.g. dd123890
+
+The computer name is oit2.scps.nyu.edu
+
+You can upload and download files using SFTP (sercure file transfer protocol). Recommended free SFTP clients include [Cyberduck](https://cyberduck.io) and [Filezilla](https://filezilla-project.org)
 
 ##Sushi Review and Cleanup
 
