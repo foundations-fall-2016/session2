@@ -52,7 +52,7 @@ article img {
 
 ```
 <div class="popover">
-	<p>Testing</p>
+	<p>Map</p>
 </div>
 ```
 
