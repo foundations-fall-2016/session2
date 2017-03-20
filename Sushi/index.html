@@ -2,86 +2,151 @@
 <html>
 <head>
 	<title>Brooklyn Eats: Matsu</title>
-	<style type="text/css">
-	body {
-		background: #ddd;
-		margin: 0;
-		color: #333;
-		font-family: Verdana, Helvetica, sans-serif;
-	}
-	.nav {
-		list-style: none;
-		position: absolute;
-		z-index: 100;
-		right: 0;
-		top: 60px;
-	}
-	.nav li {
-		display: inline-block;
-		margin-right: 10px;
-	}
-	.nav a {
-		color: #333;
-		text-decoration: none;
-		padding: 6px;
-		background: #f0dfb4;
-		border-radius: 4px;
-	}
-	#p-reviews .t-reviews a,
-	#p-recipes .t-recipes a,
-	.nav a:hover {
-		color: #fff;
-		background: #600;
-	}
+	<link href="https://fonts.googleapis.com/css?family=Crushed" rel="stylesheet">
+	<style>
+		@import url('http://fonts.googleapis.com/css?family=Lato:300,400,400i,700');
+		html {
+			--bg-color: rgba(222,152,0,0.18);
+			--hilite-color: #600;
+		}
+		body {
+			margin: 0;
+			color: #333;
+			font-family: 'Lato', sans-serif;
+			background-color: #ddd;
+		}
+		#wrapper {
+			margin: 0 auto 0 auto;
+			max-width: 840px;
+			position: relative;
+			background-color: #fff;
+		}
+		h1, h2 {
+			color: #600;
+			margin-top: 10px;
+			margin-left: 20px;
+			font-size: 4rem;
+			margin-bottom: 0;
+		}
+		h2 {
+			font-size: 32px;
+			margin-top: 0;
+		}
+		h3 {
+			font-size: 2rem;
+			margin-top: 10px;
+			margin-bottom: 0;
+		}
+		aside th {
+			text-align: right;
+		}
 
-	#info {
-		position: absolute;
-		top: 200px;
-		left: 10px;
-		width: 180px;
-		background: #f0dfb4;
-		padding: 12px;
-		border: 1px solid #600;
-		border-radius: 4px;
-		box-shadow: 0 0 16px #999;
-	}
-	article {
-		margin: 0 40px 0 240px;
-	}
-	article img {
-		float:right;
-	}
-	blockquote {
-		float: right;
-		width: 40%;
-		padding: 12px;
-		font-size: 24px;
-		color: #600;
-	}
-	#wrapper {
-		background: #fff;
-		max-width: 840px;
-		margin: 0 auto;
-		position: relative;
-	}
-	h1, h2 {
-		color: #600;
-		margin: 0;
-	}
-	header {
-		height: 120px;
-	}
-		</style>
-	</head>
+		aside ul {
+			list-style: none; 
+			margin: 1em; 
+			padding: 0;
+		}
+		header {
+			font-family: 'Crushed', cursive;
+			height:120px; 
+			padding: 1rem;
+			padding-top: 2px;
+		}
+/*		.nav {
+			list-style:none;
+			padding: 0;
+			position: absolute;
+			right:0;
+			top:60px; 
+		}
+		.nav li { 
+			display: inline-block;
+			margin-right: 10px;
+		}*/
 
-	<body id="p-reviews">
-		<div id="wrapper">
+		.nav {
+			display: flex;
+			padding: 0;
+		}
+		.nav li { 
+			flex: 1;
+			background-color: #d00;
+			list-style: none;
+		}
+		.nav a {
+			color: #fff;
+			text-decoration: none;
+			padding: 6px;
+			display: block;
+			background-color: var(--hilite-color);
+			transition: background-color 0.5s linear;
+		}
+		.nav a:hover {
+			color: #fff; 
+			background-color: #ff9800;
+		}
+		aside {
+			position: absolute; 
+			top: 200px; 
+			left: 22px; 
+			width: 180px; 
+			background-color: var(--bg-color); 
+			padding: 6px;
+			border: 1px solid #600;
+			border-radius: 4px; 
+			box-shadow: 3px 3px 3px #ddd;
+		}
+		article {
+			margin: 0 20px 0 240px;
+		}
+		blockquote  {
+			float: right; 
+			width: 40%;
+			padding: 16px; 
+			font-size: 24px;
+			font-style: italic;
+		}
+		article img {
+			float:  right;
+		}
+
+		@media print {
+			* {
+				display: none !important;
+			}
+		}
+
+		@media all and (max-width: 800px){
+			.nav {
+				top: 0;
+				left:0;
+				margin: 0;
+			}
+			aside {
+				position: static;
+				float: left;
+				margin-right: 20px;
+			}
+			article {
+				margin-left: 20px;
+			}
+			blockquote {
+				width: 100%;
+				float: none;
+				margin: 0;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div id="wrapper">
 		<nav>
 			<ul class="nav">
-				<li class="t-cuisines"><a href="#">Cuisines</a></li>
-				<li class="t-recipes"><a href="recipes.html">Recipes</a></li>
-				<li class="t-reviews"><a href="index.html">Reviews</a></li>
-				<li class="t-delivery"><a href="#">Delivery</a></li>
+				<li><a href="#">Cuisines</a></li>
+				<li><a href="#">Recipes</a></li>
+				<li><a href="#">Reviews</a></li>
+				<li><a href="#">Delivery</a></li>
 			</ul>
 		</nav>
 
@@ -91,9 +156,9 @@
 		</header>
 
 		<article>
-			<h2>Matsu</h2>
-			<p><strong>Bottom Line:</strong> Friendly, cozy, and oh so tasty</p>
-			<div id="info">
+			<h3>Matsu</h3>
+			<p class="summary"><strong>Bottom Line:</strong> Friendly, cozy, and oh so tasty</p>
+			<aside>
 				<table>
 					<tbody>
 						<tr>
@@ -119,7 +184,8 @@
 					<li>(718) 767-1111</li>
 					<li><a href="#">Web site</a></li>
 				</ul>
-			</div>
+			</aside>
+
 			<p>If there's one <a href="#">Asian cuisine</a> we truly love, it's sushi (although dim sum comes a close second). Prepared correctly, sushi can be a work of sublime art to both the eyes and the tongue. There's nothing quite like the taste of a fresh piece of suzuki (sea bass) or salmon artfully combined with special rice and a hint of wasabi (Japanese horseradish). "Fresh fish in Brooklyn?" we hear you asking. Absolutely. There are several very good sushi restaurants in the area, but for our money, Matsu is at the head of the pack. <em>It's so good, it beats out most of the Brooklyn sushi places we've tried.</em></p>
 
 			<blockquote> It's so good, it beats out most of the Brooklyn sushi places we've tried.</blockquote>
@@ -137,24 +203,5 @@
 			<p>If you're looking for a good Japanese experience but can't foot the bill for a flight to Tokyo, then Matsu is an excellent backup plan. We'll be back again soon.</p>
 		</article>
 	</div>
-	</body>
-	</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</body>
+</html>
