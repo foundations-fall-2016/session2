@@ -1,5 +1,18 @@
 # FOUNDATIONS Session Two
 
+## Homework
+
+My final files are available [here](http://daniel.deverell.com/css-files/foundation-fall-2016/session2-master.zip)
+
+1. Do the homework from last week. 
+1. Review the steps we used to create a tab navigation interface.
+1. Incorporate the new float-based tabs into your homework from last week. Be sure you can navigate between at least two pages and upload them to your NYU server space. Test and email me the link.
+
+
+
+## Reading 
+* CSS Mastery: Advanced Web Standards Solutions - chapters 4-5
+
 ## Server Accounts
 
 Your username is the first seven letters of your last name + the first letter of first name. e.g devereld
@@ -16,33 +29,13 @@ The computer name is oit2.scps.nyu.edu
 
 You can upload and download files using SFTP (sercure file transfer protocol). Recommended free SFTP clients include [Cyberduck](https://cyberduck.io) and [Filezilla](https://filezilla-project.org)
 
-##Sushi Review and Cleanup
+## Sushi Review and Cleanup
 
-* create a separate css file and link it back to the documents
-* reset the browser defaults
-
-Do a before and after examination of the anchors tags using inline block
-
-```css
-.nav a {
-	...
-	display: inline-block;
-}
-```
+* review the CSS
+* create a separate css file and link it back to the document
+* do a before and after examination of the anchor tags using display flex
 
 An element's margins may stick out from its containing elements. Combined with the fact that various browsers may use different settings for default margins and padding on items it makes it very hard to accurately style a page.
-
-Add a simple reset to the CSS style sheet and add margins to the paragraphs:
-
-```css
-* { 
-	margin:0;  
-	padding:0; 
-}
-p {
-	margin: 1em 0;
-}
-```
 
 N.B. Vendor prefixes may be required for newer css properties. e.g. [shape-outside](https://css-tricks.com/almanac/properties/s/shape-outside/):
 
@@ -55,9 +48,48 @@ article img {
 ```
 [See Can I Use](http://caniuse.com/#search=shape-outside) for full information.
 
+## DOM Scripting 
+
+```
+<div class="popover">
+	<p>Testing</p>
+</div>
+```
+
+```
+.popover {
+	padding: 1rem;
+	width: 300px;
+	height: 200px;
+	background: #fff;
+	border: 1px solid #666;
+	position: fixed;
+	top: calc(50% - 100px);
+	left: calc(50% - 150px);
+	display: none;
+}
+```
+
+```
+.showme {
+	display: block;
+}
+```
+
+```
+<script>
+	var mapClicker = document.querySelector('.map')
+	var popOver = document.querySelector('.popover')
+	mapClicker.addEventListener('click', function(){
+		popOver.classList.toggle('showme')
+	})
+	console.log(mapClicker)
+</script>
+```
 
 
-##Styling a List with Floats
+
+## Styling a List with Floats
 
 In this exercise we will focus on list styling and navigation but instead of using `display: inline` or  `display: inline-block` to create horizontal navigation we will use floats.
 
@@ -136,7 +168,7 @@ One problem with the first method is that it can create scroll bars in the layou
 Try adding the following to the CSS in order to see the scroll bars (remove it before proceeding).
 
 ```css
-overflow:scroll; 
+overflow:scroll;
 width:200px;
 height:40px;
 ```
@@ -146,12 +178,12 @@ For our current example let's use the second method.
 Try adding a float to the element that has collapsed (add the bold text).
 
 ```css
-#nav { 
-	background:#ffcb2d; 
+#nav {
+	background:#ffcb2d;
 	margin:0;
-	padding:10px 0 0 46px; 
-	list-style:none; 
-	float:left; 
+	padding:10px 0 0 46px;
+	list-style:none;
+	float:left;
 }
 ```
 
@@ -171,9 +203,9 @@ Remember, when you float an element you usually have to specify a width.
 Extend the background property to add a background graphic to the `<ul>`.
 
 ```css
-#nav { 
+#nav {
 	...
-	background:#ffcb2d url(i/nav_bg.gif); 
+	background:#ffcb2d url(i/nav_bg.gif);
 	...
 }
 ```
@@ -181,7 +213,7 @@ Extend the background property to add a background graphic to the `<ul>`.
 Add positioning to the background.
 
 ```css
-#nav { 
+#nav {
 	...
 	background:#ffcb2d url(i/nav_bg.gif) repeat-x bottom left;
 	...
@@ -191,7 +223,7 @@ Add positioning to the background.
 Adjust font size for the tabs:
 
 ```css
-li { 
+li {
 	...
 	font-size: 85%;
 }
@@ -220,7 +252,7 @@ a {
 Although it may be a little difficult to discern, the same issue we had with collapsing earlier has occurred here as well. We will use the same method as before to make the container expand to fit its floated children. Let's remove the redundant border while we're at it.
 
 ```css
-a { 
+a {
 	...
 	border-bottom: none;
 	float:left;
@@ -231,7 +263,7 @@ By floating the anchors we cause the list items to expand to contain their float
 Now we add a background image to the <a>. Note that the image has a gradient and transparency.
 
 ```css
-a { 
+a {
 	...
 	background: #f9eaa9 url(i/off_bg.gif) repeat-x top left;
 ```
@@ -242,7 +274,7 @@ Now we create hover states for our tabs by swapping out the background image:
 
 ```css
 a:hover {
-	background: #fff url(i/on_bg.gif) repeat-x top left; 
+	background: #fff url(i/on_bg.gif) repeat-x top left;
 }
 ```
 
@@ -250,22 +282,22 @@ Let's match the border color to the image's.
 
 ```css
 a:hover {
-	background: #fff url(i/on_bg.gif) repeat-x top left; 
-	border-color: #727377; 
+	background: #fff url(i/on_bg.gif) repeat-x top left;
+	border-color: #727377;
 }
 ```
 
-###Finishing touches
+### Finishing touches
 
 This part is a but tricky since it uses padding to show or hide the background graphic running along the bottom of the `<ul>`. We will be increasing the height by one pixel on hover to hide the image. 
 
 Recall that the padding on the bottom of the anchor tags was 4px. Let's increase the padding on the hover state to 5px.
 
 ```css
-a:hover { 
-	background: #fff url(i/on_bg.gif) repeat-x top left; 
+a:hover {
+	background: #fff url(i/on_bg.gif) repeat-x top left;
 	border-color:#727377;
-	padding-bottom:5px; 
+	padding-bottom:5px;
 }
 ```
 
@@ -316,7 +348,7 @@ Add a new selector to the CSS.
 
 ```css
 a:hover, 
- #p-cuisines .t-cuisines a , 
+#p-cuisines .t-cuisines a ,
 #p-chefs .t-chefs a {
 	...
 }
@@ -324,7 +356,7 @@ a:hover,
 
 Now when you navigate between the two pages you should see a friendly reminder of what page you are on courtesy of the CSS file.
 
-###Removing the on- off- images
+### Removing the on- off- images
 
 Images take time to download - let's remove as many as we can.
 
@@ -337,21 +369,6 @@ background-image: linear-gradient(to bottom, rgba(255,236,165,1) 0%,rgba(232,213
 
 background-image: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(224,226,240,1) 6%,rgba(254,254,254,1) 53%);
 
-
-##Homework
-
-My final files are available [here](http://daniel.deverell.com/css-files/foundation-fall-2016/session2-master.zip)
-
-1. Do the homework from last week. 
-
-1. Review the steps we used to create a tab navigation interface.
-
-1. Incorporate the new float-based tabs into your homework from last week. Be sure you can navigate between at least two pages and upload them to your NYU server space. Test and email me the link.
-
-
-
-##Reading 
-* CSS Mastery: Advanced Web Standards Solutions - chapters 4-5
 
 Notes
 
