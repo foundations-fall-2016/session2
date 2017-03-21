@@ -1,17 +1,27 @@
-##FlexBox
+## FlexBox
 * CSS Flexible Box Layout Module
 * A simple guide to the various CSS properties on [CSS Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+* Try https://www.w3schools.com/css/css3_flexbox.asp
 
-###A simple Flex Nav
+### A simple Flex Nav
 
 <img src="hero-1.png">
 
-```
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
+[Font Awesome](http://fontawesome.io/)
 
+```
+<link rel="stylesheet" href="font-awesome-4.6.3/css/font-awesome.min.css">
+
+<!-- Logo -->
+<i class="fa fa-bullseye fa-3x"></i>
+
+<!-- Gear -->
+<i class="fa fa-gear"></i>
+```
+
+```
 body {
-  font-family: 'Roboto', sans-serif;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 .site-header {
@@ -84,14 +94,4 @@ body {
     width: 100%;
   }
 }
-```
-[Font Awesome](http://fontawesome.io/)
-```
-
-<link rel="stylesheet" href="font-awesome-4.6.3/css/font-awesome.min.css">
-
-<i class="fa fa-bullseye fa-3x"></i>
-
-<i class="fa fa-gear"></i>
-
 ```

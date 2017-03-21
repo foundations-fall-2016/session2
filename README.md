@@ -4,7 +4,7 @@
 
 My final files are available [here](http://daniel.deverell.com/css-files/foundation-fall-2016/session2-master.zip)
 
-1. Do the homework from last week. 
+1. Continue the homework from last week
 1. Review the steps we used to create a tab navigation interface.
 1. Incorporate the new float-based tabs into your homework from last week. Be sure you can navigate between at least two pages and upload them to your NYU server space. Test and email me the link.
 
