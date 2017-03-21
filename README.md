@@ -1,4 +1,4 @@
-# FOUNDATIONS Session Two
+# Front End Foundations Session Two
 
 ## Homework
 
