@@ -2,16 +2,14 @@
 
 ## Homework
 
-My final files are available [here](http://daniel.deverell.com/css-files/foundation-fall-2016/session2-master.zip)
-
 1. Continue the homework from last week
 1. Review the steps we used to create a tab navigation interface.
 1. Incorporate the new float-based tabs into your homework from last week. Be sure you can navigate between at least two pages and upload them to your NYU server space. Test and email me the link.
 
 
-
 ## Reading 
-* CSS Mastery: Advanced Web Standards Solutions - chapters 4-5
+* 
+
 
 ## Server Accounts
 
@@ -29,30 +27,65 @@ The computer name is oit2.scps.nyu.edu
 
 You can upload and download files using SFTP (sercure file transfer protocol). Recommended free SFTP clients include [Cyberduck](https://cyberduck.io) and [Filezilla](https://filezilla-project.org)
 
+
 ## Sushi Review and Cleanup
 
 * review the CSS
+
 * create a separate css file and link it back to the document
-* do a before and after examination of the anchor tags using display flex
 
-An element's margins may stick out from its containing elements. Combined with the fact that various browsers may use different settings for default margins and padding on items it makes it very hard to accurately style a page.
+* reformat the anchor tags using display flex
 
-N.B. Vendor prefixes may be required for newer css properties. e.g. [shape-outside](https://css-tricks.com/almanac/properties/s/shape-outside/):
-
-```css
-article img {
-	float:right;
-  	-webkit-shape-outside: circle(50%);
-  	shape-outside: circle(50%);
+```
+.nav {
+	display: flex;
+	padding: 0;
+}
+.nav li { 
+	flex: 1;
+	background-color: #d00;
+	list-style: none;
+	text-align: center;
 }
 ```
-[See Can I Use](http://caniuse.com/#search=shape-outside) for full information.
+
 
 ## DOM Scripting 
 
+* The console and `console.log()`
+
+* Selecting items with `document.querySelector`
+
+* attaching events with `addEventListener()`
+
+* Functions
+
+* Manipulating HTML with classList
+
+Add link to map
+
+```
+https://www.google.com/maps/place/Geido/@40.6778979,-73.9749227,17z/data=!3m1!4b1!4m5!3m4!1s0x89c25ba8edab126b:0xfaa0551477e2ec72!8m2!3d40.6778939!4d-73.972734
+```
+
+Add a class of `.map` to the map link
+
+```
+<script>
+	var mapClicker = document.querySelector('.map')
+
+	mapClicker.addEventListener('click', show)
+	// document.addEventListener('click', show)
+
+	function show(){
+		event.preventDefault()
+	};
+</script>
+```
+
 ```
 <div class="popover">
-	<p>Map</p>
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3025.821674756671!2d-73.97492268461596!3d40.67789794763805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25ba8edab126b%3A0xfaa0551477e2ec72!2sGeido!5e0!3m2!1sen!2sus!4v1490213487125" width="300" height="225" frameborder="0" style="border:0" allowfullscreen></iframe>
 </div>
 ```
 
@@ -60,13 +93,14 @@ article img {
 .popover {
 	padding: 1rem;
 	width: 300px;
-	height: 200px;
+	height: 225px;
 	background: #fff;
-	border: 1px solid #666;
+	border: 1px solid var(--hilite-color);
+	border-radius: var(--radius);
 	position: fixed;
 	top: calc(50% - 100px);
 	left: calc(50% - 150px);
-	display: none;
+	/*display: none;*/
 }
 ```
 
@@ -80,10 +114,12 @@ article img {
 <script>
 	var mapClicker = document.querySelector('.map')
 	var popOver = document.querySelector('.popover')
-	mapClicker.addEventListener('click', function(){
+	mapClicker.addEventListener('click', show)
+
+	function show(){
 		popOver.classList.toggle('showme')
-	})
-	console.log(mapClicker)
+		event.preventDefault()
+	};
 </script>
 ```
 
