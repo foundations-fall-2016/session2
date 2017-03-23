@@ -6,8 +6,6 @@
 
 1. Review the steps we used to create a tab navigation interface
 
-1. Convert the float-based tabs to use Flexbox
-
 
 ## Reading 
 
@@ -18,22 +16,10 @@
 
 ## Server Accounts
 
-Your username is the first seven letters of your last name + the first letter of first name. e.g devereld
-
-(If your name is less than 7 characters your username is your last name plus the first letter of your first name.)
-
-Test to see if your account is active by entering this URL into a new browser tab (use your username after the tilde):
-
-http://oit2.scps.nyu.edu/~******/
-
-Your password is your first initial plus your last initial plus 123890. e.g. dd123890
-
-The computer name is oit2.scps.nyu.edu
-
-You can upload and download files using SFTP (sercure file transfer protocol). Recommended free SFTP clients include [Cyberduck](https://cyberduck.io) and [Filezilla](https://filezilla-project.org)
+[See session one](https://github.com/front-end-foundations/session1#aside---server-accounts)
 
 
-## Sushi Review and Cleanup
+## Sushi Review
 
 * review the CSS
 
@@ -67,7 +53,7 @@ You can upload and download files using SFTP (sercure file transfer protocol). R
 
 * Manipulating HTML with classList
 
-Add link to map
+Add link to map:
 
 ```
 https://www.google.com/maps/place/Geido/@40.6778979,-73.9749227,17z/data=!3m1!4b1!4m5!3m4!1s0x89c25ba8edab126b:0xfaa0551477e2ec72!8m2!3d40.6778939!4d-73.972734
@@ -132,13 +118,19 @@ Add a class of `.map` to the map link
 
 ## Styling a List with Floats
 
+<img src="tabs/tabs-image.png">
+
 In this exercise we will focus on list styling and navigation but instead of using `display: inline` or  `display: inline-block` to create horizontal navigation we will use floats.
 
 * Install [package control](https://packagecontrol.io)
+
 * Install [emmet](https://packagecontrol.io/packages/Emmet)
+
 * Review [emmet syntax](http://docs.emmet.io/abbreviations/syntax/)
 
-Create an HTML file with the following code and save it as `cuisines.html` using emmet:
+Create an HTML file and save it as `cuisines.html`.
+
+Using emmet
 
 ```sh
 !
@@ -147,7 +139,8 @@ ul>li*4>a[href="#"]{link}
 
 nav>ul>li.t-cuisines*4>a[href="cuisines.html"]{cuisines}
 ```
-Edit the html to complete the classes and links:
+
+Edit the html (cmd-d / multiple cursors - cmd / opt + cmd) to complete the classes and links:
 
 ```html
 <nav>
@@ -167,9 +160,8 @@ Add some basic formatting.
 ```css
 body {
 	margin:0;
-	padding:0;
 	font-family:"Lucida Grande", sans-serif;
-	font-size:large;
+	font-size:100%;
 }
 #nav {
 	background:#ffcb2d;
@@ -191,28 +183,19 @@ Then float the list items to the left (after removing the possibility that any m
 
 ```css
 li {
-	margin:0;
-	padding:0;
 	float:left;
 }
 ```
 
 Notice what happened to the `<ul>`'s height. The `<li>` items no longer force the parent `<ul>` element to expand to contain them. This behavior, know as collapsing, occurs whenever all the direct children of a container element are floated. In this case the `<ul>`  has collapsed. This behavior is important as collapsing is a common design issue. We will cover a number of methods to prevent this.
 
-* Apply CSS overflow: auto; to the collapsed element:
+* Apply CSS overflow: auto; to the collapsed element
+
 * float a float (or "FNE" - float nearly everything) - apply a float to the collapsed element
+
 * the clearfix hack - this entails creating a utility class and will be covered later
-* adding a clearing div - this entails adding an HTML element to the page and while officially acknowledged, is discouraged
 
-One problem with the first method is that it can create scroll bars in the layout.
-
-Try adding the following to the CSS in order to see the scroll bars (remove it before proceeding).
-
-```css
-overflow:scroll;
-width:200px;
-height:40px;
-```
+* adding a clearing div - this entails adding an HTML element to the page and is discouraged
 
 For our current example let's use the second method.
 
@@ -220,10 +203,7 @@ Try adding a float to the element that has collapsed (add the bold text).
 
 ```css
 #nav {
-	background:#ffcb2d;
-	margin:0;
-	padding:10px 0 0 46px;
-	list-style:none;
+	...
 	float:left;
 }
 ```
@@ -239,7 +219,7 @@ Since we want the `<ul>` to extend the width of the window let's fix the width.
 }
 ```
 
-Remember, when you float an element you usually have to specify a width.
+When you float an element you fequently have to specify a width.
 
 Extend the background property to add a background graphic to the `<ul>`.
 
@@ -247,7 +227,6 @@ Extend the background property to add a background graphic to the `<ul>`.
 #nav {
 	...
 	background:#ffcb2d url(i/nav_bg.gif);
-	...
 }
 ```
 
@@ -257,16 +236,6 @@ Add positioning to the background.
 #nav {
 	...
 	background:#ffcb2d url(i/nav_bg.gif) repeat-x bottom left;
-	...
-}
-```
-
-Adjust font size for the tabs:
-
-```css
-li {
-	...
-	font-size: 85%;
 }
 ```
 
@@ -319,15 +288,6 @@ a:hover {
 }
 ```
 
-Let's match the border color to the image's.
-
-```css
-a:hover {
-	background: #fff url(i/on_bg.gif) repeat-x top left;
-	border-color: #727377;
-}
-```
-
 ### Finishing touches
 
 This part is a but tricky since it uses padding to show or hide the background graphic running along the bottom of the `<ul>`. We will be increasing the height by one pixel on hover to hide the image. 
@@ -336,8 +296,7 @@ Recall that the padding on the bottom of the anchor tags was 4px. Let's increase
 
 ```css
 a:hover {
-	background: #fff url(i/on_bg.gif) repeat-x top left;
-	border-color:#727377;
+	...
 	padding-bottom:5px;
 }
 ```
@@ -406,9 +365,23 @@ Images take time to download - let's remove as many as we can.
 
 Edit the background properties for the tabs:
 
-background-image: linear-gradient(to bottom, rgba(255,236,165,1) 0%,rgba(232,213,149,1) 6%,rgba(253,233,162,1) 94%,rgba(253,233,162,1) 100%);
+Highlight state
 
+```
+background-image: linear-gradient(to bottom, rgba(255,236,165,1) 0%,rgba(232,213,149,1) 6%,rgba(253,233,162,1) 94%,rgba(253,233,162,1) 100%);
+```
+
+Nomral state:
+
+```
 background-image: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(224,226,240,1) 6%,rgba(254,254,254,1) 53%);
+```
+
+Underline:
+
+```
+background: linear-gradient(to bottom, #ffcb2d 0%,#ffcb2d 96%,#9b8748 100%);
+```
 
 
 Notes
