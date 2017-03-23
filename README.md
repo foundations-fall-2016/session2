@@ -2,13 +2,18 @@
 
 ## Homework
 
-1. Continue the homework from last week
-1. Review the steps we used to create a tab navigation interface.
-1. Incorporate the new float-based tabs into your homework from last week. Be sure you can navigate between at least two pages and upload them to your NYU server space. Test and email me the link.
+1. Continue the homework from last week - "Examine the provided homework samples for inspiration and try your hand at redesigning the page using the CSS techniques described in class"
+
+1. Review the steps we used to create a tab navigation interface
+
+1. Convert the float-based tabs to use Flexbox
 
 
 ## Reading 
-* 
+
+* CSS3 for Web Designers - finish it
+
+* [Responsive Web Design](https://abookapart.com/products/responsive-web-design) - start it, carefully read the section on Media Queries
 
 
 ## Server Accounts
