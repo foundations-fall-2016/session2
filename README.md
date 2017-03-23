@@ -118,7 +118,8 @@ Add a class of `.map` to the map link
 
 ## Styling a List with Floats
 
-<img src="tabs/tabs-image.jpg">
+<img src="Tabs/tabs-image.jpg">
+
 
 In this exercise we will focus on list styling and navigation but instead of using `display: inline` or  `display: inline-block` to create horizontal navigation we will use floats.
 
