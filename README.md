@@ -41,7 +41,7 @@
 ```
 
 
-## DOM Scripting 
+## DOM Scripting I
 
 * The console and `console.log()`
 
@@ -51,7 +51,7 @@
 
 * Functions
 
-* Manipulating HTML with classList
+* Manipulating HTML with `classList`
 
 Add link to map:
 
