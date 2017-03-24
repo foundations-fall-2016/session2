@@ -41,27 +41,23 @@ body {
   padding: 10px;
 }
 
-.site-nav {
-  ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-  }
-  a {
-    text-transform: uppercase;
-    text-decoration: none;
-    color: #CDD0D0;
-    padding: 20px;
-    display: inline-block;
-  }
-  .active {
-    a {
-      font-weight: bold;
-      color: #62DEBE;
-      background: darken(#62DEBE, 40%);
-    }
-  }
+.site-nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+.site-nav  a {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #CDD0D0;
+  padding: 20px;
+  display: inline-block;
+}
+.site-nav .active a {
+  font-weight: bold;
+  color: #62DEBE;
+  background: #444;
 }
 
 .account-actions {
@@ -71,10 +67,8 @@ body {
   margin-right: 10px;
 }
 
-.account-dropdown {
-  ul {
+.account-dropdown ul {
     display: none;
-  }
 }
 
 .sign-out-link {
@@ -94,4 +88,6 @@ body {
     width: 100%;
   }
 }
+
+
 ```
