@@ -40,6 +40,28 @@
 }
 ```
 
+### CSS Variables
+
+(These)[https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables] allow us to store commonly used information as a variable for use throughout our css.
+
+```
+html {
+  --bg-color: #f0dfb4;
+}
+```
+
+```
+.nav a {
+  ...
+  background-color: var(--bg-color);
+}
+
+aside {
+  ...
+  background-color: var(--bg-color); 
+}
+```
+
 
 ## DOM Scripting I
 
