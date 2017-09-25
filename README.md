@@ -19,139 +19,21 @@
 [See session one](https://github.com/front-end-foundations/session1#aside---server-accounts)
 
 
-## Sushi Review
-
-* review the CSS
-
-* create a separate css file and link it back to the document
-
-* reformat the anchor tags using display flex
-
-```
-.nav {
-	display: flex;
-	padding: 0;
-} 
-.nav li { 
-	flex: 1;
-	background-color: #d00;
-	list-style: none;
-	text-align: center;
-}
-```
-
-### CSS Variables
-
-(These)[https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables] allow us to store commonly used information as a variable for use throughout our css.
-
-```
-html {
-  --bg-color: #f0dfb4;
-}
-```
-
-```
-.nav a {
-  ...
-  background-color: var(--bg-color);
-}
-
-aside {
-  ...
-  background-color: var(--bg-color); 
-}
-```
-
-
-## DOM Scripting I
-
-* The console and `console.log()`
-
-* Selecting items with `document.querySelector`
-
-* attaching events with `addEventListener()`
-
-* Functions
-
-* Manipulating HTML with `classList`
-
-Add link to map:
-
-```
-https://www.google.com/maps/place/Geido/@40.6778979,-73.9749227,17z/data=!3m1!4b1!4m5!3m4!1s0x89c25ba8edab126b:0xfaa0551477e2ec72!8m2!3d40.6778939!4d-73.972734
-```
-
-Add a class of `.map` to the map link
-
-```
-<script>
-	var mapClicker = document.querySelector('.map')
-
-	mapClicker.addEventListener('click', show)
-	// document.addEventListener('click', show)
-
-	function show(){
-		event.preventDefault()
-	};
-</script>
-```
-
-```
-<div class="popover">
-	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3025.821674756671!2d-73.97492268461596!3d40.67789794763805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25ba8edab126b%3A0xfaa0551477e2ec72!2sGeido!5e0!3m2!1sen!2sus!4v1490213487125" width="300" height="225" frameborder="0" style="border:0" allowfullscreen></iframe>
-</div>
-```
-
-```
-.popover {
-	padding: 1rem;
-	width: 300px;
-	height: 225px;
-	background: #fff;
-	border: 1px solid var(--hilite-color);
-	border-radius: var(--radius);
-	position: fixed;
-	top: calc(50% - 100px);
-	left: calc(50% - 150px);
-	/*display: none;*/
-}
-```
-
-```
-.showme {
-	display: block;
-}
-```
-
-```
-<script>
-	var mapClicker = document.querySelector('.map')
-	var popOver = document.querySelector('.popover')
-	mapClicker.addEventListener('click', show)
-
-	function show(){
-		popOver.classList.toggle('showme')
-		event.preventDefault()
-	};
-</script>
-```
-
-
-
 ## Styling a List with Floats
 
 <img src="Tabs/tabs-image.jpg">
 
+Review the navigation from last week.
 
 In this exercise we will focus on list styling and navigation but instead of using `display: inline` or  `display: inline-block` to create horizontal navigation we will use floats.
+
+## Demo in Sublime
 
 * Install [package control](https://packagecontrol.io)
 
 * Install [emmet](https://packagecontrol.io/packages/Emmet)
 
 * Review [emmet syntax](http://docs.emmet.io/abbreviations/syntax/)
-
-Create an HTML file and save it as `cuisines.html`.
 
 Using emmet
 
@@ -163,7 +45,10 @@ ul>li*4>a[href="#"]{link}
 nav>ul>li.t-cuisines*4>a[href="cuisines.html"]{cuisines}
 ```
 
-Edit the html (cmd-d / multiple cursors - cmd / opt + cmd) to complete the classes and links:
+Create an HTML file and save it as `cuisines.html`.
+
+* duplicate lines `cmd-d` and
+* use multiple cursors `cmd` to complete the classes and links so you end up with:
 
 ```html
 <nav>
@@ -388,13 +273,13 @@ Images take time to download - let's remove as many as we can.
 
 Edit the background properties for the tabs:
 
-Highlight state
+Normal (eg. non-hovered) state:
 
 ```
 background-image: linear-gradient(to bottom, rgba(255,236,165,1) 0%,rgba(232,213,149,1) 6%,rgba(253,233,162,1) 94%,rgba(253,233,162,1) 100%);
 ```
 
-Nomral state:
+Highlighted (eg. hovered) state:
 
 ```
 background-image: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(224,226,240,1) 6%,rgba(254,254,254,1) 53%);
@@ -405,6 +290,198 @@ Underline:
 ```
 background: linear-gradient(to bottom, #ffcb2d 0%,#ffcb2d 96%,#9b8748 100%);
 ```
+
+
+## Sushi Review
+
+* review the CSS
+
+* create a separate css file and link it back to the document
+
+<!-- * reformat the anchor tags using display flex
+
+```
+.nav {
+	display: flex;
+	padding: 0;
+} 
+.nav li { 
+	flex: 1;
+	background-color: #d00;
+	list-style: none;
+	text-align: center;
+}
+``` -->
+
+### CSS Variables
+
+(These)[https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables] allow us to store commonly used information as a variable for use throughout our css.
+
+See also [Can I Use](https://caniuse.com/#search=css%20variables)
+
+```
+html {
+  --bg-color: #f0dfb4;
+}
+```
+
+```
+.nav a {
+  ...
+  background-color: var(--bg-color);
+}
+
+aside {
+  ...
+  background-color: var(--bg-color); 
+}
+```
+
+## Responsive Design
+
+```
+@media print {
+	* {
+		display: none !important;
+	}
+}
+```
+
+
+```
+@media screen and (max-width: 800px){
+	.nav {
+		top: 0;
+		left:0;
+		margin: 0;
+		background: var(--rust);
+	}
+	header {
+		padding-top: 30px;
+	}
+	aside {
+		position: static;
+		float: left;
+		margin-right: 20px;
+	}
+	article {
+		margin-left: 20px;
+	}
+	blockquote {
+		width: 100%;
+		float: none;
+		margin: 0;
+	}
+}
+	```
+
+
+## DOM Scripting I
+
+* The console and variables
+
+Try this in the console (copy paste one line at a time):
+
+```js
+var width = 100;
+width
+typeof width
+width + 300
+width
+width + 'test'
+var width = 200;
+
+let wide = true;
+wide
+typeof wide
+let wide = false;
+wide = false
+
+const testString = '123456';
+testString
+typeof testString
+const testString = 'abcde';
+
+```
+
+* Selecting items with [querySelector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector), see also [querySelectorAll()](https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/querySelectorAll)
+
+* attaching events with [addEventListener('event', function)](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener), see also [event types](https://developer.mozilla.org/en-US/docs/Web/Events)
+
+* Functions
+
+* Manipulating HTML with [classList](https://plainjs.com/javascript/attributes/adding-removing-and-testing-for-classes-9/)
+
+Add link to map:
+
+```
+https://www.google.com/maps/place/Geido/@40.6778979,-73.9749227,17z/data=!3m1!4b1!4m5!3m4!1s0x89c25ba8edab126b:0xfaa0551477e2ec72!8m2!3d40.6778939!4d-73.972734
+```
+
+Add a class of `.map` to the map link
+
+```
+<script>
+	var mapClicker = document.querySelector('.map')
+
+	mapClicker.addEventListener('click', show)
+	// document.addEventListener('click', show)
+
+	function show(){
+		event.preventDefault()
+	};
+</script>
+```
+
+Add to the bottom of the html (but before `<script>`):
+
+```
+<div class="popover">
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3025.821674756671!2d-73.97492268461596!3d40.67789794763805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25ba8edab126b%3A0xfaa0551477e2ec72!2sGeido!5e0!3m2!1sen!2sus!4v1490213487125" width="300" height="225" frameborder="0" style="border:0" allowfullscreen></iframe>
+</div>
+```
+
+```
+.popover {
+	padding: 1rem;
+	width: 300px;
+	height: 225px;
+	background: #fff;
+	border: 1px solid var(--rust);
+	border-radius: var(--radius);
+	position: fixed;
+	top: calc(50% - 100px);
+	left: calc(50% - 150px);
+	/*display: none;*/
+}
+```
+
+Uncomment `display: none` so the map stays hidden.
+
+Add a new rule to the css:
+
+```
+.showme {
+	display: block;
+}
+```
+
+```
+<script>
+	var mapClicker = document.querySelector('.map')
+	var popOver = document.querySelector('.popover')
+	mapClicker.addEventListener('click', show)
+
+	function show(){
+		popOver.classList.toggle('showme')
+		event.preventDefault()
+	};
+</script>
+```
+
+
+
+
 
 
 Notes

@@ -111,6 +111,21 @@
 			float:  right;
 			shape-outside: inset(1% round 60%);
 		}
+		.popover {
+	padding: 1rem;
+	width: 300px;
+	height: 225px;
+	background: #fff;
+	border: 1px solid var(--rust);
+	border-radius: var(--radius);
+	position: fixed;
+	top: calc(50% - 100px);
+	left: calc(50% - 150px);
+	display: none;
+}
+.showme {
+	display: block;
+}
 	</style>
 </head>
 
@@ -155,7 +170,7 @@
 					<li>Geido</li>
 					<li>1258 Flatbush Avenue</li>
 					<li>Brooklyn, NY 11238</li>
-					<li><a href="#">Map</a> | <a href="#">Directions</a></li>
+					<li><a class="map" target="_blank" href="https://www.google.com/maps/place/Geido/@40.6778979,-73.9749227,17z/data=!3m1!4b1!4m5!3m4!1s0x89c25ba8edab126b:0xfaa0551477e2ec72!8m2!3d40.6778939!4d-73.972734">Map</a> | <a href="#">Directions</a></li>
 					<li>(718) 767-1111</li>
 					<li><a href="#">Web site</a></li>
 				</ul>
@@ -178,5 +193,20 @@
 			<p>If you're looking for a good Japanese experience but can't foot the bill for a flight to Tokyo, then Matsu is an excellent backup plan. We'll be back again soon.</p>
 		</article>
 	</div>
+
+		<div class="popover">
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3025.821674756671!2d-73.97492268461596!3d40.67789794763805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25ba8edab126b%3A0xfaa0551477e2ec72!2sGeido!5e0!3m2!1sen!2sus!4v1490213487125" width="300" height="225" frameborder="0" style="border:0" allowfullscreen></iframe>
+</div>
+	<script>
+		var mapClicker = document.querySelector('.map')
+		var popOver = document.querySelector('.popover')
+		mapClicker.addEventListener('click', show)
+		function show(){
+			popOver.classList.toggle('showme')
+		event.preventDefault()
+	};
+	</script>
+
+
 </body>
 </html>
