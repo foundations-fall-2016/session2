@@ -31,7 +31,7 @@
 .nav {
 	display: flex;
 	padding: 0;
-}
+} 
 .nav li { 
 	flex: 1;
 	background-color: #d00;
