@@ -10,7 +10,7 @@
 			list-style:none;
 			float:left;
 			width:100%;
-			background:#ffcb2d url(i/nav_bg.gif) repeat-x bottom;
+			background: linear-gradient(to bottom, #ffcb2d 0%,#ffcb2d 96%,#9b8748 100%);
 		}
 		li {
 			float:left;

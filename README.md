@@ -2,7 +2,7 @@
 
 ## Homework
 
-1. Continue the homework from last week - "Examine the provided homework samples for inspiration and try your hand at redesigning the page using the CSS techniques described in class"
+1. Continue the homework from last week ("Examine the provided homework samples for inspiration and try your hand at redesigning the page using the CSS techniques described in class). Add a JavaScript/CSS powered popover window to your page.
 
 1. Review the steps we used to create a tab navigation interface
 
@@ -16,7 +16,7 @@
 
 ## Server Accounts
 
-[See session one](https://github.com/front-end-foundations/session1#aside---server-accounts)
+[See session one](https://github.com/front-end-foundations/session1#server-accounts)
 
 
 ## Styling a List with Floats
@@ -27,7 +27,7 @@ Review the navigation from last week.
 
 In this exercise we will focus on list styling and navigation but instead of using `display: inline` or  `display: inline-block` to create horizontal navigation we will use floats.
 
-## Demo in Sublime
+<!-- ## Demo in Sublime
 
 * Install [package control](https://packagecontrol.io)
 
@@ -35,20 +35,20 @@ In this exercise we will focus on list styling and navigation but instead of usi
 
 * Review [emmet syntax](http://docs.emmet.io/abbreviations/syntax/)
 
-Using emmet
+Using emmet -->
 
-```sh
+<!-- ```sh
 !
 
 ul>li*4>a[href="#"]{link}
 
 nav>ul>li.t-cuisines*4>a[href="cuisines.html"]{cuisines}
-```
+``` -->
 
-Create an HTML file and save it as `cuisines.html`.
+Create an HTML file and save it as `cuisines.html` into the `Tabs` folder.
 
-* duplicate lines `cmd-d` and
-* use multiple cursors `cmd` to complete the classes and links so you end up with:
+<!-- * duplicate lines `cmd-d` and
+* use multiple cursors `cmd` to complete the classes and links so you end up with: -->
 
 ```html
 <nav>
@@ -61,7 +61,7 @@ Create an HTML file and save it as `cuisines.html`.
 </nav>
 ```
 
-Take a moment to examine the default margin and padding using the inspector.
+Take a moment to examine the default user agent styles using the inspector.
 
 Add some basic formatting.
 
@@ -78,7 +78,7 @@ body {
 }
 ```
 
-First we remove the bullets from the `<ul>`:
+Firstly, remove the bullets from the `<ul>`:
 
 ```css
 #nav {
@@ -95,7 +95,9 @@ li {
 }
 ```
 
-Notice what happened to the `<ul>`'s height. The `<li>` items no longer force the parent `<ul>` element to expand to contain them. This behavior, know as collapsing, occurs whenever all the direct children of a container element are floated. In this case the `<ul>`  has collapsed. This behavior is important as collapsing is a common design issue. We will cover a number of methods to prevent this.
+Notice what happened to the `<ul>`'s height. The `<li>` items no longer force the parent `<ul>` element to expand to contain them. This behavior, know as collapsing, occurs whenever all the direct children of a container element are floated. In this case the `<ul>`  has collapsed. This behavior is important as collapsing is a common design issue. 
+
+There are a number of methods in use to prevent this:
 
 * Apply CSS overflow: auto; to the collapsed element
 
@@ -105,9 +107,9 @@ Notice what happened to the `<ul>`'s height. The `<li>` items no longer force th
 
 * adding a clearing div - this entails adding an HTML element to the page and is discouraged
 
-For our current example let's use the second method.
+For our current example let's use the second FNE method.
 
-Try adding a float to the element that has collapsed (add the bold text).
+Try adding a float to the 'collapsed' element:
 
 ```css
 #nav {
@@ -127,7 +129,7 @@ Since we want the `<ul>` to extend the width of the window let's fix the width.
 }
 ```
 
-When you float an element you fequently have to specify a width.
+*When you float an element you usually have to specify a width.*
 
 Extend the background property to add a background graphic to the `<ul>`.
 
@@ -138,6 +140,8 @@ Extend the background property to add a background graphic to the `<ul>`.
 }
 ```
 
+Aside: demo the background property using `pattern.gif`.
+
 Add positioning to the background.
 
 ```css
@@ -147,7 +151,7 @@ Add positioning to the background.
 }
 ```
 
-Next we'll tackle the anchors. Add the following to our CSS block.
+Next we'll tackle the anchor tags: `<a>`. Add the following to our CSS block.
 
 ```css
 a {
@@ -156,7 +160,7 @@ a {
 }
 ```
 
-Add padding, margins to separate, and a border to make them more tab-like.
+Adding padding, margins to separate, and a border to make them more tab-like:
 
 ```css
 a {
@@ -180,7 +184,7 @@ a {
 By floating the anchors we cause the list items to expand to contain their floated children.
 Now we add a background image to the <a>. Note that the image has a gradient and transparency.
 
-```css
+```
 a {
 	...
 	background: #f9eaa9 url(i/off_bg.gif) repeat-x top left;
@@ -209,7 +213,9 @@ a:hover {
 }
 ```
 
-If you roll over the tabs now the height of the anchor increases by one pixel causing the `<ul>` to expand as well and thus showing the border along the bottom under the inactive tabs. Due to the fact that there is no selected tab (only hovered) the height of the element appears to jump slightly. Let's assume that one of the tabs will always be highlighted.
+If you roll over the tabs now the height of the anchor increases by one pixel causing the `<ul>` to expand as well and thus showing the border along the bottom under the inactive tabs. 
+
+Due to the fact that there is no selected tab (only hovered) the height of the element appears to jump slightly. Let's assume that one of the tabs will always be highlighted.
 
 Create a second selector to highlight one of the anchors.
 
@@ -220,6 +226,15 @@ a:hover, .t-cuisines a {
 ```
 
 Note that when you use two selectors they must be separated by a comma.
+
+Many prefer to keep the multiple selectors on separate lines like so:
+
+```css
+a:hover, 
+.t-cuisines a {
+	...
+}
+```
 
 Now, if we add an id to the body tag we can edit the selector to make it page specific.
 Add id="cuisines" to the body tag.
@@ -238,13 +253,13 @@ a:hover,
 }
 ```
 
-We are going to create a second HTML page shortly so let's copy our code into an external file and save it as styles.css into a new css directory:
+We are going to create a second HTML page shortly so let's copy our CSS into an external file, save it as styles.css, and link to it from a newly created css directory:
 
 ```html
 <link href="css/styles.css" rel="stylesheet" type="text/css">
 ```
 
-Note that the paths to the images are no longer correct and need to be changed.
+Note that because we used a new directory, the paths to the images are no longer correct. Correct them now.
 
 Save a new copy of the HTML page as chefs.html and edit the ID:
 
@@ -264,12 +279,16 @@ a:hover,
 
 Now when you navigate between the two pages you should see a friendly reminder of what page you are on courtesy of the CSS file.
 
+* There is a demo of this in the `Tabs > demo` directory.
+
 ### Removing the on- off- images
 
-Images take time to download - let's remove as many as we can.
+Images and any other externally linked asset increases the time it takes to download and render your page. It is considered a best practice to minimize the number of images whereever possible so let's remove as many as we can.
 
-* [Intro to gradients in css](https://css-tricks.com/css3-gradients/)
-* [Gradient editor](http://www.colorzilla.com/gradient-editor/)
+Aside: [Hex color vs. RGB vs. RGBA](https://www.w3schools.com/colors/colors_converter.asp)
+
+* [Intro to gradients in css](https://css-tricks.com/css3-gradients/) has more information than you'll ever need
+* The [Gradient editor](http://www.colorzilla.com/gradient-editor/) is still a useful tool
 
 Edit the background properties for the tabs:
 
@@ -288,8 +307,12 @@ background-image: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(224,226
 Underline:
 
 ```
-background: linear-gradient(to bottom, #ffcb2d 0%,#ffcb2d 96%,#9b8748 100%);
+background-image: linear-gradient(to bottom, #ffcb2d 0%,#ffcb2d 96%,#9b8748 100%);
 ```
+
+## Looking Forward
+
+Examine the other demos in the `demo` folder.
 
 
 ## Sushi Review
@@ -404,18 +427,24 @@ const testString = 'abcde';
 
 ```
 
-* Selecting items with [querySelector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector), see also [querySelectorAll()](https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/querySelectorAll)
+* Selecting items with [querySelector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector), see also [querySelectorAll()](https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/querySelectorAll) (we'll work with this later)
 
 * attaching events with [addEventListener('event', function)](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener), see also [event types](https://developer.mozilla.org/en-US/docs/Web/Events)
 
-* Functions
+* [Functions](https://developer.mozilla.org/en-US/docs/Glossary/Function)
 
 * Manipulating HTML with [classList](https://plainjs.com/javascript/attributes/adding-removing-and-testing-for-classes-9/)
 
-Add link to map:
+Add link to a [Google map](https://www.google.com/maps/place/Geido/@40.6778979,-73.9749227,17z/data=!3m1!4b1!4m5!3m4!1s0x89c25ba8edab126b:0xfaa0551477e2ec72!8m2!3d40.6778939!4d-73.972734):
 
 ```
 https://www.google.com/maps/place/Geido/@40.6778979,-73.9749227,17z/data=!3m1!4b1!4m5!3m4!1s0x89c25ba8edab126b:0xfaa0551477e2ec72!8m2!3d40.6778939!4d-73.972734
+```
+
+e.g.:
+
+```html
+<li><a class="map" target="_blank" href="https://www.google.com/maps/place/Geido/@40.6778979,-73.9749227,17z/data=!3m1!4b1!4m5!3m4!1s0x89c25ba8edab126b:0xfaa0551477e2ec72!8m2!3d40.6778939!4d-73.972734">Map</a> | <a href="#">Directions</a></li>
 ```
 
 Add a class of `.map` to the map link

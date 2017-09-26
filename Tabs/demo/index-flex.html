@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>tabs</title>
+	<title>tabs - flex</title>
 	<style>
 	body {
 		margin:0;
 		font-family:"Lucida Grande", sans-serif;
 		font-size:100%;
-		padding-bottom: 42rem;
+		padding-bottom: 100rem;
 	}
 	#nav {
 		display: flex;
@@ -33,31 +33,25 @@
 		background-image: linear-gradient(to bottom, rgba(255,236,165,1) 0%,rgba(232,213,149,1) 6%,rgba(253,233,162,1) 94%,rgba(253,233,162,1) 100%);
 		transition: all 0.25s linear;
 	}
-/*	#nav li a.active,
-	#nav li a:hover {
+	#nav li a.active {
 		background-image: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(224,226,240,1) 6%,rgba(254,254,254,1) 53%);
 		border-bottom: none;
 		padding-right: 6rem;
-		}*/
+	}
 
-		#nav li a.active {
-			background-image: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(224,226,240,1) 6%,rgba(254,254,254,1) 53%);
-			border-bottom: none;
-			padding-right: 6rem;
-		}
+	#nav li a:hover {
+		background-image: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(224,226,240,1) 6%,rgba(254,254,254,1) 53%);
+		border-bottom: none;
+	}
 
-		#nav li a:hover {
-			background-image: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(224,226,240,1) 6%,rgba(254,254,254,1) 53%);
-			border-bottom: none;
-		}
-
-		div {
-			height: 10rem;
-			border: 1px solid #9b8748;
-			padding-top: 4rem;
-			padding-left: 46px;
-		}
-	</style>
+	div {
+		height: 10rem;
+		border: 1px solid #9b8748;
+		padding-top: 4rem;
+		padding-left: 46px;
+		margin-top: 2rem;
+	}
+</style>
 
 </head>
 <body id="p-chefs">
@@ -86,20 +80,7 @@
 		function makeInactive(){
 			tabs.forEach( tab => tab.classList.remove('active'))
 		}
-
-		var divs = document.querySelectorAll('div')
-		// divs.forEach( div => div.addEventListener('scroll', makeActiveTest))
-
-		window.addEventListener("scroll", makeActiveTest)
-
-		function makeActiveTest(){
-			var temp = divs[0].offsetTop + window.scrollY
-			var ht = divs[0].style.height
-			console.log(ht)
-			// divs[0].console.log(div[0].offsetTop))
-			// divs.forEach( div => console.log(div.offsetTop))
-		}
-			
+		
 	</script>
 </body>
 </html>
