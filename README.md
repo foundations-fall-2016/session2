@@ -78,7 +78,7 @@ Create an HTML file and save it as `cuisines.html` into the `Tabs` folder.
 
 Take a moment to examine the default user agent styles using the inspector.
 
-Add some basic formatting.
+Add and review some basic formatting (in the `<style>` block):
 
 ```css
 body {
