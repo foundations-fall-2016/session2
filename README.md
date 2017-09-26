@@ -65,7 +65,7 @@ Create an HTML file and save it as `cuisines.html` into the `Tabs` folder.
 
 <nav>
 	<ul id="nav">
-		<li class="t-cuisines"><a href="cuisines.html" >Cuisines</a></li>
+		<li class="t-cuisines"><a href="cuisines.html">Cuisines</a></li>
 		<li class="t-chefs"><a href="chefs.html">Chefs</a></li>
 		<li class="t-reviews"><a href="reviews.html">Reviews</a></li>
 		<li class="t-delivery"><a href="delivery.html">Delivery</a></li>
@@ -84,11 +84,10 @@ Add and review some basic formatting (in the `<style>` block):
 body {
 	margin:0;
 	font-family:"Lucida Grande", sans-serif;
-	font-size:100%;
 }
 #nav {
 	background:#ffcb2d;
-	margin:0; 
+	margin:0;
 	padding:10px 0 0 46px;
 }
 ```
