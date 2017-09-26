@@ -51,6 +51,18 @@ Create an HTML file and save it as `cuisines.html` into the `Tabs` folder.
 * use multiple cursors `cmd` to complete the classes and links so you end up with: -->
 
 ```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Cuisines</title>
+	<style>
+		
+	</style>
+</head>
+
+<body>
+
 <nav>
 	<ul id="nav">
 		<li class="t-cuisines"><a href="cuisines.html" >Cuisines</a></li>
@@ -59,6 +71,9 @@ Create an HTML file and save it as `cuisines.html` into the `Tabs` folder.
 		<li class="t-delivery"><a href="delivery.html">Delivery</a></li>
 	</ul>
 </nav>
+
+</body>
+</html>
 ```
 
 Take a moment to examine the default user agent styles using the inspector.
