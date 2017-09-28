@@ -19,12 +19,16 @@
 <i class="fa fa-gear"></i>
 ```
 
+A font stack that ensures the device's default font will be used (native font):
+
 ```
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
+```
 
-.site-header {
+```
+header {
   background: #0D1313;
   color: white;
   display: flex;
@@ -32,15 +36,15 @@ body {
   padding:0.5rem;
 }
 
+.account-dropdown ul {
+    display: none;
+}
+
 .logo {
   text-decoration: none;
   color: white;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 3px;
   padding: 10px;
 }
-
 .site-nav ul {
   list-style: none;
   display: flex;
@@ -65,10 +69,6 @@ body {
   display: flex;
   align-items: center;
   margin-right: 10px;
-}
-
-.account-dropdown ul {
-    display: none;
 }
 
 .sign-out-link {
