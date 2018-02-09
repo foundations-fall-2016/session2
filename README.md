@@ -853,6 +853,7 @@ Try this in the console (copy paste one line at a time):
 var width = 100;
 width;
 typeof width;
+
 width + 300;
 width;
 width + 'test';
