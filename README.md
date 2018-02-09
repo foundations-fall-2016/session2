@@ -1,4 +1,4 @@
-# Front End Foundations Session Two
+# II Session Two - Sushi Review
 
 ## Homework
 
