@@ -317,26 +317,470 @@ background-image: linear-gradient(to bottom, #ffcb2d 0%,#ffcb2d 96%,#9b8748 100%
 
 Examine the other demos in the `demo` folder.
 
-## Sushi Review
+# Exercise - Converting to Standards
 
-* review the CSS
+Open before.html in an editor and examine the HTML. Then examine index.html. The latter is an html5 document that uses HTML tags semantically. The former is often referred to as tag soup as it makes little sense to humans looking at the code.
 
-* create a separate css file and link it back to the document
+Examine index.html in the browser inspector to display the default (user agent) styling. Note the defaults for margins and padding used to display the body and the unordered list (`<ul>`).
 
-<!-- * reformat the anchor tags using display flex
+## Terminal
+
+```sh
+$ cd <path-to-folder>
+$ python -m SimpleHTTPServer 9000
+```
+
+Add a CSS block within the `<head>`of index.html as follows:
+
+```html
+<style>
+    body {
+        margin: 0;
+        color: #333;
+        font-family: Verdana, Arial, sans-serif;
+    }
+</style>
+```
+
+## Google fonts
+
+Google has a CDN offering (free fonts)[https://fonts.google.com] for use in HTML documents. We'll use this as an example of using external stylesheets via @import and the `<link>` tag.
+
+We will use [Lato](https://fonts.google.com/specimen/Lato) for our main text and [Lobster](https://fonts.google.com/specimen/Lobster) for our branding.
+
+### Linking to a css file from css
 
 ```
+@import url('http://fonts.googleapis.com/css?family=Lato:300,400,700');
+```
+
+Add this to the top of our css (@import statements should always come first) to use the font within our stylesheet. Add to the body css rule:
+
+```
+font-family: 'Lato', sans-serif;
+```
+
+### Linking to a css file from html
+
+THe html link tag:
+
+```html
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+```
+
+in use:
+
+```css
+header {
+	font-family: 'Lobster', cursive;
+	font-weight: normal;
+}
+```
+
+Note the bold property belongs to the H1 tag, not the header tag.
+
+```css
+header h1,
+header h2 {
+	font-weight: normal;
+}
+```
+
+Note the use of weights in Lato:
+
+```
+h2 {
+  font-weight: 300;
+}
+```
+
+## Formatting the Navigation
+
+Add a _class_ to the `<ul>` that will form the navigation for our page.
+
+```html
+<ul class="nav">
+    <li><a href="#">Cuisines</a></li>
+    ...
+</ul>
+```
+
+By doing so we have created a name space that allows us to differentiate the two `<ul>` lists in `start.html` and apply two different styles.
+
+Add the following to our style block:
+
+```css
+.nav {
+	list-style: none;
+	padding: 0;
+}
+.nav li {
+	display: inline-block;
+	margin-right: 10px;
+}
+.nav a {
+	color: #fff;
+	text-decoration: none;
+	padding: 4px;
+	display: block;
+	background-color: #600;
+}
+.nav a:hover {
+	color: #222;
+	background-color: #bada55;
+}
+```
+
+Examine display options for making the buttons horizontal using block, float, inline-block, and flex.
+
+Examine the inspector's color picker. Note the ability to force element hover state.
+
+Add css to `nav a`:
+
+```
+transition: all 0.5s linear;
+```
+
+Edit the animation using the inspector's animation settings.
+
+To animate only one difference specify it instead of `all`:
+
+```
+transition: background-color 0.5s linear;
+```
+
+## Absolutely Positioning the Navigation
+
+_Edit_ the nav CSS rule to position it
+
+```css
+.nav {
+	list-style: none;
+	padding: 0;
+	position: absolute;
+	right: 0;
+	top: 60px;
+}
+```
+
+Add an `<aside>` tag around the table and list then add the following CSS:
+
+```css
+aside {
+	position: absolute;
+	top: 200px;
+	left: 10px;
+	width: 180px;
+	background-color: #f0dfb4;
+	padding: 6px;
+	border: 1px solid #600;
+}
+```
+
+Note how the text flows under the aside.
+
+Add margin to move the article over to the right:
+
+```css
+article {
+	margin: 0 20px 0 240px;
+}
+```
+
+The four values for margin run clockwise from the top.
+
+<!-- ### CSS Variables
+
+(These)[https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables] allow us to store commonly used information as a variable for use throughout our css.
+
+```
+html {
+  --bg-color: #f0dfb4;
+}
+```
+
+```
+.nav a {
+  ...
+  background-color: var(--bg-color);
+}
+
+aside {
+  ...
+  background-color: var(--bg-color); 
+}
+``` -->
+
+### Floating
+
+Format the pull quote and image:
+
+```css
+blockquote {
+	float: right;
+	width: 40%;
+	padding: 16px;
+	font-size: 24px;
+}
+article img {
+	float: right;
+}
+```
+
+Note the float property and how the text wraps around it before and after we have defined a width. By default, the floated container shrinks to the width determined by the content.
+
+## Converting the document to fixed width
+
+Currently our document flexes as we make the browser wider to makes use of all the available horizontal space. While flexibility is generally a good practice, most sites use fixed widths to improve readability. cf [Wikipedia](https://en.wikipedia.org/wiki/Line_length) vs [The Guardian](https://www.theguardian.com)
+
+Add wrapper `<div id="wrapper">` to entire content area (after the `<body>` tag and close it before the closing `</body>` tag) and add the following to our CSS style block.
+
+```css
+#wrapper {
+	width: 840px;
+}
+```
+
+vs.
+
+```css
+#wrapper {
+	max-width: 840px;
+}
+```
+
+Then center it in the browser.
+
+```css
+#wrapper {
+	max-width: 840px;
+	margin: 0 auto 0 auto;
+	border: 1px solid #999;
+}
+```
+
+Add a relative positioning instruction.
+
+```css
+#wrapper {
+	position: relative;
+	...;
+}
+```
+
+Note the impact the relative positioning has on the layout (toggle it on and off using the inspector). The two absolutely positioned elements (aside and .nav) previously had no positioning context and aligned themselves to the edges of the browser window. With the addition of the relative positioning to the wrapper they now become positioned relative to the wrapper box. The rule here is that absolutely positioned elements are positioned relative to their nearest positioned ancestor in the HTML tree. This is an important CSS design pattern and well will see it again.
+
+## Adding color to our layout
+
+Edit the CSS body rule.
+
+```css
+body {
+	 : #ddd;
+}
+```
+
+Note that the wrapper's background is transparent and shows through to the gray applied to the body.
+
+Let's add a white background to wrapper.
+
+```css
+#wrapper {
+	...
+    background-color: #fff;
+}
+```
+
+Note the body background color is grayed out in the inspector. Neither it nor the margin are inherited by other elements.
+
+## Formatting the content
+
+Note the h1's margin outside the containing elements (not part of the box model).
+
+```css
+h1,
+h2 {
+	color: #600;
+	margin-top: 20px;
+	margin-left: 20px;
+	font-size: 3rem;
+	margin-bottom: 0;
+}
+h2 {
+	font-size: 32px;
+	margin-top: 0;
+}
+```
+
+Note - selector strength here. Note that the lack of namespacing allows this to effect the Matsu text as well.
+
+Format elements in the list and table
+
+```css
+aside th {
+	text-align: right;
+}
+
+aside ul {
+	list-style: none;
+	margin: 1em;
+	padding: 0;
+}
+```
+
+### Inline, In Page & External CSS
+
+We've already seen the link tag and @import methods of adding css to our document. Let's examine all the ways to add CSS to an HTML document:
+
+* Inline via the HTML `style=` attribute
+* In page via the HTML `<style>` tag
+* As an external .CSS file via linking (HTML `<link>` tag)
+* As an external .CSS file via importing (CSS `@import` statements)
+
+Inline styles are inefficient:
+
+```html
+<p style="margin-top: 12px;">
+```
+
+However, this method is often used when dynamically changing the page after it has been loaded in the browser.
+
+Try using the inspector to inspect a dynamic page (such as http://www.w3schools.com/jquery/jquery_animate.asp). Note how it displays animation by temporarily highlighting inline css in purple.
+
+Remove the CSS from the head of the document and paste it into a new text document. Save it in a new css directory calling it styles.css. We have two options here: link to our CSS file using an HTML tag, or to use a CSS @import statement.
+
+```html
+<link href="css/styles.css" media="all" />
+```
+
+Try not to use the alternative:
+
+```html
+<style>
+  @import url("css/styles.css");
+</style>
+```
+
+Note: ideally, all your stylesheets should be in one file to reduce the number of requests the browser needs to make to the server (a major cause of slow loading sites).
+
+## Some simple CSS3 Enhancements
+
+As work on a new version of CSS progressed it was found that releasing an entirely new specification would be too cumbersome so the standards committee (http://W3C.org) decided to break the process into modules. (For compatibility and advice see http://CanIuse.com.)
+
+Some of the earlier CSS 3 specifications include provisions for visual effects such as rounded corners, drop shadows and gradients. A useful page that allows you to become familiar with these enhancements is http://css3generator.com/.
+
+Add rounded corners to the info div. (See https://developer.mozilla.org/en/CSS/border-radius for specifications.)
+
+```css
+aside {
+	...
+    border-radius: 6px;
+}
+```
+
+Add a drop shadow to the CSS for the info div using the inspector (...).
+
+```css
+aside {
+	 : 3px 4px 3px 2px #d6d6d6;
+}
+```
+
+Add a box shadow to the wrapper's CSS:
+
+```
+box-shadow: 10px 10px 20px #ddd;
+```
+
+<!-- Add CSS 3 Gradients. (See: http://www.colorzilla.com/gradient-editor/) -->
+
+## Highlight one of the tabs
+
+This is a simple way to create color coded navigation on a web site.
+Add a class to body tag so we know what kind of page this is.
+
+```html
+<body class="p-review">
+```
+
+Add a list item to the nav list with a class of review-link.
+
+```html
+<li><a class="t-review" href="#">Reviews</a></li>
+```
+
+Add the following to our CSS block:
+
+```css
+.review-page .review-link {
+    color: #fff;
+    background:#600;
+ }
+```
+
+Note that the tab is now highlighted.
+
+### Adding Simple Responsiveness
+
+At the bottom of the stylesheet
+
+```css
+@media print {
+	* {
+		display: none !important;
+	}
+}
+
+@media all and (max-width: 800px) {
+	.nav {
+		top: 0;
+		left: 0;
+		margin: 0;
+	}
+	aside {
+		position: static;
+		float: left;
+		margin-right: 20px;
+	}
+	article {
+		margin-left: 20px;
+	}
+	blockquote {
+		width: 100%;
+		float: none;
+		margin: 0;
+	}
+}
+```
+
+### Using Flexbox (optional - demo only)
+
+```css
 .nav {
 	display: flex;
 	padding: 0;
-} 
-.nav li { 
+}
+.nav li {
+	flex: 1;
+	background-color: #f0dfb4;
+	list-style: none;
+}
+```
+
+```css
+.nav {
+	display: flex;
+	padding: 0;
+}
+.nav li {
 	flex: 1;
 	background-color: #d00;
 	list-style: none;
 	text-align: center;
 }
-``` -->
+```
+
+* create a separate css file and link it back to the document
 
 ### CSS Variables
 
