@@ -16,12 +16,6 @@
 
 [See session one](https://github.com/front-end-foundations/session1)
 
-# Sushi - Converting to Standards
-
-Open before.html in an editor and examine the HTML. Then examine index.html. The latter is an html5 document that uses HTML tags semantically. The former is often referred to as tag soup as it makes little sense to humans looking at the code.
-
-Examine index.html in the browser inspector to display the default (user agent) styling. Note the defaults for margins and padding used to display the body and the unordered list (`<ul>`).
-
 ## Terminal
 
 On a Mac use the Terminal app. The Windows equivalent is PowerShell but there are important differences. SOme Windows users use alternates such as [cmder](http://cmder.net/) or the shell that comes with [Git for Windows](https://gitforwindows.org/).
@@ -44,6 +38,14 @@ On a mac you can `cd` to a folder via drag and drop or by copying and pasting a 
 ```sh
 $ python -m SimpleHTTPServer 9000
 ```
+
+Access `localhost:8000` in Chrome. Note the directory listing and the default index.html.
+
+# Sushi - Converting to Standards
+
+Open before.html in an editor and examine the HTML. Then examine index.html. The latter is an html5 document that uses HTML tags semantically. The former is often referred to as tag soup as it makes little sense to humans looking at the code.
+
+Examine index.html in the browser inspector to display the default (user agent) styling. Note the defaults for margins and padding used to display the body and the unordered list (`<ul>`).
 
 ## Google fonts
 
@@ -204,27 +206,7 @@ article {
 
 The four values for margin run clockwise from the top.
 
-<!-- ### CSS Variables
-
-(These)[https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables] allow us to store commonly used information as a variable for use throughout our css.
-
-```
-html {
-  --bg-color: #f0dfb4;
-}
-```
-
-```
-.nav a {
-  ...
-  background-color: var(--bg-color);
-}
-
-aside {
-  ...
-  background-color: var(--bg-color); 
-}
-``` -->
+Note that although the article visually _looks_ like it has two columns, it really has only one.
 
 ### Floating
 
@@ -256,7 +238,9 @@ Add wrapper `<div id="wrapper">` to entire content area (after the `<body>` tag 
 }
 ```
 
-vs.
+Note the horizontal scoll bar when the page is viewed on smaller screens. Horizontal scroll bars are almost always a bad thing - especially if you want your content to work on small screens.
+
+Let's use this instead:
 
 ```css
 #wrapper {
@@ -264,7 +248,7 @@ vs.
 }
 ```
 
-Then center it in the browser.
+Center the wrapper content in the browser.
 
 ```css
 #wrapper {
@@ -283,7 +267,11 @@ Add a relative positioning instruction.
 }
 ```
 
-Note the impact the relative positioning has on the layout (toggle it on and off using the inspector). The two absolutely positioned elements (aside and .nav) previously had no positioning context and aligned themselves to the edges of the browser window. With the addition of the relative positioning to the wrapper they now become positioned relative to the wrapper box. The rule here is that absolutely positioned elements are positioned relative to their nearest positioned ancestor in the HTML tree. This is an important CSS design pattern and well will see it again.
+Note the impact the relative positioning has on the layout (toggle it on and off using the inspector).
+
+The two absolutely positioned elements (aside and .nav) previously had no positioning context and aligned themselves to the edges of the browser window. With the addition of the relative positioning to the wrapper they now become positioned relative to the wrapper box. The rule here is that absolutely positioned elements are positioned relative to their nearest positioned ancestor in the HTML tree.
+
+This is an important design pattern and well will see it again.
 
 ## Adding color to our layout
 
@@ -291,7 +279,8 @@ Edit the CSS body rule.
 
 ```css
 body {
-	 : #ddd;
+	...
+	background-color: #ddd;
 }
 ```
 
@@ -329,6 +318,23 @@ h2 {
 
 Note - selector strength here. Note that the lack of namespacing allows this to effect the Matsu text as well.
 
+Namespace the header items:
+
+```css
+header h1,
+header h2 {
+	color: #600;
+	margin-top: 20px;
+	margin-left: 20px;
+	font-size: 3rem;
+	margin-bottom: 0;
+}
+header h2 {
+	font-size: 32px;
+	margin-top: 0;
+}
+```
+
 Format elements in the list and table
 
 ```css
@@ -345,7 +351,7 @@ aside ul {
 
 ### Inline, In Page & External CSS
 
-We've already seen the link tag and @import methods of adding css to our document. Let's examine all the ways to add CSS to an HTML document:
+We've already seen the link tag and @import methods of adding css. Let's examine all the ways to add CSS to an HTML document:
 
 * Inline via the HTML `style=` attribute
 * In page via the HTML `<style>` tag
@@ -358,17 +364,17 @@ Inline styles are inefficient:
 <p style="margin-top: 12px;">
 ```
 
-However, this method is often used when dynamically changing the page after it has been loaded in the browser.
+However, this method is frequently used when dynamically changing the page after it has been loaded in the browser.
 
-Try using the inspector to inspect a dynamic page (such as http://www.w3schools.com/jquery/jquery_animate.asp). Note how it displays animation by temporarily highlighting inline css in purple.
+Demonstrate: using the inspector on a dynamic page (e.g. http://www.w3schools.com/jquery/jquery_animate.asp) or this page on [apple.com](https://www.apple.com/homepod/). Note how it displays animation by applying purple highlighting in the inspector.
 
-Remove the CSS from the head of the document and paste it into a new text document. Save it in a new css directory calling it styles.css. We have two options here: link to our CSS file using an HTML tag, or to use a CSS @import statement.
+Remove the CSS from the head of the document and paste it into a new text document. Save it in a new `css` directory calling it styles.css. We have two options here: link to our CSS file using an HTML tag, or to use a CSS @import statement.
 
 ```html
-<link href="css/styles.css" media="all" />
+<link href="css/styles.css" rel="stylesheet" media="all" />
 ```
 
-Try not to use the alternative:
+The css-based alternative is:
 
 ```html
 <style>
@@ -376,7 +382,7 @@ Try not to use the alternative:
 </style>
 ```
 
-Note: ideally, all your stylesheets should be in one file to reduce the number of requests the browser needs to make to the server (a major cause of slow loading sites).
+We are not using this method today.
 
 ## Some simple CSS3 Enhancements
 
@@ -397,17 +403,27 @@ Add a drop shadow to the CSS for the info div using the inspector (...).
 
 ```css
 aside {
-	 : 3px 4px 3px 2px #d6d6d6;
+	 box-shadow: 3px 3px 3px #ddd;
 }
 ```
 
-Add a box shadow to the wrapper's CSS:
+Add a box shadow to the wrapper CSS:
 
-```
-box-shadow: 10px 10px 20px #ddd;
+```css
+#wrapper {
+	box-shadow: 10px 10px 20px #666;
+	...;
+}
 ```
 
-<!-- Add CSS 3 Gradients. (See: http://www.colorzilla.com/gradient-editor/) -->
+Make it a glow:
+
+```css
+#wrapper {
+	box-shadow: 0px 0px 20px #999;
+	...;
+}
+```
 
 ## Highlight one of the tabs
 
@@ -421,19 +437,19 @@ Add a class to body tag so we know what kind of page this is.
 Add a list item to the nav list with a class of review-link.
 
 ```html
-<li><a class="t-review" href="#">Reviews</a></li>
+<li class="t-review"><a href="#">Reviews</a></li>
 ```
 
 Add the following to our CSS block:
 
 ```css
-.review-page .review-link {
-    color: #fff;
-    background:#600;
+.p-review .t-review a {
+    color: #600;
+    background:#bada55;
  }
 ```
 
-Note that the tab is now highlighted.
+The Reviews tab is now highlighted.
 
 ### Adding Simple Responsiveness
 
@@ -451,6 +467,14 @@ At the bottom of the stylesheet
 		top: 0;
 		left: 0;
 		margin: 0;
+		position: fixed;
+		background-color: #600;
+	}
+	.nav li a {
+		border-radius: 0;
+	}
+	header h1 {
+		padding-top: 2rem;
 	}
 	aside {
 		position: static;
@@ -468,32 +492,18 @@ At the bottom of the stylesheet
 }
 ```
 
-### Using Flexbox (optional - demo only)
-
-```css
-.nav {
-	display: flex;
-	padding: 0;
-}
-.nav li {
-	flex: 1;
-	background-color: #f0dfb4;
-	list-style: none;
-	text-align: center;
-}
-```
-
-* create a separate css file and link it back to the document
-
 ### CSS Variables
 
 (These)[https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables] allow us to store commonly used information as a variable for use throughout our css.
 
 See also [Can I Use](https://caniuse.com/#search=css%20variables)
 
-```
+```css
 html {
-  --bg-color: #f0dfb4;
+	--bg-color: #f0dfb4;
+	--badass: #bada55;
+	--rust: #600;
+	--radii: 3px;
 }
 ```
 
@@ -547,6 +557,8 @@ aside {
 }
 ```
 
+Examine using the Toggle Device Toolbar in Chrome's developer tools.
+
 ### The Device meta tag
 
 Test in the browser
@@ -586,24 +598,17 @@ const testString = 'abcde';
 ```
 
 * Selecting items with [querySelector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector), see also [querySelectorAll()](https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/querySelectorAll) (we'll work with this later)
-
-* attaching events with [addEventListener('event', function)](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener), see also [event types](https://developer.mozilla.org/en-US/docs/Web/Events)
-
+* Attaching events with [addEventListener('event', function)](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener), see also [event types](https://developer.mozilla.org/en-US/docs/Web/Events)
 * [Functions](https://developer.mozilla.org/en-US/docs/Glossary/Function)
-
 * Manipulating HTML with [classList](https://plainjs.com/javascript/attributes/adding-removing-and-testing-for-classes-9/)
 
-Add link to a [Google map](https://www.google.com/maps/place/Geido/@40.6778979,-73.9749227,17z/data=!3m1!4b1!4m5!3m4!1s0x89c25ba8edab126b:0xfaa0551477e2ec72!8m2!3d40.6778939!4d-73.972734):
-
-```
-https://www.google.com/maps/place/Geido/@40.6778979,-73.9749227,17z/data=!3m1!4b1!4m5!3m4!1s0x89c25ba8edab126b:0xfaa0551477e2ec72!8m2!3d40.6778939!4d-73.972734
-```
-
-e.g.:
+Add a link to a [Google map](https://www.google.com/maps/place/Geido/@40.6778979,-73.9749227,17z/data=!3m1!4b1!4m5!3m4!1s0x89c25ba8edab126b:0xfaa0551477e2ec72!8m2!3d40.6778939!4d-73.972734) to the map link in the aside:
 
 ```html
 <li><a class="map" target="_blank" href="https://www.google.com/maps/place/Geido/@40.6778979,-73.9749227,17z/data=!3m1!4b1!4m5!3m4!1s0x89c25ba8edab126b:0xfaa0551477e2ec72!8m2!3d40.6778939!4d-73.972734">Map</a> | <a href="#">Directions</a></li>
 ```
+
+Note the target attribute for the anchor tag. We have also used the class `map` to name this link.
 
 Add a class of `.map` to the map link
 
@@ -970,4 +975,19 @@ background-image: linear-gradient(to bottom, #ffcb2d 0%,#ffcb2d 96%,#9b8748 100%
 
 Examine the other demos in the `demo` folder.
 
-Notes
+# Notes
+
+### Using Flexbox (optional - demo only)
+
+```css
+.nav {
+	display: flex;
+	padding: 0;
+}
+.nav li {
+	flex: 1;
+	background-color: #f0dfb4;
+	list-style: none;
+	text-align: center;
+}
+```
