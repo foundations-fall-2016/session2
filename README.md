@@ -1,4 +1,4 @@
-# II Session Two - Sushi Review
+# II Sushi
 
 ## Homework
 
@@ -8,13 +8,15 @@
 
 ## Reading
 
-* [Responsive Web Design](https://abookapart.com/products/responsive-web-design) - start it, carefully read the section on Media Queries
+* [Responsive Web Design](https://abookapart.com/products/responsive-web-design) - carefully read the section on Media Queries
+* Video: [HTML Crash Course for Absolute Beginners](https://youtu.be/UB1O30fR-EE)
+* Video: [CSS Crash Course for Absolute Beginners](https://youtu.be/yfoY53QXEnI)
 
 ## Server Accounts
 
 [See session one](https://github.com/front-end-foundations/session1)
 
-# Exercise - Converting to Standards
+# Sushi - Converting to Standards
 
 Open before.html in an editor and examine the HTML. Then examine index.html. The latter is an html5 document that uses HTML tags semantically. The former is often referred to as tag soup as it makes little sense to humans looking at the code.
 
@@ -22,10 +24,28 @@ Examine index.html in the browser inspector to display the default (user agent) 
 
 ## Terminal
 
+On a Mac use the Terminal app. The Windows equivalent is PowerShell but there are important differences. SOme Windows users use alternates such as [cmder](http://cmder.net/) or the shell that comes with [Git for Windows](https://gitforwindows.org/).
+
+Some basic shell commands (note the use of '$' to indicate a prompt):
+
+```sh
+$ node --version
+$ npm --version
+$ pwd
+$ ls
+```
+
 ```sh
 $ cd <path-to-folder>
+```
+
+On a mac you can `cd` to a folder via drag and drop or by copying and pasting a folder into the terminal.
+
+```sh
 $ python -m SimpleHTTPServer 9000
 ```
+
+## Google fonts
 
 Add a CSS block within the `<head>`of index.html as follows:
 
@@ -38,8 +58,6 @@ Add a CSS block within the `<head>`of index.html as follows:
     }
 </style>
 ```
-
-## Google fonts
 
 Google has a CDN offering (free fonts)[https://fonts.google.com] for use in HTML documents. We'll use this as an example of using external stylesheets via @import and the `<link>` tag.
 
@@ -128,7 +146,7 @@ Add the following to our style block:
 }
 ```
 
-Examine display options for making the buttons horizontal using block, float, inline-block, and flex.
+Examine display options for making the buttons horizontal using block, float, inline-block, and flexbox.
 
 Examine the inspector's color picker. Note the ability to force element hover state.
 
@@ -148,7 +166,7 @@ transition: background-color 0.5s linear;
 
 ## Absolutely Positioning the Navigation
 
-_Edit_ the nav CSS rule to position it
+_Edit_ the nav CSS rule to position it:
 
 ```css
 .nav {
@@ -461,18 +479,6 @@ At the bottom of the stylesheet
 	flex: 1;
 	background-color: #f0dfb4;
 	list-style: none;
-}
-```
-
-```css
-.nav {
-	display: flex;
-	padding: 0;
-}
-.nav li {
-	flex: 1;
-	background-color: #d00;
-	list-style: none;
 	text-align: center;
 }
 ```
@@ -513,13 +519,14 @@ aside {
 }
 ```
 
-```
-@media screen and (max-width: 800px){
+```css
+@media screen and (max-width: 800px) {
 	.nav {
 		top: 0;
-		left:0;
+		left: 0;
 		margin: 0;
 		background: var(--rust);
+		/*position: fixed;*/
 	}
 	header {
 		padding-top: 30px;
@@ -538,6 +545,16 @@ aside {
 		margin: 0;
 	}
 }
+```
+
+### The Device meta tag
+
+Test in the browser
+
+[The responsive meta tag](https://css-tricks.com/snippets/html/responsive-meta-tag/)
+
+```html
+<meta name="viewport" content="width=device-width">
 ```
 
 ## DOM Scripting I
