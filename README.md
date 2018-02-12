@@ -18,19 +18,34 @@
 
 ## Terminal
 
-On a Mac use the Terminal app. The Windows equivalent is PowerShell but there are important differences. SOme Windows users use alternates such as [cmder](http://cmder.net/) or the shell that comes with [Git for Windows](https://gitforwindows.org/).
+In the class we will use the terminal for GIT and GITHUB as well as for Node Package Manager.
+
+On a Mac use the Terminal app. The Windows equivalent is PowerShell but there are important differences and you WILL NOT be able to run python as shown in this exercise.
+
+Some Windows users use alternates such as [cmder](http://cmder.net/) or the shell that comes with [Git for Windows](https://gitforwindows.org/) aka Git Bash. (Check to see if Git Bash is installed on the class computers.)
 
 Some basic shell commands (note the use of '$' to indicate a prompt):
 
 ```sh
 $ node --version
 $ npm --version
+$ git --version
 $ pwd
 $ ls
+$ ls -l
 ```
 
 ```sh
+$ cd
 $ cd <path-to-folder>
+$ cd ..
+```
+
+Windows examples for cd / ls
+
+```sh
+$ dir C:\windows
+$ chdir C:\windows
 ```
 
 On a mac you can `cd` to a folder via drag and drop or by copying and pasting a folder into the terminal.
@@ -990,4 +1005,8 @@ Examine the other demos in the `demo` folder.
 	list-style: none;
 	text-align: center;
 }
+```
+
+```
+
 ```
