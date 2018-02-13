@@ -18,9 +18,9 @@
 
 ## Terminal
 
-In the class we will use the terminal for GIT and GITHUB as well as for Node Package Manager.
+There are many good reasons to aquire a basic understanding of the command line terminal. In the class we will use the terminal for GIT and GITHUB as well as for Node Package Manager.
 
-On a Mac use the Terminal app. The Windows equivalent is PowerShell but there are important differences and you WILL NOT be able to run python as shown in this exercise.
+The Windows equivalent to Mac's Terminal app is PowerShell but there are important differences and you WILL NOT be able to run Python as shown below.
 
 Some Windows users use alternates such as [cmder](http://cmder.net/) or the shell that comes with [Git for Windows](https://gitforwindows.org/) aka Git Bash. (Check to see if Git Bash is installed on the class computers.)
 
@@ -39,6 +39,7 @@ $ ls -l
 $ cd
 $ cd <path-to-folder>
 $ cd ..
+$ cd ~
 ```
 
 Windows examples for cd / ls
@@ -49,6 +50,8 @@ $ chdir C:\windows
 ```
 
 On a mac you can `cd` to a folder via drag and drop or by copying and pasting a folder into the terminal.
+
+cd into today's folder and enter the following command into Terminal:
 
 ```sh
 $ python -m SimpleHTTPServer 9000
@@ -522,21 +525,21 @@ html {
 }
 ```
 
-```
+```css
 .nav a {
-  ...
+	...
   background-color: var(--bg-color);
 }
 
 aside {
-  ...
+	...
   background-color: var(--bg-color);
 }
 ```
 
 ## Responsive Design
 
-```
+```css
 @media print {
 	* {
 		display: none !important;
@@ -586,9 +589,7 @@ Test in the browser
 
 ## DOM Scripting I
 
-* The console and variables
-
-Try this in the console (copy paste one line at a time):
+In the browser console (copy paste one line at a time):
 
 ```js
 var width = 100;
@@ -597,8 +598,8 @@ typeof width;
 
 width + 300;
 width;
-width + 'test';
-var width = 200;
+width = width + 300;
+width;
 
 let wide = true;
 wide;
@@ -610,7 +611,16 @@ const testString = '123456';
 testString;
 typeof testString;
 const testString = 'abcde';
+testString = 'abcde';
 ```
+
+Link scripts.js to index.html:
+
+```html
+<script src="js/scripts.js"></script>
+```
+
+Use the code therein to examine code before proceeding.
 
 * Selecting items with [querySelector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector), see also [querySelectorAll()](https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/querySelectorAll) (we'll work with this later)
 * Attaching events with [addEventListener('event', function)](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener), see also [event types](https://developer.mozilla.org/en-US/docs/Web/Events)
@@ -627,7 +637,7 @@ Note the target attribute for the anchor tag. We have also used the class `map` 
 
 Add a class of `.map` to the map link
 
-```
+```html
 <script>
 	var mapClicker = document.querySelector('.map')
 
@@ -642,13 +652,13 @@ Add a class of `.map` to the map link
 
 Add to the bottom of the html (but before `<script>`):
 
-```
+```html
 <div class="popover">
 	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3025.821674756671!2d-73.97492268461596!3d40.67789794763805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25ba8edab126b%3A0xfaa0551477e2ec72!2sGeido!5e0!3m2!1sen!2sus!4v1490213487125" width="300" height="225" frameborder="0" style="border:0" allowfullscreen></iframe>
 </div>
 ```
 
-```
+```css
 .popover {
 	padding: 1rem;
 	width: 300px;
@@ -667,13 +677,13 @@ Uncomment `display: none` so the map stays hidden.
 
 Add a new rule to the css:
 
-```
+```css
 .showme {
 	display: block;
 }
 ```
 
-```
+```html
 <script>
 	var mapClicker = document.querySelector('.map')
 	var popOver = document.querySelector('.popover')
