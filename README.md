@@ -96,7 +96,7 @@ font-family: 'Lato', sans-serif;
 
 ### Linking to CSS from html
 
-THe html link tag:
+The html link tag:
 
 ```html
 <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
@@ -108,23 +108,6 @@ in use:
 header {
 	font-family: 'Lobster', cursive;
 	font-weight: normal;
-}
-```
-
-Note the bold property belongs to the H1 tag, not the header tag.
-
-```css
-header h1,
-header h2 {
-	font-weight: normal;
-}
-```
-
-Note the use of weights in Lato:
-
-```
-h2 {
-  font-weight: 300;
 }
 ```
 
@@ -207,7 +190,8 @@ aside {
 	width: 180px;
 	background-color: #f0dfb4;
 	padding: 6px;
-	border: 1px solid #600;
+	border: 2px solid #600;
+	border-radius: 3px;
 }
 ```
 
@@ -217,13 +201,15 @@ Add margin to move the article over to the right:
 
 ```css
 article {
-	margin: 0 20px 0 240px;
+	margin: 0 20px 0 206px;
 }
 ```
 
-The four values for margin run clockwise from the top.
+The four values for margin run clockwise from the top. Note the last value. How was this derived?
 
-Note that although the article visually _looks_ like it has two columns, it really has only one.
+Change the last value to `240px`.
+
+(Note that although the article visually _looks_ like it has two columns, it really has only one.)
 
 ### Floating
 
@@ -391,7 +377,7 @@ Remove the CSS from the head of the document and paste it into a new text docume
 <link href="css/styles.css" rel="stylesheet" media="all" />
 ```
 
-The css-based alternative is:
+Note: the css-based alternative is:
 
 ```html
 <style>
@@ -399,28 +385,14 @@ The css-based alternative is:
 </style>
 ```
 
-We are not using this method today.
-
-### Some simple CSS3 Enhancements
-
-As work on a new version of CSS progressed it was found that releasing an entirely new specification would be too cumbersome so the standards committee (http://W3C.org) decided to break the process into modules. (For compatibility and advice see http://CanIuse.com.)
-
-Some of the earlier CSS 3 specifications include provisions for visual effects such as rounded corners, drop shadows and gradients. A useful page that allows you to become familiar with these enhancements is http://css3generator.com/.
-
-Add rounded corners to the info div. (See https://developer.mozilla.org/en/CSS/border-radius for specifications.)
-
-```css
-aside {
-	...
-    border-radius: 6px;
-}
-```
+We are not using this method.
 
 Add a drop shadow to the CSS for the info div using the inspector (...).
 
 ```css
 aside {
 	 box-shadow: 3px 3px 3px #ddd;
+	...;
 }
 ```
 
@@ -462,7 +434,7 @@ Add the following to our CSS block:
 ```css
 .p-review .t-review a {
     color: #600;
-    background:#bada55;
+    background: #f0dfb4;
  }
 ```
 
@@ -493,13 +465,13 @@ At the bottom of the stylesheet
 	header h1 {
 		padding-top: 2rem;
 	}
+	article {
+		margin-left: 20px;
+	}
 	aside {
 		position: static;
 		float: left;
 		margin-right: 20px;
-	}
-	article {
-		margin-left: 20px;
 	}
 	blockquote {
 		width: 100%;
@@ -587,6 +559,8 @@ Test in the browser
 ```
 
 ## DOM Scripting I
+
+### Variable assignment and types.
 
 In the browser console (copy paste one line at a time):
 
