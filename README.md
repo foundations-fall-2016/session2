@@ -59,13 +59,13 @@ $ python -m SimpleHTTPServer 9000
 
 Access `localhost:8000` in Chrome. Note the directory listing and the default index.html.
 
-# Sushi - Converting to Standards
+## Sushi - Converting to Standards
 
 Open before.html in an editor and examine the HTML. Then examine index.html. The latter is an html5 document that uses HTML tags semantically. The former is often referred to as tag soup as it makes little sense to humans looking at the code.
 
 Examine index.html in the browser inspector to display the default (user agent) styling. Note the defaults for margins and padding used to display the body and the unordered list (`<ul>`).
 
-## Google fonts
+### Google fonts
 
 Add a CSS block within the `<head>`of index.html as follows:
 
@@ -95,7 +95,7 @@ Add this to the top of our css (@import statements should always come first) to 
 font-family: 'Lato', sans-serif;
 ```
 
-### Linking to a css file from html
+### Linking to CSS from html
 
 THe html link tag:
 
@@ -129,7 +129,7 @@ h2 {
 }
 ```
 
-## Formatting the Navigation
+### Formatting the Navigation
 
 Add a _class_ to the `<ul>` that will form the navigation for our page.
 
@@ -184,7 +184,7 @@ To animate only one difference specify it instead of `all`:
 transition: background-color 0.5s linear;
 ```
 
-## Absolutely Positioning the Navigation
+### Absolutely Positioning the Navigation
 
 _Edit_ the nav CSS rule to position it:
 
@@ -244,7 +244,7 @@ article img {
 
 Note the float property and how the text wraps around it before and after we have defined a width. By default, the floated container shrinks to the width determined by the content.
 
-## Converting the document to fixed width
+### Converting the document to fixed width
 
 Currently our document flexes as we make the browser wider to makes use of all the available horizontal space. While flexibility is generally a good practice, most sites use fixed widths to improve readability. cf [Wikipedia](https://en.wikipedia.org/wiki/Line_length) vs [The Guardian](https://www.theguardian.com)
 
@@ -291,7 +291,7 @@ The two absolutely positioned elements (aside and .nav) previously had no positi
 
 This is an important design pattern and well will see it again.
 
-## Adding color to our layout
+### Adding color to our layout
 
 Edit the CSS body rule.
 
@@ -315,7 +315,7 @@ Let's add a white background to wrapper.
 
 Note the body background color is grayed out in the inspector. Neither it nor the margin are inherited by other elements.
 
-## Formatting the content
+### Formatting the content
 
 Note the h1's margin outside the containing elements (not part of the box model).
 
@@ -402,7 +402,7 @@ The css-based alternative is:
 
 We are not using this method today.
 
-## Some simple CSS3 Enhancements
+### Some simple CSS3 Enhancements
 
 As work on a new version of CSS progressed it was found that releasing an entirely new specification would be too cumbersome so the standards committee (http://W3C.org) decided to break the process into modules. (For compatibility and advice see http://CanIuse.com.)
 
@@ -443,7 +443,7 @@ Make it a glow:
 }
 ```
 
-## Highlight one of the tabs
+### Highlight one of the tabs
 
 This is a simple way to create color coded navigation on a web site.
 Add a class to body tag so we know what kind of page this is.
