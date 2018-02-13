@@ -2,9 +2,8 @@
 
 ## Homework
 
-1. Continue the homework from last week ("Examine the provided homework samples for inspiration and try your hand at redesigning the page using the CSS techniques described in class). Add a JavaScript/CSS powered popover window to your page.
-
-1. Review the steps we used to create a tab navigation interface
+1. Continue the homework from last week ("Examine the provided homework samples for inspiration and try your hand at redesigning the page using the CSS techniques described in class).
+1. Add a JavaScript/CSS powered popover window to your page. Be sure to review (and try it yourself) the simple documentation for [addEventListener](https://www.w3schools.com/jsref/met_element_addeventlistener.asp), [querySelector](https://www.w3schools.com/jsref/met_document_queryselector.asp), and [classList](https://www.w3schools.com/jsref/prop_element_classlist.asp).
 
 ## Reading
 
@@ -689,12 +688,14 @@ Add a new rule to the css:
 	var popOver = document.querySelector('.popover')
 	mapClicker.addEventListener('click', show)
 
-	function show(){
+	function show(e){
 		popOver.classList.toggle('showme')
-		event.preventDefault()
+		e.preventDefault()
 	};
 </script>
 ```
+
+# End Sushi
 
 ## Styling a List with Floats
 
@@ -1015,8 +1016,4 @@ Examine the other demos in the `demo` folder.
 	list-style: none;
 	text-align: center;
 }
-```
-
-```
-
 ```
