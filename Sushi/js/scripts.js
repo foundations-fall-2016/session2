@@ -17,6 +17,8 @@
 // console.log(document.links);
 // console.log(document.images);
 
+// RESTART HERE //
+
 // getElementById  - sequence //
 // console.log(document.getElementById('wrapper'));
 // var wrapper = document.getElementById('wrapper');
@@ -32,15 +34,29 @@
 
 // Gives BLOCKING error
 // listItems.style.backgroundColor = '#f4f4f4';
+// console.log(listItems);
 
 // for (var i = 0; i < listItems.length; i++) {
 // 	listItems[i].style.backgroundColor = 'green';
 // }
 
+// QUERYSLECTORALL replaces 90% of jQuery //
+// var listItems = document.querySelectorAll('li');
+
+// Gives BLOCKING error - the console log command never runs
+// listItems.style.backgroundColor = '#f4f4f4';
+// console.log('test');
+
+// NODELIST has a method called FOREACH
+// listItems.forEach(function(listItem) {
+// 	listItem.style.backgroundColor = 'red';
+// });
+
 // QUERYSELECTOR //
-// add a class map and Google map link to the map anchor tag in the sidebar
+// make sure you add a class of 'map' and Google map link to the map anchor tag in the sidebar
 // var mapLink = document.querySelector('.map');
 // mapLink.style.borderBottom = 'solid 8px red';
+// document.querySelector('.map').style.borderBottom = 'solid 8px red';
 
 // EVENTS //
 
@@ -50,6 +66,13 @@
 
 // mapLink.addEventListener('click', function() {
 // 	console.log('It works!');
+// 	event.preventDefault();
+// });
+
+// (e)
+
+// mapLink.addEventListener('click', function() {
+// 	console.log(event);
 // 	event.preventDefault();
 // });
 
@@ -66,7 +89,7 @@
 // console.log(e.clientY);
 // console.log(e.offsetX);
 // console.log(e.offsetY);
-// 	event.preventDefault();
+// event.preventDefault();
 // }
 
 // DYNAMICALLY CREATE AN ELEMENT //s
