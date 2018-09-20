@@ -2,14 +2,13 @@
 
 ## Homework
 
-1. Continue the homework from last week ("Examine the provided homework samples for inspiration and try your hand at redesigning the page using the CSS techniques described in class).
-1. Add a JavaScript/CSS powered popover window to your page. Be sure to review (and try it yourself) the simple documentation for [addEventListener](https://www.w3schools.com/jsref/met_element_addeventlistener.asp), [querySelector](https://www.w3schools.com/jsref/met_document_queryselector.asp), and [classList](https://www.w3schools.com/jsref/prop_element_classlist.asp).
+1. Install Node and Git on your personal computer
+1. Add a JavaScript/CSS powered popover window to your page. Be sure to review the documentation for [addEventListener](https://www.w3schools.com/jsref/met_element_addeventlistener.asp), [querySelector](https://www.w3schools.com/jsref/met_document_queryselector.asp), and [classList](https://www.w3schools.com/jsref/prop_element_classlist.asp).
 
 ## Reading
 
+* HTML5 and CSS3: Building Responsive Websites, Module 1 - chapters 1 and 2, Module 2 - chapter 1 to 4
 * [Responsive Web Design](https://abookapart.com/products/responsive-web-design) - carefully read the section on Media Queries
-* Video: [HTML Crash Course for Absolute Beginners](https://youtu.be/UB1O30fR-EE)
-* Video: [CSS Crash Course for Absolute Beginners](https://youtu.be/yfoY53QXEnI)
 
 ## Server Accounts
 
@@ -17,54 +16,54 @@
 
 ## Terminal
 
-There are many good reasons to aquire a basic understanding of the command line terminal. In the class we will use the terminal for GIT and GITHUB as well as for Node Package Manager.
+There are many good reasons to aquire a basic understanding of the command line terminal. In the class we will use the terminal for GIT and GITHUB as well as for Node Package Manager (NPM).
 
 The Windows equivalent to Mac's Terminal app is PowerShell but there are important differences and you WILL NOT be able to run Python as shown below.
 
-Some Windows users use alternates such as [cmder](http://cmder.net/) or the shell that comes with [Git for Windows](https://gitforwindows.org/) aka Git Bash. (Check to see if Git Bash is installed on the class computers.)
+Some Windows users use alternates such as [cmder](http://cmder.net/) or the shell that comes with [Git for Windows](https://gitforwindows.org/) aka "Git Bash." (Check to see if Git Bash is installed on the class computers.)
 
-Some basic shell commands (note the use of '$' to indicate a prompt):
+Some basic shell commands:
 
 ```sh
-$ node --version
-$ npm --version
-$ git --version
-$ pwd
-$ ls
-$ ls -l
+cd
+cd <path-to-folder>
+cd ..
+cd ~
 ```
 
 ```sh
-$ cd
-$ cd <path-to-folder>
-$ cd ..
-$ cd ~
+node --version
+npm --version
+git --version
+pwd
+ls
+ls -l
 ```
 
-Windows examples for cd / ls
+Windows examples for `cd` / `ls`:
 
 ```sh
-$ dir C:\windows
-$ chdir C:\windows
+dir C:\windows
+chdir C:\windows
 ```
 
 On a mac you can `cd` to a folder via drag and drop or by copying and pasting a folder into the terminal.
 
-cd into today's folder and enter the following command into Terminal:
+`cd` into today's folder and enter the following command into Terminal:
 
 ```sh
-$ python -m SimpleHTTPServer 9000
+python -m SimpleHTTPServer 9000
 ```
 
 Access `localhost:8000` in Chrome. Note the directory listing and the default index.html.
 
-## Sushi - Converting to Standards
+## Sushi - Converting to Standards (continued)
 
-Open before.html in an editor and examine the HTML. Then examine index.html. The latter is an html5 document that uses HTML tags semantically. The former is often referred to as tag soup as it makes little sense to humans looking at the code.
+<!-- Open before.html in an editor and examine the HTML. Then examine index.html. The latter is an html5 document that uses HTML tags semantically. The former is often referred to as tag soup as it makes little sense to humans looking at the code.
 
-Examine index.html in the browser inspector to display the default (user agent) styling. Note the defaults for margins and padding used to display the body and the unordered list (`<ul>`).
+Examine index.html in the browser inspector to display the default (user agent) styling. Note the defaults for margins and padding used to display the body and the unordered list (`<ul>`). -->
 
-### Google fonts
+<!-- ### Google fonts
 
 Add a CSS block within the `<head>`of index.html as follows:
 
@@ -80,9 +79,9 @@ Add a CSS block within the `<head>`of index.html as follows:
 
 Google has a CDN offering (free fonts)[https://fonts.google.com] for use in HTML documents. We'll use this as an example of using external stylesheets via @import and the `<link>` tag.
 
-We will use [Lato](https://fonts.google.com/specimen/Lato) for our main text and [Lobster](https://fonts.google.com/specimen/Lobster) for our branding.
+We will use [Lato](https://fonts.google.com/specimen/Lato) for our main text and [Lobster](https://fonts.google.com/specimen/Lobster) for our branding. -->
 
-### Linking to a css file from css
+<!-- ### Linking to a css file from css
 
 ```
 @import url('http://fonts.googleapis.com/css?family=Lato:300,400,700');
@@ -92,9 +91,9 @@ Add this to the top of our css (@import statements should always come first) to 
 
 ```
 font-family: 'Lato', sans-serif;
-```
+``` -->
 
-### Linking to CSS from html
+<!-- ### Linking to CSS from html
 
 The html link tag:
 
@@ -109,9 +108,9 @@ header {
 	font-family: 'Lobster', cursive;
 	font-weight: normal;
 }
-```
+``` -->
 
-### Formatting the Navigation
+<!-- ### Formatting the Navigation
 
 Add a _class_ to the `<ul>` that will form the navigation for our page.
 
@@ -164,9 +163,9 @@ To animate only one difference specify it instead of `all`:
 
 ```
 transition: background-color 0.5s linear;
-```
+``` -->
 
-### Absolutely Positioning the Navigation
+<!-- ### Absolutely Positioning the Navigation
 
 _Edit_ the nav CSS rule to position it:
 
@@ -209,7 +208,7 @@ The four values for margin run clockwise from the top. Note the last value. How 
 
 Change the last value to `240px`.
 
-(Note that although the article visually _looks_ like it has two columns, it really has only one.)
+(Note that although the article visually _looks_ like it has two columns, it really has only one.) -->
 
 ### Floating
 
@@ -217,10 +216,10 @@ Format the pull quote and image:
 
 ```css
 blockquote {
-	float: right;
-	width: 40%;
-	padding: 16px;
-	font-size: 24px;
+  float: right;
+  width: 40%;
+  padding: 16px;
+  font-size: 24px;
 }
 article img {
 	float: right;
@@ -229,7 +228,7 @@ article img {
 
 Note the float property and how the text wraps around it before and after we have defined a width. By default, the floated container shrinks to the width determined by the content.
 
-### Converting the document to fixed width
+<!-- ### Converting the document to fixed width
 
 Currently our document flexes as we make the browser wider to makes use of all the available horizontal space. While flexibility is generally a good practice, most sites use fixed widths to improve readability. cf [Wikipedia](https://en.wikipedia.org/wiki/Line_length) vs [The Guardian](https://www.theguardian.com)
 
@@ -274,7 +273,7 @@ Note the impact the relative positioning has on the layout (toggle it on and off
 
 The two absolutely positioned elements (aside and .nav) previously had no positioning context and aligned themselves to the edges of the browser window. With the addition of the relative positioning to the wrapper they now become positioned relative to the wrapper box. The rule here is that absolutely positioned elements are positioned relative to their nearest positioned ancestor in the HTML tree.
 
-This is an important design pattern and well will see it again.
+This is an important design pattern and well will see it again. -->
 
 ### Adding color to our layout
 
@@ -282,8 +281,8 @@ Edit the CSS body rule.
 
 ```css
 body {
-	...
-	background-color: #ddd;
+  ...
+  background-color: #ddd;
 }
 ```
 
@@ -293,8 +292,8 @@ Let's add a white background to wrapper.
 
 ```css
 #wrapper {
-	...
-    background-color: #fff;
+  ...
+  background-color: #fff;
 }
 ```
 
@@ -307,15 +306,15 @@ Note the h1's margin outside the containing elements (not part of the box model)
 ```css
 h1,
 h2 {
-	color: #600;
-	margin-top: 20px;
-	margin-left: 20px;
-	font-size: 3rem;
-	margin-bottom: 0;
+  color: #600;
+  margin-top: 20px;
+  margin-left: 20px;
+  font-size: 3rem;
+  margin-bottom: 0;
 }
 h2 {
-	font-size: 32px;
-	margin-top: 0;
+  font-size: 32px;
+  margin-top: 0;
 }
 ```
 
@@ -326,15 +325,15 @@ Namespace the header items:
 ```css
 header h1,
 header h2 {
-	color: #600;
-	margin-top: 20px;
-	margin-left: 20px;
-	font-size: 3rem;
-	margin-bottom: 0;
+  color: #600;
+  margin-top: 20px;
+  margin-left: 20px;
+  font-size: 3rem;
+  margin-bottom: 0;
 }
 header h2 {
-	font-size: 32px;
-	margin-top: 0;
+  font-size: 32px;
+  margin-top: 0;
 }
 ```
 
@@ -342,13 +341,13 @@ Format elements in the list and table
 
 ```css
 aside th {
-	text-align: right;
+  text-align: right;
 }
 
 aside ul {
-	list-style: none;
-	margin: 1em;
-	padding: 0;
+  list-style: none;
+  margin: 1em;
+  padding: 0;
 }
 ```
 
