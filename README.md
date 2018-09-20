@@ -271,7 +271,7 @@ Access `localhost:8000` in Chrome. Note the directory listing and the default in
 
 ## DOM Scripting I
 
-### Variable assignment and types.
+### Variable Assignment and Types
 
 In the browser console (copy paste one line at a time):
 
@@ -548,7 +548,7 @@ Although it may be a little difficult to discern, the same issue we had with col
 ```css
 a {
 	...
-	border-bottom: none;
+  border-bottom: none;
 	float: left;
 }
 ```
@@ -556,10 +556,10 @@ a {
 By floating the anchors we cause the list items to expand to contain their floated children.
 Now we add a background image to the <a>. Note that the image has a gradient and transparency.
 
-```
+```css
 a {
 	...
-	background: #f9eaa9 url(i/off_bg.gif) repeat-x top left;
+  background: #f9eaa9 url(i/off_bg.gif) repeat-x top left;
 ```
 
 Note what happened to the background graphic we placed in the `<ul>`. It is hidden behind the (now not transparent) anchors.
@@ -666,19 +666,19 @@ Edit the background properties for the tabs:
 
 Normal (eg. non-hovered) state:
 
-```
+```css
 background-image: linear-gradient(to bottom, rgba(255,236,165,1) 0%,rgba(232,213,149,1) 6%,rgba(253,233,162,1) 94%,rgba(253,233,162,1) 100%);
 ```
 
 Highlighted (eg. hovered) state:
 
-```
+```css
 background-image: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(224,226,240,1) 6%,rgba(254,254,254,1) 53%);
 ```
 
 Underline:
 
-```
+```css
 background-image: linear-gradient(to bottom, #ffcb2d 0%,#ffcb2d 96%,#9b8748 100%);
 ```
 
@@ -686,19 +686,19 @@ background-image: linear-gradient(to bottom, #ffcb2d 0%,#ffcb2d 96%,#9b8748 100%
 
 Examine the other demos in the `demo` folder.
 
-# Notes
+## Notes
 
 ### Using Flexbox (optional - demo only)
 
 ```css
 .nav {
 	display: flex;
-	padding: 0;
+  padding: 0;
 }
 .nav li {
-	flex: 1;
-	background-color: #f0dfb4;
-	list-style: none;
-	text-align: center;
+  flex: 1;
+  background-color: #f0dfb4;
+  list-style: none;
+  text-align: center;
 }
 ```
