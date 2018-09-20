@@ -47,16 +47,17 @@ body {
 
 Note that the wrapper's background is transparent and shows through to the gray applied to the body.
 
-Let's add a white background to wrapper.
+Let's add a white background to wrapper and a bit of padding.
 
 ```css
 #wrapper {
   ...
   background-color: #fff;
+  padding: 1rem;
 }
 ```
 
-Add a drop shadow to the CSS for the info div using the inspector (...).
+Add a drop shadow to the CSS for the info div using the inspector.
 
 ```css
 aside {
@@ -90,49 +91,37 @@ Note the body background color is grayed out in the inspector. Neither it nor th
 Note the h1's margin outside the containing elements (not part of the box model).
 
 ```css
-h1,
-h2 {
-  color: #600;
-  margin-top: 20px;
-  margin-left: 20px;
-  font-size: 3rem;
-  margin-bottom: 0;
-}
-h2 {
-  font-size: 32px;
-  margin-top: 0;
-}
-```
-
-Note - selector strength here. Note that the lack of namespacing allows this to effect the Matsu text as well.
-
-Namespace the header items:
-
-```css
 header h1,
 header h2 {
-  color: #600;
-  margin-top: 20px;
-  margin-left: 20px;
+  font-weight: normal;
   font-size: 3rem;
-  margin-bottom: 0;
+  margin: 8px 0;
+  color: #600;
 }
 header h2 {
-  font-size: 32px;
-  margin-top: 0;
+  font-size: 2rem;
+}
+article h2 {
+  font-weight: 400;
+  color: #600;
+  border-bottom: 1px solid #600;
 }
 ```
 
 Format elements in the list and table
 
 ```css
+aside {
+  ...
+  font-size: 0.875rem;
+}
+
 aside th {
   text-align: right;
 }
 
 aside ul {
   list-style: none;
-  margin: 1em;
   padding: 0;
 }
 ```
@@ -162,7 +151,7 @@ is:
 
 You rarely see the latter.
 
-Inline styles are inefficient:
+Inline styles are abviously inefficient:
 
 ```html
 <p style="margin-top: 12px;">
@@ -173,7 +162,7 @@ However, this method is frequently used when dynamically changing the page after
 Demonstrate: using the inspector on a dynamic page (e.g. [this sample](http://www.w3schools.com/jquery/jquery_animate.asp)). Note how it displays animation and the purple highlighting in the inspector.
 <!-- or this page on [apple.com](https://www.apple.com/homepod/).  -->
 
-### Highlight one of the tabs
+### Highlight One Tab
 
 This is a simple way to create color coded navigation on a web site.
 Add a class to body tag so we know what kind of page this is.
@@ -182,24 +171,31 @@ Add a class to body tag so we know what kind of page this is.
 <body class="p-review">
 ```
 
-Add a list item to the nav list with a class of review-link.
+Edit the nav so it uses classes on the tabs and 'real' links:
 
 ```html
-<li class="t-review"><a href="#">Reviews</a></li>
+<ul class="nav">
+  <li class="t-cuisine"><a href="cuisines.html">Cuisines</a></li>
+  <li class="t-recipe"><a href="recipes.html">Recipes</a></li>
+  <li class="t-review"><a href="index.html">Reviews</a></li>
+  <li class="t-delivery"><a href="delivery.html">Delivery</a></li>
+</ul>
 ```
 
 Add the following to our CSS block:
 
 ```css
 .p-review .t-review a {
-    color: #600;
-    background: #f0dfb4;
- }
+  color: #600;
+  background: #f0dfb4;
+}
 ```
 
-The Reviews tab is now highlighted.
+The Reviews tab is now highlighted on the reviews page.
 
-### CSS Variables
+Add page level classes to the other three html documents and expand the css tabs selector to allow the tabs to display location as well.
+
+<!-- ### CSS Variables
 
 [These](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) allow us to store commonly used information as a variable for use throughout our css.
 
@@ -207,7 +203,7 @@ See also [Can I Use](https://caniuse.com/#search=css%20variables)
 
 ```css
 html {
-	--bg-color: #f0dfb4;
+  --bg-color: #f0dfb4;
   --badass: #bada55;
   --rust: #600;
   --radii: 3px;
@@ -224,42 +220,42 @@ aside {
 	...
   background-color: var(--bg-color);
 }
-```
+``` -->
 
-## Terminal
+<!-- ## Terminal
 
 There are many good reasons to aquire a basic understanding of the command line terminal. In the class we will use the terminal for GIT and GITHUB as well as for Node Package Manager (NPM).
 
 The Windows equivalent to Mac's Terminal app is PowerShell but there are important differences and you WILL NOT be able to run Python as shown below.
 
-Some Windows users use alternates such as [cmder](http://cmder.net/) or the shell that comes with [Git for Windows](https://gitforwindows.org/) aka "Git Bash." (Check to see if Git Bash is installed on the class computers.)
+Some Windows users use alternates such as [cmder](http://cmder.net/) or the shell that comes with [Git for Windows](https://gitforwindows.org/) aka "Git Bash." (Note to self: Check to see if Git Bash is installed in Windows on the class computers.)
 
 Some basic shell commands:
 
 ```sh
-cd
-cd <path-to-folder>
 cd ..
 cd ~
-```
-
-```sh
-node --version
-npm --version
-git --version
+cd <path-to-folder>
 pwd
 ls
 ls -l
 ```
 
-Windows examples for `cd` / `ls`:
+On a mac you can `cd` to a folder via drag and drop or by copying and pasting a folder into the terminal app. -->
+
+<!-- ```sh
+node --version
+npm --version
+git --version
+```
+-->
+
+<!-- Windows examples for `cd` / `ls`:
 
 ```sh
 dir C:\windows
 chdir C:\windows
 ```
-
-On a mac you can `cd` to a folder via drag and drop or by copying and pasting a folder into the terminal.
 
 `cd` into today's folder and enter the following command into Terminal:
 
@@ -267,35 +263,31 @@ On a mac you can `cd` to a folder via drag and drop or by copying and pasting a 
 python -m SimpleHTTPServer 9000
 ```
 
-Access `localhost:8000` in Chrome. Note the directory listing and the default index.html.
+Access `localhost:8000` in Chrome. Note the directory listing and the default index.html. -->
 
-## DOM Scripting I
+## DOM Scripting Intro
 
 ### Variable Assignment and Types
 
-In the browser console (copy paste one line at a time):
+In the browser console (one line at a time):
 
 ```js
-var width = 100;
-width;
-typeof width;
+var width = 100
+width
+typeof width
 
-width + 300;
-width;
-width = width + 300;
-width;
+width + 300
+width; // still 100
+width = width + 300
+width // now 400
 
-let wide = true;
-wide;
-typeof wide;
-let wide = false;
-wide = false;
+var wide = true
+wide
+typeof wide
 
-const testString = '123456';
+var testString = '123456';
 testString;
 typeof testString;
-const testString = 'abcde';
-testString = 'abcde';
 ```
 
 Link scripts.js to index.html:
