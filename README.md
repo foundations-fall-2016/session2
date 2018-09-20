@@ -14,203 +14,9 @@
 
 [See session one](https://github.com/front-end-foundations/session1)
 
-## Terminal
-
-There are many good reasons to aquire a basic understanding of the command line terminal. In the class we will use the terminal for GIT and GITHUB as well as for Node Package Manager (NPM).
-
-The Windows equivalent to Mac's Terminal app is PowerShell but there are important differences and you WILL NOT be able to run Python as shown below.
-
-Some Windows users use alternates such as [cmder](http://cmder.net/) or the shell that comes with [Git for Windows](https://gitforwindows.org/) aka "Git Bash." (Check to see if Git Bash is installed on the class computers.)
-
-Some basic shell commands:
-
-```sh
-cd
-cd <path-to-folder>
-cd ..
-cd ~
-```
-
-```sh
-node --version
-npm --version
-git --version
-pwd
-ls
-ls -l
-```
-
-Windows examples for `cd` / `ls`:
-
-```sh
-dir C:\windows
-chdir C:\windows
-```
-
-On a mac you can `cd` to a folder via drag and drop or by copying and pasting a folder into the terminal.
-
-`cd` into today's folder and enter the following command into Terminal:
-
-```sh
-python -m SimpleHTTPServer 9000
-```
-
-Access `localhost:8000` in Chrome. Note the directory listing and the default index.html.
-
 ## Sushi - Converting to Standards (continued)
 
-<!-- Open before.html in an editor and examine the HTML. Then examine index.html. The latter is an html5 document that uses HTML tags semantically. The former is often referred to as tag soup as it makes little sense to humans looking at the code.
-
-Examine index.html in the browser inspector to display the default (user agent) styling. Note the defaults for margins and padding used to display the body and the unordered list (`<ul>`). -->
-
-<!-- ### Google fonts
-
-Add a CSS block within the `<head>`of index.html as follows:
-
-```html
-<style>
-    body {
-        margin: 0;
-        color: #333;
-        font-family: Verdana, Arial, sans-serif;
-    }
-</style>
-```
-
-Google has a CDN offering (free fonts)[https://fonts.google.com] for use in HTML documents. We'll use this as an example of using external stylesheets via @import and the `<link>` tag.
-
-We will use [Lato](https://fonts.google.com/specimen/Lato) for our main text and [Lobster](https://fonts.google.com/specimen/Lobster) for our branding. -->
-
-<!-- ### Linking to a css file from css
-
-```
-@import url('http://fonts.googleapis.com/css?family=Lato:300,400,700');
-```
-
-Add this to the top of our css (@import statements should always come first) to use the font within our stylesheet. Add to the body css rule:
-
-```
-font-family: 'Lato', sans-serif;
-``` -->
-
-<!-- ### Linking to CSS from html
-
-The html link tag:
-
-```html
-<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-```
-
-in use:
-
-```css
-header {
-	font-family: 'Lobster', cursive;
-	font-weight: normal;
-}
-``` -->
-
-<!-- ### Formatting the Navigation
-
-Add a _class_ to the `<ul>` that will form the navigation for our page.
-
-```html
-<ul class="nav">
-    <li><a href="#">Cuisines</a></li>
-    ...
-</ul>
-```
-
-By doing so we have created a name space that allows us to differentiate the two `<ul>` lists in `start.html` and apply two different styles.
-
-Add the following to our style block:
-
-```css
-.nav {
-	list-style: none;
-	padding: 0;
-}
-.nav li {
-	display: inline-block;
-	margin-right: 10px;
-}
-.nav a {
-	color: #fff;
-	text-decoration: none;
-	padding: 4px;
-	display: block;
-	background-color: #600;
-}
-.nav a:hover {
-	color: #222;
-	background-color: #bada55;
-}
-```
-
-Examine display options for making the buttons horizontal using block, float, inline-block, and flexbox.
-
-Examine the inspector's color picker. Note the ability to force element hover state.
-
-Add css to `nav a`:
-
-```
-transition: all 0.5s linear;
-```
-
-Edit the animation using the inspector's animation settings.
-
-To animate only one difference specify it instead of `all`:
-
-```
-transition: background-color 0.5s linear;
-``` -->
-
-<!-- ### Absolutely Positioning the Navigation
-
-_Edit_ the nav CSS rule to position it:
-
-```css
-.nav {
-	list-style: none;
-	padding: 0;
-	position: absolute;
-	right: 0;
-	top: 60px;
-}
-```
-
-Add an `<aside>` tag around the table and list then add the following CSS:
-
-```css
-aside {
-	position: absolute;
-	top: 200px;
-	left: 10px;
-	width: 180px;
-	background-color: #f0dfb4;
-	padding: 6px;
-	border: 2px solid #600;
-	border-radius: 3px;
-}
-```
-
-Note how the text flows under the aside.
-
-Add margin to move the article over to the right:
-
-```css
-article {
-	margin: 0 20px 0 206px;
-}
-```
-
-The four values for margin run clockwise from the top. Note the last value. How was this derived?
-
-Change the last value to `240px`.
-
-(Note that although the article visually _looks_ like it has two columns, it really has only one.) -->
-
-### Floating
+### Floats
 
 Format the pull quote and image:
 
@@ -227,53 +33,6 @@ article img {
 ```
 
 Note the float property and how the text wraps around it before and after we have defined a width. By default, the floated container shrinks to the width determined by the content.
-
-<!-- ### Converting the document to fixed width
-
-Currently our document flexes as we make the browser wider to makes use of all the available horizontal space. While flexibility is generally a good practice, most sites use fixed widths to improve readability. cf [Wikipedia](https://en.wikipedia.org/wiki/Line_length) vs [The Guardian](https://www.theguardian.com)
-
-Add wrapper `<div id="wrapper">` to entire content area (after the `<body>` tag and close it before the closing `</body>` tag) and add the following to our CSS style block.
-
-```css
-#wrapper {
-	width: 840px;
-}
-```
-
-Note the horizontal scoll bar when the page is viewed on smaller screens. Horizontal scroll bars are almost always a bad thing - especially if you want your content to work on small screens.
-
-Let's use this instead:
-
-```css
-#wrapper {
-	max-width: 840px;
-}
-```
-
-Center the wrapper content in the browser.
-
-```css
-#wrapper {
-	max-width: 840px;
-	margin: 0 auto 0 auto;
-	border: 1px solid #999;
-}
-```
-
-Add a relative positioning instruction.
-
-```css
-#wrapper {
-	position: relative;
-	...;
-}
-```
-
-Note the impact the relative positioning has on the layout (toggle it on and off using the inspector).
-
-The two absolutely positioned elements (aside and .nav) previously had no positioning context and aligned themselves to the edges of the browser window. With the addition of the relative positioning to the wrapper they now become positioned relative to the wrapper box. The rule here is that absolutely positioned elements are positioned relative to their nearest positioned ancestor in the HTML tree.
-
-This is an important design pattern and well will see it again. -->
 
 ### Adding color to our layout
 
@@ -294,6 +53,33 @@ Let's add a white background to wrapper.
 #wrapper {
   ...
   background-color: #fff;
+}
+```
+
+Add a drop shadow to the CSS for the info div using the inspector (...).
+
+```css
+aside {
+  box-shadow: 3px 3px 3px #ddd;
+  ...;
+}
+```
+
+Add a box shadow to the wrapper CSS:
+
+```css
+#wrapper {
+  box-shadow: 10px 10px 20px #666;
+  ...;
+}
+```
+
+Make it a glow:
+
+```css
+#wrapper {
+  box-shadow: 0px 0px 20px #999;
+  ...;
 }
 ```
 
@@ -368,15 +154,15 @@ Inline styles are inefficient:
 
 However, this method is frequently used when dynamically changing the page after it has been loaded in the browser.
 
-Demonstrate: using the inspector on a dynamic page (e.g. http://www.w3schools.com/jquery/jquery_animate.asp) or this page on [apple.com](https://www.apple.com/homepod/). Note how it displays animation by applying purple highlighting in the inspector.
+Demonstrate: using the inspector on a dynamic page (e.g. http://www.w3schools.com/jquery/jquery_animate.asp) or this page on [apple.com](https://www.apple.com/homepod/). Note how it displays animation and the purple highlighting in the inspector.
 
-Remove the CSS from the head of the document and paste it into a new text document. Save it in a new `css` directory calling it styles.css. We have two options here: link to our CSS file using an HTML tag, or to use a CSS @import statement.
+Note: the css-based alternative for:
 
 ```html
 <link href="css/styles.css" rel="stylesheet" media="all" />
 ```
 
-Note: the css-based alternative is:
+is:
 
 ```html
 <style>
@@ -385,33 +171,6 @@ Note: the css-based alternative is:
 ```
 
 We are not using this method.
-
-Add a drop shadow to the CSS for the info div using the inspector (...).
-
-```css
-aside {
-	 box-shadow: 3px 3px 3px #ddd;
-	...;
-}
-```
-
-Add a box shadow to the wrapper CSS:
-
-```css
-#wrapper {
-	box-shadow: 10px 10px 20px #666;
-	...;
-}
-```
-
-Make it a glow:
-
-```css
-#wrapper {
-	box-shadow: 0px 0px 20px #999;
-	...;
-}
-```
 
 ### Highlight one of the tabs
 
@@ -439,59 +198,18 @@ Add the following to our CSS block:
 
 The Reviews tab is now highlighted.
 
-### Adding Simple Responsiveness
-
-At the bottom of the stylesheet
-
-```css
-@media print {
-	* {
-		display: none !important;
-	}
-}
-
-@media all and (max-width: 800px) {
-	.nav {
-		top: 0;
-		left: 0;
-		margin: 0;
-		position: fixed;
-		background-color: #600;
-	}
-	.nav li a {
-		border-radius: 0;
-	}
-	header h1 {
-		padding-top: 2rem;
-	}
-	article {
-		margin-left: 20px;
-	}
-	aside {
-		position: static;
-		float: left;
-		margin-right: 20px;
-	}
-	blockquote {
-		width: 100%;
-		float: none;
-		margin: 0;
-	}
-}
-```
-
 ### CSS Variables
 
-(These)[https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables] allow us to store commonly used information as a variable for use throughout our css.
+[These](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) allow us to store commonly used information as a variable for use throughout our css.
 
 See also [Can I Use](https://caniuse.com/#search=css%20variables)
 
 ```css
 html {
 	--bg-color: #f0dfb4;
-	--badass: #bada55;
-	--rust: #600;
-	--radii: 3px;
+  --badass: #bada55;
+  --rust: #600;
+  --radii: 3px;
 }
 ```
 
@@ -507,55 +225,48 @@ aside {
 }
 ```
 
-## Responsive Design
+## Terminal
 
-```css
-@media print {
-	* {
-		display: none !important;
-	}
-}
+There are many good reasons to aquire a basic understanding of the command line terminal. In the class we will use the terminal for GIT and GITHUB as well as for Node Package Manager (NPM).
+
+The Windows equivalent to Mac's Terminal app is PowerShell but there are important differences and you WILL NOT be able to run Python as shown below.
+
+Some Windows users use alternates such as [cmder](http://cmder.net/) or the shell that comes with [Git for Windows](https://gitforwindows.org/) aka "Git Bash." (Check to see if Git Bash is installed on the class computers.)
+
+Some basic shell commands:
+
+```sh
+cd
+cd <path-to-folder>
+cd ..
+cd ~
 ```
 
-```css
-@media screen and (max-width: 800px) {
-	.nav {
-		top: 0;
-		left: 0;
-		margin: 0;
-		background: var(--rust);
-		/*position: fixed;*/
-	}
-	header {
-		padding-top: 30px;
-	}
-	aside {
-		position: static;
-		float: left;
-		margin-right: 20px;
-	}
-	article {
-		margin-left: 20px;
-	}
-	blockquote {
-		width: 100%;
-		float: none;
-		margin: 0;
-	}
-}
+```sh
+node --version
+npm --version
+git --version
+pwd
+ls
+ls -l
 ```
 
-Examine using the Toggle Device Toolbar in Chrome's developer tools.
+Windows examples for `cd` / `ls`:
 
-### The Device meta tag
-
-Test in the browser
-
-[The responsive meta tag](https://css-tricks.com/snippets/html/responsive-meta-tag/)
-
-```html
-<meta name="viewport" content="width=device-width">
+```sh
+dir C:\windows
+chdir C:\windows
 ```
+
+On a mac you can `cd` to a folder via drag and drop or by copying and pasting a folder into the terminal.
+
+`cd` into today's folder and enter the following command into Terminal:
+
+```sh
+python -m SimpleHTTPServer 9000
+```
+
+Access `localhost:8000` in Chrome. Note the directory listing and the default index.html.
 
 ## DOM Scripting I
 
