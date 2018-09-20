@@ -28,7 +28,7 @@ blockquote {
   font-size: 24px;
 }
 article img {
-	float: right;
+  float: right;
 }
 ```
 
@@ -146,17 +146,7 @@ We've already seen the link tag and @import methods of adding css. Let's examine
 * As an external .CSS file via linking (HTML `<link>` tag)
 * As an external .CSS file via importing (CSS `@import` statements)
 
-Inline styles are inefficient:
-
-```html
-<p style="margin-top: 12px;">
-```
-
-However, this method is frequently used when dynamically changing the page after it has been loaded in the browser.
-
-Demonstrate: using the inspector on a dynamic page (e.g. http://www.w3schools.com/jquery/jquery_animate.asp) or this page on [apple.com](https://www.apple.com/homepod/). Note how it displays animation and the purple highlighting in the inspector.
-
-Note: the css-based alternative for:
+The css-based alternative for:
 
 ```html
 <link href="css/styles.css" rel="stylesheet" media="all" />
@@ -170,7 +160,18 @@ is:
 </style>
 ```
 
-We are not using this method.
+You rarely see the latter.
+
+Inline styles are inefficient:
+
+```html
+<p style="margin-top: 12px;">
+```
+
+However, this method is frequently used when dynamically changing the page after it has been loaded in the browser.
+
+Demonstrate: using the inspector on a dynamic page (e.g. [this sample](http://www.w3schools.com/jquery/jquery_animate.asp)). Note how it displays animation and the purple highlighting in the inspector.
+<!-- or this page on [apple.com](https://www.apple.com/homepod/).  -->
 
 ### Highlight one of the tabs
 
