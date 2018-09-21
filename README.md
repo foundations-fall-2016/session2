@@ -272,6 +272,7 @@ Access `localhost:8000` in Chrome. Note the directory listing and the default in
 In the browser console (one line at a time):
 
 ```js
+
 var width = 100
 width
 typeof width
@@ -286,15 +287,31 @@ wide
 typeof wide
 
 var testString = '123456';
-testString;
 typeof testString;
+
 ```
 
-Link scripts.js to index.html:
+Link `scripts.js` to `index.html` before the closing body tag:
 
 ```html
+
 <script src="js/scripts.js"></script>
+
 ```
+
+Add a link to a [Google map](https://www.google.com/maps/place/Geido/@40.6778979,-73.9749227,17z/data=!3m1!4b1!4m5!3m4!1s0x89c25ba8edab126b:0xfaa0551477e2ec72!8m2!3d40.6778939!4d-73.972734) to the map link in the aside:
+
+```html
+
+<li><a class="map" target="_blank" href="https://www.google.com/maps/place/Geido/@40.6778979,-73.9749227,17z/data=!3m1!4b1!4m5!3m4!1s0x89c25ba8edab126b:0xfaa0551477e2ec72!8m2!3d40.6778939!4d-73.972734">Map</a> | <a href="#">Directions</a></li>
+
+```
+
+Note the target attribute for the anchor tag. We have also used `class="map"` to name this link.
+
+Note the contents of `scipts.js`. Display the Console in the developer tools. Uncomment and recommnent lines to examine the output in the console.
+
+The most important DOM scripting functions we will be using are:
 
 * [querySelector()](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector)
 * [querySelectorAll()](https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/querySelectorAll)
@@ -303,17 +320,8 @@ Link scripts.js to index.html:
 * [event types](https://developer.mozilla.org/en-US/docs/Web/Events)
 * [functions](https://developer.mozilla.org/en-US/docs/Glossary/Function)
 
-Add a link to a [Google map](https://www.google.com/maps/place/Geido/@40.6778979,-73.9749227,17z/data=!3m1!4b1!4m5!3m4!1s0x89c25ba8edab126b:0xfaa0551477e2ec72!8m2!3d40.6778939!4d-73.972734) to the map link in the aside:
-
 ```html
-<li><a class="map" target="_blank" href="https://www.google.com/maps/place/Geido/@40.6778979,-73.9749227,17z/data=!3m1!4b1!4m5!3m4!1s0x89c25ba8edab126b:0xfaa0551477e2ec72!8m2!3d40.6778939!4d-73.972734">Map</a> | <a href="#">Directions</a></li>
-```
 
-Note the target attribute for the anchor tag. We have also used the class `map` to name this link.
-
-Add a class of `.map` to the map link
-
-```html
 <script>
   var mapClicker = document.querySelector('.map')
 
@@ -324,6 +332,7 @@ Add a class of `.map` to the map link
     event.preventDefault()
   };
 </script>
+
 ```
 
 Add to the bottom of the html (but before `<script>`):

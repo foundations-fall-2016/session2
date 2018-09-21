@@ -8,29 +8,28 @@
 // document.title = 123;
 // console.log(document.body);
 
-/* find number of the H1 tags in the header in the list */
+/* FIND the tags in the header in the list */
 // console.log(document.all);
-
 // console.log(document.all[19]);
 // document.all[19].textContent = 'Hello';
 
 // console.log(document.links);
 // console.log(document.images);
 
-/* getElementById  - sequence // */
+/* GET ELEMENT BY ID - uncomment in sequence */
 // console.log(document.getElementById('wrapper'));
 // var wrapper = document.getElementById('wrapper');
 // wrapper.textContent = 'Hello';
 // wrapper.style.borderBottom = 'solid 30px red';
 
-// getElementsByClassName //
+// GET ELEMENTS BY CLASS NAME //
 // var nav = document.getElementsByClassName('nav');
 // console.log(nav);
 
-// GETELEMENTSBYTAGNAME //
+// GET ELEMENTS BY TAG NAME //
 // var listItems = document.getElementsByTagName('li');
 
-// Gives BLOCKING error
+// Gives BLOCKING error - the console log command never runs
 // listItems.style.backgroundColor = '#f4f4f4';
 // console.log(listItems);
 
@@ -38,8 +37,9 @@
 // 	listItems[i].style.backgroundColor = 'green';
 // }
 
-// QUERYSLECTORALL replaces 90% of jQuery //
+// QUERY SELECTOR ALL - replaces 90% of jQuery //
 // var listItems = document.querySelectorAll('li');
+// NOTE - returns a NodeList
 
 // Gives BLOCKING error - the console log command never runs
 // listItems.style.backgroundColor = '#f4f4f4';
@@ -67,7 +67,7 @@
 // 	event.preventDefault();
 // });
 
-// (e)
+// EVENT (e)
 
 // mapLink.addEventListener('click', function() {
 // 	console.log(event);
@@ -94,6 +94,7 @@
 
 // // Create a div and then look at it in the console
 // var newDiv = document.createElement('div');
+// console.log(newDiv)
 
 // // Add class
 // newDiv.className = 'popover';
@@ -103,7 +104,7 @@
 
 // // Add text to div
 // newDiv.appendChild(newDivText);
-// newDiv.style.fontSize = '30px';
+// newDiv.style.fontSize = '40px';
 // newDiv.style.color = 'red';
 
 // // Store a reference to the H1
