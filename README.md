@@ -212,12 +212,12 @@ html {
 
 ```css
 .nav a {
-	...
+  ...
   background-color: var(--bg-color);
 }
 
 aside {
-	...
+  ...
   background-color: var(--bg-color);
 }
 ``` -->
@@ -244,9 +244,11 @@ ls -l
 On a mac you can `cd` to a folder via drag and drop or by copying and pasting a folder into the terminal app. -->
 
 <!-- ```sh
+
 node --version
 npm --version
 git --version
+
 ```
 -->
 
@@ -320,74 +322,82 @@ The most important DOM scripting functions we will be using are:
 * [event types](https://developer.mozilla.org/en-US/docs/Web/Events)
 * [functions](https://developer.mozilla.org/en-US/docs/Glossary/Function)
 
-```html
+Make sure everything in `scripts.js` is commented. Add this to the bottom:
 
-<script>
-  var mapClicker = document.querySelector('.map')
+```js
 
-  mapClicker.addEventListener('click', show)
-  // document.addEventListener('click', show)
+var mapClicker = document.querySelector('.map')
 
-  function show(){
-    event.preventDefault()
-  };
-</script>
+mapClicker.addEventListener('click', show)
+// document.addEventListener('click', show)
+
+function show(){
+  event.preventDefault()
+};
 
 ```
 
-Add to the bottom of the html (but before `<script>`):
+Add to the bottom of the html (but before `<script>`) so it appears at the bottom of the browser:
 
 ```html
+
 <div class="popover">
-	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3025.821674756671!2d-73.97492268461596!3d40.67789794763805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25ba8edab126b%3A0xfaa0551477e2ec72!2sGeido!5e0!3m2!1sen!2sus!4v1490213487125" width="300" height="225" frameborder="0" style="border:0" allowfullscreen></iframe>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3025.821674756671!2d-73.97492268461596!3d40.67789794763805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25ba8edab126b%3A0xfaa0551477e2ec72!2sGeido!5e0!3m2!1sen!2sus!4v1490213487125" width="300" height="225" frameborder="0" style="border:0" allowfullscreen></iframe>
 </div>
+
 ```
+
+Style the popover div:
 
 ```css
+
 .popover {
   padding: 1rem;
   width: 300px;
   height: 225px;
   background: #fff;
-  border: 1px solid var(--rust);
-  border-radius: var(--radius);
+  border: 1px solid #600;
+  border-radius: 4px;
   position: fixed;
   top: calc(50% - 100px);
   left: calc(50% - 150px);
   /*display: none;*/
 }
+
 ```
 
-Uncomment `display: none` so the map stays hidden.
+Note the `position: fixed` property as well as the top and left.
+
+Uncomment `display: none` so the map is initially hidden.
 
 Add a new rule to the css:
 
 ```css
+
 .showme {
-	display: block;
+  display: block;
 }
+
 ```
 
-```html
-<script>
-  var mapClicker = document.querySelector('.map')
-  var popOver = document.querySelector('.popover')
-  mapClicker.addEventListener('click', show)
+```js
 
-  function show(e){
-    popOver.classList.toggle('showme')
-    e.preventDefault()
-  };
-</script>
+var mapClicker = document.querySelector('.map')
+var popOver = document.querySelector('.popover')
+mapClicker.addEventListener('click', show)
+
+function show(e){
+  popOver.classList.toggle('showme')
+  e.preventDefault()
+};
+
 ```
 
-## End Sushi
+### End Sushi
 
 ## Styling a List with Floats
 
 <img src="Tabs/tabs-image.jpg">
-
-Review the navigation from last week.
 
 In this exercise we will focus on list styling and navigation but instead of using `display: inline` or `display: inline-block` to create horizontal navigation we will use floats.
 
