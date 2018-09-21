@@ -8,7 +8,7 @@
 // document.title = 123;
 // console.log(document.body);
 
-// find number of the H1 tag in the header in the list
+/* find number of the H1 tags in the header in the list */
 // console.log(document.all);
 
 // console.log(document.all[19]);
@@ -17,9 +17,7 @@
 // console.log(document.links);
 // console.log(document.images);
 
-// RESTART HERE //
-
-// getElementById  - sequence //
+/* getElementById  - sequence // */
 // console.log(document.getElementById('wrapper'));
 // var wrapper = document.getElementById('wrapper');
 // wrapper.textContent = 'Hello';

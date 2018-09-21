@@ -151,7 +151,7 @@ is:
 
 You rarely see the latter.
 
-Inline styles are abviously inefficient:
+Inline styles are obviously inefficient:
 
 ```html
 <p style="margin-top: 12px;">
@@ -296,12 +296,12 @@ Link scripts.js to index.html:
 <script src="js/scripts.js"></script>
 ```
 
-Use the code therein to examine code before proceeding.
-
-* Selecting items with [querySelector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector), see also [querySelectorAll()](https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/querySelectorAll) (we'll work with this later)
-* Attaching events with [addEventListener('event', function)](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener), see also [event types](https://developer.mozilla.org/en-US/docs/Web/Events)
-* [Functions](https://developer.mozilla.org/en-US/docs/Glossary/Function)
-* Manipulating HTML with [classList](https://plainjs.com/javascript/attributes/adding-removing-and-testing-for-classes-9/)
+* [querySelector()](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector)
+* [querySelectorAll()](https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/querySelectorAll)
+* [addEventListener()](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
+* [classList](https://plainjs.com/javascript/attributes/adding-removing-and-testing-for-classes-9/)
+* [event types](https://developer.mozilla.org/en-US/docs/Web/Events)
+* [functions](https://developer.mozilla.org/en-US/docs/Glossary/Function)
 
 Add a link to a [Google map](https://www.google.com/maps/place/Geido/@40.6778979,-73.9749227,17z/data=!3m1!4b1!4m5!3m4!1s0x89c25ba8edab126b:0xfaa0551477e2ec72!8m2!3d40.6778939!4d-73.972734) to the map link in the aside:
 
@@ -315,14 +315,14 @@ Add a class of `.map` to the map link
 
 ```html
 <script>
-	var mapClicker = document.querySelector('.map')
+  var mapClicker = document.querySelector('.map')
 
-	mapClicker.addEventListener('click', show)
-	// document.addEventListener('click', show)
+  mapClicker.addEventListener('click', show)
+  // document.addEventListener('click', show)
 
-	function show(){
-		event.preventDefault()
-	};
+  function show(){
+    event.preventDefault()
+  };
 </script>
 ```
 
@@ -336,16 +336,16 @@ Add to the bottom of the html (but before `<script>`):
 
 ```css
 .popover {
-	padding: 1rem;
-	width: 300px;
-	height: 225px;
-	background: #fff;
-	border: 1px solid var(--rust);
-	border-radius: var(--radius);
-	position: fixed;
-	top: calc(50% - 100px);
-	left: calc(50% - 150px);
-	/*display: none;*/
+  padding: 1rem;
+  width: 300px;
+  height: 225px;
+  background: #fff;
+  border: 1px solid var(--rust);
+  border-radius: var(--radius);
+  position: fixed;
+  top: calc(50% - 100px);
+  left: calc(50% - 150px);
+  /*display: none;*/
 }
 ```
 
@@ -361,18 +361,18 @@ Add a new rule to the css:
 
 ```html
 <script>
-	var mapClicker = document.querySelector('.map')
-	var popOver = document.querySelector('.popover')
-	mapClicker.addEventListener('click', show)
+  var mapClicker = document.querySelector('.map')
+  var popOver = document.querySelector('.popover')
+  mapClicker.addEventListener('click', show)
 
-	function show(e){
-		popOver.classList.toggle('showme')
-		e.preventDefault()
-	};
+  function show(e){
+    popOver.classList.toggle('showme')
+    e.preventDefault()
+  };
 </script>
 ```
 
-# End Sushi
+## End Sushi
 
 ## Styling a List with Floats
 

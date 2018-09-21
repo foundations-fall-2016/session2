@@ -16,6 +16,7 @@ header h2 {
 	font-weight: normal;
 	font-size: 3rem;
 }
+
 header h2 {
 	font-size: 2rem;
 	margin: 8px 0;
@@ -33,11 +34,11 @@ article h2 {
   top: 12px;
 }
 
-
 .nav li {
   display: inline-block;
   margin-right: 10px;
 }
+
 .nav a {
   color: #fff;
   text-decoration: none;
@@ -46,6 +47,7 @@ article h2 {
   background-color: #600;
   transition: background-color 0.5s cubic-bezier(0.94,-0.23, 0.29, 1.43);
 }
+
 .nav a:hover {
   color: #222;
   background-color: #f0dfb4;
@@ -84,14 +86,17 @@ article {
     left: 0;
     margin: 0;
   }
+
   aside {
     position: static;
     float: left;
     margin-right: 20px;
   }
+
   article {
     margin-left: 20px;
   }
+  
   blockquote {
     width: 100%;
     float: none;
