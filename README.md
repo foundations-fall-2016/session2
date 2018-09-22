@@ -1,9 +1,10 @@
-# II Sushi
+# II Intro to DOM Scripting
 
 ## Homework
 
 1. Install Node and Git on your personal computer
-1. Add a JavaScript/CSS powered popover window to your page. Be sure to review the documentation for [addEventListener](https://www.w3schools.com/jsref/met_element_addeventlistener.asp), [querySelector](https://www.w3schools.com/jsref/met_document_queryselector.asp), and [classList](https://www.w3schools.com/jsref/prop_element_classlist.asp).
+1. Add a JavaScript/CSS powered popover window to your page. Be sure to review the documentation below 
+1. REview the documentation for [addEventListener](https://www.w3schools.com/jsref/met_element_addeventlistener.asp), [querySelector](https://www.w3schools.com/jsref/met_document_queryselector.asp), and [classList](https://www.w3schools.com/jsref/prop_element_classlist.asp).
 
 ## Reading
 
@@ -327,9 +328,29 @@ Make sure everything in `scripts.js` is commented. Add this to the bottom:
 ```js
 
 var mapClicker = document.querySelector('.map')
+console.log(mapClicker)
+
+```
+
+Use [addEventListener](https://www.w3schools.com/jsref/met_element_addeventlistener.asp) to listen for a click on `mapClicker`:
+
+```js
+
+var mapClicker = document.querySelector('.map')
+
+mapClicker.addEventListener('click', function(){
+	event.preventDefault()
+})
+
+```
+
+We can also specify a function to run when the event occurs:
+
+```js
+
+var mapClicker = document.querySelector('.map')
 
 mapClicker.addEventListener('click', show)
-// document.addEventListener('click', show)
 
 function show(){
   event.preventDefault()
@@ -380,15 +401,16 @@ Add a new rule to the css:
 
 ```
 
+
 ```js
 
-var mapClicker = document.querySelector('.map')
-var popOver = document.querySelector('.popover')
-mapClicker.addEventListener('click', show)
+var mapClicker = document.querySelector('.map');
+var popOver = document.querySelector('.popover');
+mapClicker.addEventListener('click', show);
 
 function show(e){
-  popOver.classList.toggle('showme')
-  e.preventDefault()
+  popOver.classList.toggle('showme');
+  e.preventDefault();
 };
 
 ```
