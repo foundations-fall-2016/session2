@@ -268,7 +268,7 @@ python -m SimpleHTTPServer 9000
 
 Access `localhost:8000` in Chrome. Note the directory listing and the default index.html. -->
 
-## DOM Scripting Intro
+## DOM Scripting I
 
 ### Variable Assignment and Types
 
@@ -336,11 +336,11 @@ Use [addEventListener](https://www.w3schools.com/jsref/met_element_addeventliste
 
 ```js
 
-var mapClicker = document.querySelector('.map')
+var mapClicker = document.querySelector('.map');
 
 mapClicker.addEventListener('click', function(){
-	event.preventDefault()
-})
+	event.preventDefault();
+});
 
 ```
 
@@ -348,12 +348,12 @@ We can also specify a function to run when the event occurs:
 
 ```js
 
-var mapClicker = document.querySelector('.map')
+var mapClicker = document.querySelector('.map');
 
-mapClicker.addEventListener('click', show)
+mapClicker.addEventListener('click', show);
 
 function show(){
-  event.preventDefault()
+  event.preventDefault();
 };
 
 ```
@@ -401,17 +401,71 @@ Add a new rule to the css:
 
 ```
 
+Create a reference to the popover div.
 
 ```js
 
 var mapClicker = document.querySelector('.map');
 var popOver = document.querySelector('.popover');
+
+mapClicker.addEventListener('click', show);
+
+function show(e){
+  e.preventDefault();
+};
+
+```
+
+Use `classList` to toggle the `showme` class:
+
+```js
+
+var mapClicker = document.querySelector('.map');
+var popOver = document.querySelector('.popover');
+
 mapClicker.addEventListener('click', show);
 
 function show(e){
   popOver.classList.toggle('showme');
   e.preventDefault();
 };
+
+```
+
+```js
+
+var mapClicker = document.querySelector('.map');
+var popOver = document.querySelector('.popover');
+
+mapClicker.addEventListener('click', show);
+
+function show(e){
+  popOver.classList.toggle('showme');
+  e.preventDefault();
+};
+
+```
+
+### Using the Document
+
+Instead of listening to specific elements, we’ll instead listen for all clicks on a page, and then check to see if the clicked item has a matching selector.
+
+```js
+
+// Listen for clicks on the document
+document.addEventListener('click', function (event) {
+
+  // Bail if our clicked element doesn't have the .map class
+  if (!event.target.classList.contains('map')) return;
+
+  var popOver = document.querySelector('.popover');
+  if (!popOver) return;
+  
+  popOver.classList.toggle('showme');
+  
+  event.preventDefault();
+
+});
 
 ```
 
