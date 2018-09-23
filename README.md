@@ -432,29 +432,18 @@ function show(e){
 
 ```
 
-```js
-
-var mapClicker = document.querySelector('.map');
-var popOver = document.querySelector('.popover');
-
-mapClicker.addEventListener('click', show);
-
-function show(e){
-  popOver.classList.toggle('showme');
-  e.preventDefault();
-};
-
-```
-
 ### Using the Document
 
-Instead of listening to specific elements, we’ll instead listen for all clicks on a page, and then check to see if the clicked item has a matching selector.
+Instead of listening to specific elements, we’ll instead listen for all clicks on a page, and then check to see if the clicked item has a matching selector before running the function.
+
+We will also check for the class using `contains` and check for the presence of the popover div:
 
 ```js
 
 // Listen for clicks on the document
-document.addEventListener('click', function (event) {
+document.addEventListener('click', show)
 
+function show() {
   // Bail if our clicked element doesn't have the .map class
   if (!event.target.classList.contains('map')) return;
 
