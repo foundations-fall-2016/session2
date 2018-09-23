@@ -90,8 +90,6 @@ Make it a glow:
 }
 ```
 
-Note the body background color is grayed out in the inspector. Neither it nor the margin are inherited by other elements.
-
 ### Formatting the content
 
 Note the h1's margin outside the containing elements (not part of the box model).
