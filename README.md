@@ -4,9 +4,9 @@
 
 1. Install Node and Git on your personal computer
 1. Review the documentation for 
-* [addEventListener](https://www.w3schools.com/jsref/met_element_addeventlistener.asp), 
-* [querySelector](https://www.w3schools.com/jsref/met_document_queryselector.asp), and 
-* [classList](https://www.w3schools.com/jsref/prop_element_classlist.asp).
+    * [addEventListener](https://www.w3schools.com/jsref/met_element_addeventlistener.asp), 
+    * [querySelector](https://www.w3schools.com/jsref/met_document_queryselector.asp), and 
+    * [classList](https://www.w3schools.com/jsref/prop_element_classlist.asp).
 1. Add a JavaScript/CSS powered popover window to your page. 
 1. Add a close button to the popover div.
 
