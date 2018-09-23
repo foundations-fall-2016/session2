@@ -441,7 +441,7 @@ We will also check for the class using `contains` and check for the presence of 
 ```js
 
 // Listen for clicks on the document
-document.addEventListener('click', show)
+document.addEventListener('click', show, false)
 
 function show() {
   // Bail if our clicked element doesn't have the .map class
