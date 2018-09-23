@@ -3,8 +3,12 @@
 ## Homework
 
 1. Install Node and Git on your personal computer
-1. Add a JavaScript/CSS powered popover window to your page. Be sure to review the documentation below 
-1. REview the documentation for [addEventListener](https://www.w3schools.com/jsref/met_element_addeventlistener.asp), [querySelector](https://www.w3schools.com/jsref/met_document_queryselector.asp), and [classList](https://www.w3schools.com/jsref/prop_element_classlist.asp).
+1. Review the documentation for 
+* [addEventListener](https://www.w3schools.com/jsref/met_element_addeventlistener.asp), 
+* [querySelector](https://www.w3schools.com/jsref/met_document_queryselector.asp), and 
+* [classList](https://www.w3schools.com/jsref/prop_element_classlist.asp).
+1. Add a JavaScript/CSS powered popover window to your page. 
+1. Add a close button to the popover div.
 
 ## Reading
 
@@ -454,9 +458,11 @@ function show() {
   
   event.preventDefault();
 
-});
+};
 
 ```
+
+The last argument in `addEventListener()` (`false`) is known as `useCapture`. It specifies whether or not you want to [capture](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Parameters) the event or allow it to be forwarded ('bubbled') down to elements below it in the DOM. For most event types, this should be set to false. But certain events, like focus, don’t bubble.
 
 ### End Sushi
 
