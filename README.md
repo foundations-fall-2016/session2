@@ -3,12 +3,12 @@
 ## Homework
 
 1. Install Node and Git on your personal computer
-1. Review the documentation for 
-    * [addEventListener](https://www.w3schools.com/jsref/met_element_addeventlistener.asp), 
-    * [querySelector](https://www.w3schools.com/jsref/met_document_queryselector.asp), 
-    * [querySelectorAll](https://www.w3schools.com/jsref/met_document_queryselectorall.asp), and 
+1. Review the documentation for
+    * [addEventListener](https://www.w3schools.com/jsref/met_element_addeventlistener.asp),
+    * [querySelector](https://www.w3schools.com/jsref/met_document_queryselector.asp),
+    * [querySelectorAll](https://www.w3schools.com/jsref/met_document_queryselectorall.asp), and
     * [classList](https://www.w3schools.com/jsref/prop_element_classlist.asp).
-1. Add a JavaScript/CSS powered popover window to your page. 
+1. Add a JavaScript/CSS powered popover window to your page.
 1. Add a close button to the popover div.
 
 ## Reading
@@ -342,7 +342,7 @@ Use [addEventListener](https://www.w3schools.com/jsref/met_element_addeventliste
 var mapClicker = document.querySelector('.map');
 
 mapClicker.addEventListener('click', function(){
-	event.preventDefault();
+  event.preventDefault();
 });
 
 ```
@@ -690,7 +690,7 @@ Recall that the padding on the bottom of the anchor tags was 4px. Let's increase
 ```css
 
 a:hover {
-  ... 
+  ...
   padding-bottom:5px;
 }
 
