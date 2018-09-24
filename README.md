@@ -273,6 +273,10 @@ Access `localhost:8000` in Chrome. Note the directory listing and the default in
 
 ## DOM Scripting I
 
+The DOM is an acronym for Document Object Model.
+
+Every web page is a document, and the DOM is an “object model” representation of that document that programming languages like JavaScript can access and manipulate.
+
 ### Variable Assignment and Types
 
 In the browser console (one line at a time):
