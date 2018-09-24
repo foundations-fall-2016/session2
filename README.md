@@ -271,7 +271,7 @@ python -m SimpleHTTPServer 9000
 
 Access `localhost:8000` in Chrome. Note the directory listing and the default index.html. -->
 
-## DOM Scripting I
+## DOM Scripting
 
 The DOM is an acronym for Document Object Model.
 
@@ -514,7 +514,7 @@ Create an HTML file and save it as `cuisines.html` into the `Tabs` folder.
 <body>
 
 <nav>
-  <ul id="nav">
+  <ul class="nav">
     <li class="t-cuisines"><a href="cuisines.html">Cuisines</a></li>
     <li class="t-chefs"><a href="chefs.html">Chefs</a></li>
     <li class="t-reviews"><a href="reviews.html">Reviews</a></li>
@@ -537,7 +537,7 @@ body {
   margin: 0;
   font-family: 'Lucida Grande', sans-serif;
 }
-#nav {
+.nav {
   background: #ffcb2d;
   margin: 0;
   padding: 10px 0 0 46px;
@@ -545,17 +545,18 @@ body {
 
 ```
 
-Firstly, remove the bullets from the `<ul>`:
+Remove the bullets from the `<ul>`:
 
 ```css
 
-#nav {
-  ... list-style:none;
+.nav {
+  ...
+  list-style: none;
 }
 
 ```
 
-Then float the list items to the left (after removing the possibility that any margins or padding might be applied).
+Float the list items to the left:
 
 ```css
 
@@ -565,16 +566,12 @@ li {
 
 ```
 
-Notice what happened to the `<ul>`'s height. The `<li>` items no longer force the parent `<ul>` element to expand to contain them. This behavior, know as collapsing, occurs whenever all the direct children of a container element are floated. In this case the `<ul>` has collapsed. This behavior is important as collapsing is a common design issue.
+Notice what happened to the `<ul>`'s height. The `<li>` items no longer force the parent `<ul>` element to expand to contain them. This behavior, know as collapsing, occurs whenever all the direct children of a container element are floated. In this case the `<ul>` has collapsed. This behavior is important as "collapsing" is a common design issue when using floats.
 
 There are a number of methods in use to prevent this:
 
-* Apply CSS overflow: auto; to the collapsed element
-
 * float a float (or "FNE" - float nearly everything) - apply a float to the collapsed element
-
 * the clearfix hack - this entails creating a utility class and will be covered later
-
 * adding a clearing div - this entails adding an HTML element to the page and is discouraged
 
 For our current example let's use the second FNE method.
@@ -583,7 +580,7 @@ Try adding a float to the 'collapsed' element:
 
 ```css
 
-#nav {
+.nav {
   ...
   float:left;
 }
@@ -596,20 +593,23 @@ Since we want the `<ul>` to extend the width of the window let's fix the width.
 
 ```css
 
-#nav {
-  ... width:100%;
+.nav {
+  ... 
+  width:100%;
 }
 
 ```
 
 _When you float an element you usually have to specify a width._
 
-Extend the background property to add a background graphic to the `<ul>`.
+Extend the [background property](https://www.w3schools.com/css/css_background.asp) to add a background color and image to the `<ul>`.
 
 ```css
 
-#nav {
-  ... background:#ffcb2d url(i/nav_bg.gif);
+.nav {
+  ...
+  background-color: #ffcb2d;
+  background-image: url(i/nav_bg.gif);
 }
 
 ```
@@ -620,13 +620,17 @@ Add positioning to the background.
 
 ```css
 
-#nav {
-  ... background:#ffcb2d url(i/nav_bg.gif) repeat-x bottom left;
+.nav {
+  ...
+  background-color: #ffcb2d;
+  background-image: url(i/nav_bg.gif);
+  background-repeat: repeat-x;
+  background-position: bottom left;
 }
 
 ```
 
-Next we'll tackle the anchor tags: `<a>`. Add the following to our CSS block.
+Next we'll tackle the `<a>` tags. Add the following to our CSS block.
 
 ```css
 
@@ -662,8 +666,8 @@ a {
 
 ```
 
-By floating the anchors we cause the list items to expand to contain their floated children.
-Now we add a background image to the `<a>`. Note that the image has a gradient and transparency.
+By floating the anchors we cause the `<li>`s to expand to contain their floated children.
+Now we add a background image to the `<a>`. Note the use of the background shortcut and that the image has a gradient and transparency.
 
 ```css
 
@@ -673,7 +677,7 @@ a {
 
 ```
 
-Note what happened to the background graphic we placed in the `<ul>`. It is hidden behind the (now not transparent) anchors.
+Note what happened to the background graphic we placed in the `<ul>`. It is hidden behind the anchors.
 
 Now we create hover states for our tabs by swapping out the background image:
 
@@ -704,13 +708,12 @@ If you roll over the tabs now the height of the anchor increases by one pixel ca
 
 Due to the fact that there is no selected tab (only hovered) the height of the element appears to jump slightly. Let's assume that one of the tabs will always be highlighted.
 
-Create a second selector to highlight one of the anchors.
+Create a second selector to highlight one of the anchors by adding `.t-cuisines a` as a second selector to the hover rule.
 
 ```css
 
-a:hover,
-.t-cuisines a {
-  ...;
+a:hover, .t-cuisines a {
+  ...
 }
 
 ```
@@ -723,18 +726,18 @@ Many prefer to keep the multiple selectors on separate lines like so:
 
 a:hover,
 .t-cuisines a {
-  ...;
+  ...
 }
 
 ```
 
 Now, if we add an id to the body tag we can edit the selector to make it page specific.
 
-Add `id="cuisines"` to the body tag.
+Add `class="cuisines"` to the body tag.
 
 ```html
 
-<body id="p-cuisines">
+<body class="p-cuisines">
 
 ```
 
@@ -743,13 +746,13 @@ Edit the second selector to make the tab highlighting specific to this page.
 ```css
 
 a:hover,
-#p-cuisines .t-cuisines a {
-  ...;
+.p-cuisines .t-cuisines a {
+  ...
 }
 
 ```
 
-We are going to create a second HTML page shortly so let's copy our CSS into an external file, save it as styles.css, and link to it from a newly created css directory:
+We are going to create a second HTML page shortly so let's copy our CSS into an external file as `styles.css` and link to it:
 
 ```html
 
@@ -757,13 +760,19 @@ We are going to create a second HTML page shortly so let's copy our CSS into an 
 
 ```
 
-Note that because we used a new directory, the paths to the images are no longer correct. Correct them now.
+Note that because we used a new directory, the paths to the images are no longer correct. Correct them now using this pattern:
 
-Save a new copy of the HTML page as chefs.html and edit the ID:
+```css
+
+background-image: url(../i/nav_bg.gif);
+
+```
+
+Save a new copy of the HTML page as `chefs.html` and edit the ID:
 
 ```html
 
-<body id="chefs">
+<body class="chefs">
 
 ```
 
@@ -772,9 +781,9 @@ Add a new selector to the CSS.
 ```css
 
 a:hover,
-#p-cuisines .t-cuisines a,
-#p-chefs .t-chefs a {
-  ...;
+.p-cuisines .t-cuisines a,
+.p-chefs .t-chefs a {
+  ...
 }
 
 ```
@@ -810,7 +819,7 @@ background-image: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(224,226
 
 ```
 
-Underline:
+We cannot use `border` for the underline on the `<ul>` so let's use a very thin gradient:
 
 ```css
 
@@ -818,25 +827,57 @@ background-image: linear-gradient(to bottom, #ffcb2d 0%,#ffcb2d 96%,#9b8748 100%
 
 ```
 
-## Looking Forward
+### Using Flexbox
 
-Examine the other demos in the `demo` folder.
+We will be covering flexbox in a future class. For now, note that a more modern method of creating the same design would be to use `display: flex`.
 
-## Notes
-
-### Using Flexbox (optional - demo only)
+Remove the float from the `ul` and add `display: flex`:
 
 ```css
 
 .nav {
+  ...
   display: flex;
-  padding: 0;
-}
-.nav li {
-  flex: 1;
-  background-color: #f0dfb4;
-  list-style: none;
-  text-align: center;
 }
 
 ```
+
+Remove the float from the `<li>` tags and add flex:
+
+```css
+
+li {
+  /* float: left; */
+  display: flex;
+}
+
+```
+
+Remove the float and underline from the anchors:
+
+```css
+
+a {
+  ...
+  /* border-bottom: none; */
+  /* float: left; */
+}
+
+```
+
+Add `border-bottom: none;` to the active state:
+
+```css
+
+a:hover,
+.p-cuisines .t-cuisines a,
+.p-chefs .t-chefs a {
+  border-bottom: none;
+  ...
+}
+
+```
+
+## Looking Forward
+
+Examine the other demos in the `demo` folder.
