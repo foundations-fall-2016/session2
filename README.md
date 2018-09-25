@@ -9,7 +9,7 @@
     * [querySelectorAll](https://www.w3schools.com/jsref/met_document_queryselectorall.asp), and
     * [classList](https://www.w3schools.com/jsref/prop_element_classlist.asp).
 1. Add a JavaScript/CSS powered popover window to your page.
-1. Add a close button to the popover div.
+1. Add a close button ("X") to the popover div and add JavaScript so it closes the popover when clicked on.
 
 ## Reading
 
@@ -367,33 +367,79 @@ function show(e){
 
 ```
 
+If we want to manipulate the display of other items based on the presence of the popover we need to add the showme class higher up in the DOM.
+
+```js
+
+var mapClicker = document.querySelector('.map');
+var body = document.querySelector('body');
+
+mapClicker.addEventListener('click', show);
+
+function show(e){
+  body.classList.toggle('showme');
+  e.preventDefault();
+};
+
+```
+
+This will entail editing the CSS selector:
+
+```css
+
+.showme .popover {
+  display: block;
+}
+
+```
+
+Let try adding manipulating the display of another item:
+
+```css
+
+.showme #wrapper {
+  filter: blur(4px) grayscale(100%) opacity(50%);
+}
+
+```
+
+Note - you must refresh the page manually to reset it. (See the homework assignment above.)
+
+Here's a hint:
+
+```js
+
+if(event.target.classList.contains('closer')) {
+  var body = document.querySelector('body');
+  body.classList.toggle('showme');
+  event.preventDefault();
+}
+
+```
+
 ### Using Event Delegation
 
 Events "bubble up" from the targeted element to its parent elements and all the way up to the document and window.
 
 Instead of listening to specific elements, we’ll instead listen for all click events on the page, and then check to see if the clicked item has a matching selector before running the function.
 
-We will check if the targeted element has the class we want by using `classList.contains` as well as checking for the existence of the popover div:
-
 ```js
 
-// Listen for clicks on the document
 document.addEventListener('click', show, false)
 
 function show() {
-  // Bail if our clicked element doesn't have the .map class
-  if (!event.target.classList.contains('map')) return;
 
-  var popOver = document.querySelector('.popover');
-  if (!popOver) return;
-  
-  popOver.classList.toggle('showme');
-  
-  event.preventDefault();
+  if(event.target.classList.contains('map')) {
+    var body = document.querySelector('body');
+    body.classList.toggle('showme');
+    event.preventDefault();
+  }
 
 };
 
 ```
+
+This allows us to listen for click events anywhre on the page and then do different things depending on which item is clicked on. It improves code organization.
 
 The last argument in `addEventListener()` (`false`) is known as "Use Capture." It allows you to force bubbling on events that don't do it by default. Most events bubble naturally and so use capture can be set to false. Setting `useCapture` to true allows you to take advantage of event bubbling for events that otherwise don’t support it.
 
@@ -535,7 +581,7 @@ Since we want the `<ul>` to extend the width of the window let's fix the width.
 ```css
 
 .nav {
-  ... 
+  ...
   width:100%;
 }
 
