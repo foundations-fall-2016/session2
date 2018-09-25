@@ -245,19 +245,23 @@ console.log(mapClicker)
 
 ```
 
-Use [addEventListener](https://www.w3schools.com/jsref/met_element_addeventlistener.asp) to listen for events on an element - a click on `mapClicker`:
+Use [addEventListener](https://www.w3schools.com/jsref/met_element_addeventlistener.asp) to listen for a click on `mapClicker`:
 
 ```js
 
 var mapClicker = document.querySelector('.map');
 
 mapClicker.addEventListener('click', function(){
+
+  console.log(event); // The event details
+  console.log(event.target); // The clicked element
+
   event.preventDefault();
 });
 
 ```
 
-Since we are working with a link we need to prevent it from navigating away from the page with `event.preventDefault();`. 
+Since we are working with a link we need to prevent it from navigating away from the page with `event.preventDefault();`.
 
 We can call a function to run when the event occurs:
 
@@ -304,9 +308,9 @@ Style the popover div:
 
 ```
 
-Note the `position: fixed` property as well as the top and left.
+Note the `position: fixed` as well as the `top` and `left` properties.
 
-Uncomment `display: none` so the map is initially hidden.
+Uncomment `display: none` so the popover div is initially hidden.
 
 Add a new rule to the css:
 
@@ -349,11 +353,13 @@ function show(e){
 
 ```
 
-### Using the Document
+### Using Event Delegation
 
-Instead of listening to specific elements, we’ll instead listen for all clicks on a page, and then check to see if the clicked item has a matching selector before running the function.
+Events "bubble up" from the targeted element to its parent elements and all the way up to the document and window.
 
-We will also check for the class using `contains` and check for the presence of the popover div:
+Instead of listening to specific elements, we’ll instead listen for all click events on the page, and then check to see if the clicked item has a matching selector before running the function.
+
+We will check if the targeted element has the class we want by using `classList.contains` as well as checking for the existence of the popover div:
 
 ```js
 
@@ -375,7 +381,18 @@ function show() {
 
 ```
 
-The last argument in `addEventListener()` (`false`) is known as `useCapture`. It specifies whether or not you want to [capture](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Parameters) the event or allow it to be forwarded ('bubbled') down to elements below it in the DOM. For most event types, this should be set to false. But certain events, like focus, don’t bubble.
+The last argument in `addEventListener()` (`false`) is known as "Use Capture." It allows you to force bubbling on events that don't do it by default. Most events bubble naturally and so use capture can be set to false. Setting `useCapture` to true allows you to take advantage of event bubbling for events that otherwise don’t support it.
+
+For example, focus does not bubble, so in the example below we force it so we can listen for events on the document or window:
+
+```js
+
+// Listen for all focus events in the document
+document.addEventListener('focus', function (event) {
+    // Run functions whenever an element in the document comes into focus
+}, true);
+
+```
 
 ### End Sushi
 
@@ -747,6 +764,7 @@ Remove the float from the `ul` and add `display: flex`:
 
 .nav {
   ...
+  /* float: left; */
   display: flex;
 }
 
