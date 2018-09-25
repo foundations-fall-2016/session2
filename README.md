@@ -2,7 +2,7 @@
 
 ## Homework
 
-1. Install Node and Git on your personal computer
+1. Install [NodeJS](https://nodejs.org/en/) and [Git](https://git-scm.com/) on your personal computer
 1. Review the documentation for
     * [addEventListener](https://www.w3schools.com/jsref/met_element_addeventlistener.asp),
     * [querySelector](https://www.w3schools.com/jsref/met_document_queryselector.asp),
