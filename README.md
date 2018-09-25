@@ -13,8 +13,7 @@
 
 ## Reading
 
-* HTML5 and CSS3: Building Responsive Websites, Module 1 - chapters 1 and 2, Module 2 - chapter 1 to 4
-* [Responsive Web Design](https://abookapart.com/products/responsive-web-design) - carefully read the section on Media Queries
+* HTML5 and CSS3: Building Responsive Websites, Module 1 - chapters 1 and 2, Module 2 - chapters 1 to 4
 
 ## Server Accounts
 
@@ -24,7 +23,9 @@
 
 ### Floats
 
-Format the pull quote and image:
+The float property is used for positioning and layout on web pages.
+
+Format the pull quote and image In `Sushi/css/styles.css`:
 
 ```css
 
@@ -41,7 +42,7 @@ blockquote {
 
 ```
 
-Note the float property. By default, a floated element shrinks to the width determined by the content.
+By default, a floated element shrinks to the width determined by the content.
 
 ### Adding color to our layout
 
@@ -68,20 +69,11 @@ Let's add a white background to wrapper and a bit of padding.
 }
 ```
 
-Add a drop shadow to the CSS for the info div using the inspector.
-
-```css
-aside {
-  box-shadow: 3px 3px 3px #ddd;
-  ...;
-}
-```
-
 Add a box shadow to the wrapper CSS:
 
 ```css
 #wrapper {
-  box-shadow: 10px 10px 20px #666;
+  box-shadow: 6px 6px 10px #999;
   ...;
 }
 ```
@@ -92,6 +84,34 @@ Make it a glow:
 #wrapper {
   box-shadow: 0px 0px 20px #999;
   ...;
+}
+```
+
+Add a drop shadow and rounded corners to the CSS for the info div using the inspector.
+
+```css
+aside {
+  ...
+  box-shadow: 3px 3px 3px #ddd;
+  border-radius: 4px;
+}
+```
+
+Format the text in the list and table
+
+```css
+aside {
+  ...
+  font-size: 0.875rem;
+}
+
+aside th {
+  text-align: right;
+}
+
+aside ul {
+  list-style: none;
+  padding: 0;
 }
 ```
 
@@ -113,25 +133,7 @@ header h2 {
 article h2 {
   font-weight: 400;
   color: #600;
-  border-bottom: 1px solid #600;
-}
-```
-
-Format elements in the list and table
-
-```css
-aside {
-  ...
-  font-size: 0.875rem;
-}
-
-aside th {
-  text-align: right;
-}
-
-aside ul {
-  list-style: none;
-  padding: 0;
+  border-bottom: 1px dotted #600;
 }
 ```
 
@@ -160,6 +162,8 @@ Edit the nav so it uses classes on the tabs and 'real' links:
 
 ```
 
+Click on the tabs to test.
+
 Add the following to our CSS block:
 
 ```css
@@ -171,9 +175,19 @@ Add the following to our CSS block:
 
 ```
 
-The Reviews tab is now highlighted on the reviews page.
+The Reviews tab is now highlighted only on the reviews page.
 
-Add page level classes to the other three html documents and expand the css tabs selector to allow the tabs to display location as well.
+Add page level classes to the other three html documents and expand the css tabs selector to allow the tabs to display highlighted as well.
+
+```css
+
+.p-review .t-review a,
+.p-cuisines .t-cuisine a {
+  color: #600;
+  background: #f0dfb4;
+}
+
+```
 
 ## DOM Scripting
 
@@ -221,7 +235,7 @@ Add a link to a [Google map](https://www.google.com/maps/place/Geido/@40.6778979
 
 ```
 
-Note the target attribute for the anchor tag. We have also used `class="map"` to name this link.
+Note the target attribute for the anchor tag. We have also used `class="map"` to name the link.
 
 Note the contents of `scripts.js`. Display the Console in the developer tools. Uncomment and recomment lines and examine the output in the console.
 
@@ -271,7 +285,7 @@ var mapClicker = document.querySelector('.map');
 
 mapClicker.addEventListener('click', show);
 
-function show(){
+function show() {
   console.log(event); // The event details
   console.log(event.target); // The clicked element
   event.preventDefault();
