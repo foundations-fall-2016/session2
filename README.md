@@ -245,7 +245,7 @@ console.log(mapClicker)
 
 ```
 
-Use [addEventListener](https://www.w3schools.com/jsref/met_element_addeventlistener.asp) to listen for a click on `mapClicker`:
+Use [addEventListener](https://www.w3schools.com/jsref/met_element_addeventlistener.asp) to listen for events on an element - a click on `mapClicker`:
 
 ```js
 
