@@ -21,6 +21,27 @@
 
 ## Sushi - Converting to Standards (continued)
 
+Recall - we added a bit of responsiveness to our page.
+
+Add `background-color` to the nav and test:
+
+```css
+
+@media all and (max-width: 800px) {
+
+  body {
+    margin: 0;
+  }
+
+  .nav {
+    ...
+    background-color: #600;
+  }
+  ...
+}
+
+```
+
 ### Floats
 
 The float property is used for positioning and layout on web pages.
@@ -44,7 +65,7 @@ blockquote {
 
 By default, a floated element shrinks to the width determined by the content.
 
-### Adding color to our layout
+### Adding Color to Our Layout
 
 Edit the CSS body rule.
 
