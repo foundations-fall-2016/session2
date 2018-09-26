@@ -77,17 +77,17 @@
 // mapLink.addEventListener('click', buttonClick);
 
 // function buttonClick(e) {
-// console.log('Map link clicked');
-// console.log(e);
-// console.log(e.target);
-// console.log(e.type);
-// console.log(e.target.className);
-// console.log(e.target.classList);
-// console.log(e.clientX);
-// console.log(e.clientY);
-// console.log(e.offsetX);
-// console.log(e.offsetY);
-// event.preventDefault();
+// 	console.log('Map link clicked');
+// 	console.log(e);
+// 	console.log(e.target);
+// 	console.log(e.type);
+// 	console.log(e.target.className);
+// 	console.log(e.target.classList);
+// 	console.log(e.clientX);
+// 	console.log(e.clientY);
+// 	console.log(e.offsetX);
+// 	console.log(e.offsetY);
+// 	e.preventDefault();
 // }
 
 // DYNAMICALLY CREATE AN ELEMENT //s
@@ -112,3 +112,48 @@
 
 // // Add the new div to the document
 // headerOne.appendChild(newDiv);
+
+document.addEventListener('click', show, false)
+
+function show() {
+
+  if(event.target.classList.contains('map')) {
+    var body = document.querySelector('body');
+    body.classList.toggle('showme');
+    event.preventDefault();
+  }
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -4,6 +4,7 @@ body {
 	margin: 1rem;
 	color: #333;
 	font-family: Lato, Verdana, Arial, sans-serif;
+  background-color: #ddd;
 }
 
 header {
@@ -13,16 +14,18 @@ header {
 
 header h1,
 header h2 {
-	font-weight: normal;
-	font-size: 3rem;
+  font-weight: normal;
+  font-size: 3rem;
+  margin: 8px 0;
+  color: #600;
 }
-
 header h2 {
-	font-size: 2rem;
-	margin: 8px 0;
+  font-size: 2rem;
 }
 article h2 {
-	font-weight: 400;
+  font-weight: 400;
+  color: #600;
+  border-bottom: 1px dotted #600;
 }
 
 .nav {
@@ -61,6 +64,13 @@ aside {
   background-color: #f0dfb4;
   padding: 6px;
   border: 1px solid #600;
+  box-shadow: 0px 0px 20px #999;
+  font-size: 0.875rem;
+}
+
+aside ul {
+  list-style: none;
+  padding: 0;
 }
 
 article {
@@ -72,6 +82,9 @@ article {
 	margin: 0 auto;
 	border: 1px solid #999;
 	position: relative;
+  background-color: #fff;
+  padding: 1rem;
+  box-shadow: 0px 0px 20px #999;
 }
 
 @media print {
@@ -81,10 +94,14 @@ article {
 }
 
 @media all and (max-width: 800px) {
+  body {
+    margin: 0;
+  }
   .nav {
     top: 0;
     left: 0;
     margin: 0;
+    background-color: #600;
   }
 
   aside {
@@ -105,8 +122,44 @@ article {
 }
 
 
+article img {
+  float: left;
+}
+
+blockquote {
+  float: right;
+  width: 40%;
+  font-size: 1.5rem;
+}
 
 
+.p-review .t-review a,
+.p-cuisines .t-cuisine a {
+  color: #600;
+  background: #f0dfb4;
+}
+
+
+.popover {
+  padding: 1rem;
+  width: 300px;
+  height: 225px;
+  background: #fff;
+  border: 1px solid #600;
+  border-radius: 4px;
+  position: fixed;
+  top: calc(50% - 112px);
+  left: calc(50% - 150px);
+  display: none;
+}
+
+body.showme .popover {
+  display: block;
+}
+
+.showme #wrapper {
+  filter: blur(4px) grayscale(80%) opacity(50%);
+}
 
 
 
