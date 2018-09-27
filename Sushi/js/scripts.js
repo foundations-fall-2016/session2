@@ -1,7 +1,7 @@
 // EXAMINING AND CHANGING THE DOCUMENT  //
 
 // console.log(window);
-// console.dir(document);
+// console.dir(document); // console.dir() displays the element DOM properties
 // console.log(document.domain);
 // console.log(document.URL);
 // console.log(document.title);
