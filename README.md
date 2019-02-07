@@ -185,7 +185,9 @@ Add page level classes to the other three html documents and expand the css tabs
 
 ```css
 .p-review .t-review a,
-.p-cuisines .t-cuisine a {
+.p-cuisines .t-cuisine a,
+.p-delivery .t-delivery a,
+.p-recipes .t-recipe a {
   color: #600;
   background: #f0dfb4;
 }
