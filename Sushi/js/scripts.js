@@ -2,7 +2,6 @@
 
 // console.log(window);
 // console.dir(document); // console.dir() displays the element DOM properties
-// console.log(document.domain);
 // console.log(document.URL);
 // console.log(document.title);
 // document.title = 123;
@@ -33,8 +32,9 @@
 // listItems.style.backgroundColor = '#f4f4f4';
 // console.log(listItems);
 
+// HERE'S how you would have to do it
 // for (var i = 0; i < listItems.length; i++) {
-// 	listItems[i].style.backgroundColor = 'green';
+//   listItems[i].style.backgroundColor = 'green';
 // }
 
 // QUERY SELECTOR ALL - replaces 90% of jQuery //
@@ -45,13 +45,14 @@
 // listItems.style.backgroundColor = '#f4f4f4';
 // console.log('test');
 
+// HERE'S how you would have to do it
 // NODELIST has a method called FOREACH
 // listItems.forEach(function(listItem) {
 // 	listItem.style.backgroundColor = 'red';
 // });
 
 // QUERYSELECTOR //
-// make sure you add a class of 'map' and Google map link to the map anchor tag in the sidebar
+// make sure you add a class of 'map' and a Google map link to the map anchor tag in the sidebar
 // var mapLink = document.querySelector('.map');
 // mapLink.style.borderBottom = 'solid 8px red';
 // document.querySelector('.map').style.borderBottom = 'solid 8px red';
@@ -59,12 +60,12 @@
 // EVENTS //
 
 // mapLink.addEventListener('click', function() {
-// 	console.log('It works!');
+//   console.log('It works!');
 // });
 
 // mapLink.addEventListener('click', function() {
-// 	console.log('It works!');
-// 	event.preventDefault();
+//   console.log('It works!');
+//   event.preventDefault();
 // });
 
 // EVENT (e)
