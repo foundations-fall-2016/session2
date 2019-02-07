@@ -781,7 +781,8 @@ Remove the float and underline from the anchors:
 
 ```css
 a {
-  ... /* border-bottom: none; */ /* float: left; */ ;;
+  ...
+  /* border-bottom: none; */ /* float: left; */ ;;
 }
 ```
 
