@@ -1,131 +1,83 @@
 @import url('http://fonts.googleapis.com/css?family=Lato:300,400,700');
 
 body {
-	margin: 1rem;
+	margin: 12px;
 	color: #333;
 	font-family: Lato, Verdana, Arial, sans-serif;
 }
 
+#wrapper {
+	max-width: 840px;
+	margin: 0 auto;
+	position: relative;
+}
+
 header {
-	font-family: Lobster, cursive;
-	/*font-weight: normal;*/
+	font-family: Lobster, sans-serif;
 }
 
 header h1,
 header h2 {
 	font-weight: normal;
-	font-size: 3rem;
-}
-
-header h2 {
-	font-size: 2rem;
+	font-size: 4rem;
 	margin: 8px 0;
 }
-article h2 {
-	font-weight: 400;
+header h2 {
+	font-size: 2rem;
 }
 
-.nav {
-  list-style: none;
-  padding: 0;
-  position: absolute;
-  z-index: 10;
-  right: 0;
-  top: 12px;
+ul.nav {
+	list-style: none;
+	padding: 0;
+	position: absolute;
+	right: 0;
+	top: 24px;
 }
-
 .nav li {
-  display: inline-block;
-  margin-right: 10px;
+	display: inline-block;
+	margin-right: 10px;
 }
-
 .nav a {
-  color: #fff;
-  text-decoration: none;
-  padding: 4px;
-  display: block;
-  background-color: #600;
-  transition: background-color 0.5s cubic-bezier(0.94,-0.23, 0.29, 1.43);
+	text-decoration: none;
+	background-color: #600;
+	color: #fff;
+	padding: 4px;
+	display: block;
+	transition: background-color 0.25s linear;
 }
-
 .nav a:hover {
-  color: #222;
-  background-color: #f0dfb4;
+	color: #222;
+	background-color: #f0dfb4;
 }
-
 aside {
-  position: absolute;
-  top: 200px;
-  left: 10px;
-  width: 180px;
-  background-color: #f0dfb4;
-  padding: 6px;
-  border: 1px solid #600;
+	position: absolute;
+	top: 200px;
+	left: 24px;
+	width: 180px;
+	background-color: #f0dfb4;
+	padding: 6px;
+	border: 1px solid #600;
 }
 
 article {
 	margin: 0 20px 0 240px;
 }
 
-#wrapper {
-	max-width: 840px;
-	margin: 0 auto;
-	border: 1px solid #999;
-	position: relative;
+article img {
+	float: right;
 }
 
-@media print {
-	* {
-		display: none;
-	}
+blockquote {
+	float: right;
+	width: 40%;
+	font-size: 24px;
 }
-
-@media all and (max-width: 800px) {
-  .nav {
-    top: 0;
-    left: 0;
-    margin: 0;
-  }
-
-  aside {
-    position: static;
-    float: left;
-    margin-right: 20px;
-  }
-
-  article {
-    margin-left: 20px;
-  }
-  
-  blockquote {
-    width: 100%;
-    float: none;
-    margin: 0;
-  }
+blockquote::before {
+	content: '“';
+	font-size: 4rem;
+	font-family: serif;
+	color: #333;
+	line-height: 0.1em;
+	vertical-align: -0.4em;
+	color: #600;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
