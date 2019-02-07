@@ -179,9 +179,9 @@ Add the following to our CSS block:
 }
 ```
 
-The Reviews tab is now highlighted only on the reviews page.
+The Reviews tab is now highlighted but only on the reviews page.
 
-Add page level classes to the other three html documents and expand the css tabs selector to allow the tabs to display highlighted as well.
+Expand the css tabs selector to allow the tabs to display highlighted as well.
 
 ```css
 .p-review .t-review a,
@@ -193,13 +193,15 @@ Add page level classes to the other three html documents and expand the css tabs
 }
 ```
 
+Note that we could use these top level page classes and some CSS to customize other items on the page.
+
 ## DOM Scripting
 
-DOM is an acronym for Document Object Model.
+"DOM" is an acronym for [Document Object Model](https://en.wikipedia.org/wiki/Document_Object_Model). 
 
-Every web page is a document, and the DOM is an “object model” representation of that document that programming languages like JavaScript can access and manipulate.
+It is a cross-platform and language-independent application programming interface (API) that treats an HTML document as a tree structure wherein each node is an object representing a part of the document. 
 
-### Variable Assignment and Types
+<!-- ### Variable Assignment and Types
 
 In the browser console (one line at a time):
 
@@ -219,7 +221,7 @@ typeof wide;
 
 var testString = '123456';
 typeof testString;
-```
+``` -->
 
 Link `scripts.js` to `index.html` before the closing body tag:
 
@@ -227,7 +229,13 @@ Link `scripts.js` to `index.html` before the closing body tag:
 <script src="js/scripts.js"></script>
 ```
 
-Add a link to a [Google map](https://www.google.com/maps/place/Geido/@40.6778979,-73.9749227,17z/data=!3m1!4b1!4m5!3m4!1s0x89c25ba8edab126b:0xfaa0551477e2ec72!8m2!3d40.6778939!4d-73.972734) to the map link in the aside:
+Currenty we have this list item in the aside region of `index.html`:
+
+```html
+<li><a href="#">Map</a> | <a href="#">Directions</a></li>
+```
+
+Add a link to a [Google map](https://www.google.com/maps/place/Geido/@40.6778979,-73.9749227,17z/data=!3m1!4b1!4m5!3m4!1s0x89c25ba8edab126b:0xfaa0551477e2ec72!8m2!3d40.6778939!4d-73.972734) to the map href in the aside:
 
 ```html
 <li>
@@ -241,22 +249,24 @@ Add a link to a [Google map](https://www.google.com/maps/place/Geido/@40.6778979
 </li>
 ```
 
-Note the target attribute for the anchor tag. We have also used `class="map"` to name the link.
+Note the target attribute for the anchor tag. We have also used `class="map"` to identify the href.
 
-Note the contents of `scripts.js`. Display the Console in the developer tools. Uncomment and recomment lines and examine the output in the console.
+Note the contents of `scripts.js`. Display the Console in the developer tools. 
 
-The most important DOM scripting functions we will be using are:
+In order to gain insight into the DOM and some central concepts we will uncomment and recomment lines in `scripts.js` and examine the output in the console. If you are interested in an additional run through of this content please see [Travery's video series](https://youtu.be/0ik6X4DJKCc) on DOM scripting. 
+
+The most important DOM scripting techniques we will be using are:
 
 - [querySelector()](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector)
 - [querySelectorAll()](https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/querySelectorAll)
 - [addEventListener()](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
-- [classList](https://plainjs.com/javascript/attributes/adding-removing-and-testing-for-classes-9/)
+- [classList](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList)
 - [event types](https://developer.mozilla.org/en-US/docs/Web/Events)
 - [functions](https://developer.mozilla.org/en-US/docs/Glossary/Function)
 
 ### Creating the Popover
 
-Make sure everything in `scripts.js` is commented. Add this to the bottom:
+Make sure everything in `scripts.js` is commented. Add this to `scripts.js`:
 
 ```js
 var mapClicker = document.querySelector('.map');
@@ -269,14 +279,27 @@ Use [addEventListener](https://www.w3schools.com/jsref/met_element_addeventliste
 var mapClicker = document.querySelector('.map');
 
 mapClicker.addEventListener('click', function() {
-  console.log(event); // The event details
-  console.log(event.target); // The clicked element
-
   event.preventDefault();
 });
 ```
 
-Since we are working with a link we need to prevent it from navigating away from the page with `event.preventDefault();`.
+Without `preventDefault()` a click would launch the link in a new tab. Since we are working with a link we need to prevent it from navigating away from the page.
+
+Let's examine the event. 
+
+When you click on anything on the page an event occurs. We can examine the event in the console.
+
+```js
+var mapClicker = document.querySelector('.map');
+
+mapClicker.addEventListener('click', function() {
+  console.log(event); // The event details
+  console.log(event.target); // The clicked element
+  event.preventDefault();
+});
+```
+
+A function is a list of commands that, in this case, are run when the event occurs.
 
 We can call a function to run when the event occurs:
 
@@ -307,6 +330,10 @@ Add to the bottom of the html (but before `<script>`) so it appears at the botto
 </div>
 ```
 
+The div and iframne will be visible at the bottom of the page.
+
+Note that it uses an [iframe](https://www.w3schools.com/tags/tag_iframe.asp). An inline frame is used to embed another document within the current HTML document.
+
 Style the popover div:
 
 ```css
@@ -324,7 +351,25 @@ Style the popover div:
 }
 ```
 
-Note the `position: fixed` as well as the `top` and `left` properties.
+Note the `position: fixed` as well as the `top` and `left` properties - we center the div with 50% and then use calc to subtract half the width and height of the div.
+
+If we were using the alternate box model our CSS would look like this:
+
+```css
+.popover {
+  padding: 1rem;
+  width: calc(300px + 2rem);
+  height: calc(225px + 2rem);
+  background: #fff;
+  border: 1px solid #600;
+  border-radius: 4px;
+  position: fixed;
+  top: calc(50% - 116px);
+  left: calc(50% - 166px);
+  /*display: none;*/
+  box-sizing: border-box;
+}
+```
 
 Uncomment `display: none` so the popover div is initially hidden.
 
@@ -336,11 +381,15 @@ Add a new rule to the css:
 }
 ```
 
-Create a reference to the popover div.
+Try:
+
+- In the Elements inspector, try adding the showme class to the div with the popover class.
+
+Create a new variable with a reference to the popover div.
 
 ```js
 var mapClicker = document.querySelector('.map');
-var popOver = document.querySelector('.popover');
+var popOver = document.querySelector('.popover'); // NEW
 
 mapClicker.addEventListener('click', show);
 
@@ -385,7 +434,7 @@ This will entail editing the CSS selector:
 }
 ```
 
-Let try adding manipulating the display of another item:
+Placing the new class at a high level allows us to manipulate the display of other items:
 
 ```css
 .showme #wrapper {
@@ -407,25 +456,24 @@ if (event.target.classList.contains('closer')) {
 
 ### Using Event Delegation
 
-Events "bubble up" from the targeted element to its parent elements and all the way up to the document and window.
+Events "bubble up" from the targeted element to their parent elements and all the way up to the document and window.
 
-Instead of listening to specific elements, we’ll instead listen for all click events on the page, and then check to see if the clicked item has a matching selector before running the function.
+Instead of listening to specific elements, we’ll listen instead for all click events on the page, and then check to see if the clicked item has a matching selector before running the function.
 
 ```js
-document.addEventListener('click', show, false);
+document.addEventListener('click', show);
 
 function show() {
   if (event.target.classList.contains('map')) {
-    var body = document.querySelector('body');
-    body.classList.toggle('showme');
+    document.querySelector('body').classList.toggle('showme');
     event.preventDefault();
   }
 }
 ```
 
-This allows us to listen for click events anywhre on the page and then do different things depending on which item is clicked on. It improves code organization.
+<!-- Event delegation allows us to listen for click events anywhere on the page and then do different things depending on which item is clicked on. It also improves code organization.
 
-The last argument in `addEventListener()` (`false`) is known as "Use Capture." It allows you to force bubbling on events that don't do it by default. Most events bubble naturally and so use capture can be set to false. Setting `useCapture` to true allows you to take advantage of event bubbling for events that otherwise don’t support it.
+The last argument in `addEventListener()` (`false`) is known as "Use Capture." It allows you to force bubbling on events that don't do it by default. Setting `useCapture` to true allows you to take advantage of event bubbling for events that otherwise don’t support it.
 
 For example, focus does not bubble, so in the example below we force it so we can listen for events on the document or window:
 
@@ -437,12 +485,13 @@ document.addEventListener(
     // Run functions whenever an element in the document comes into focus
   },
   true,
-);
+); 
 ```
+-->
 
 ### End Sushi
 
-## Styling a List with Floats
+## Styling a List with Floats vs Flexbox
 
 <img src="Tabs/tabs-image.jpg">
 
@@ -590,7 +639,8 @@ Adding padding, margins to separate, and a border to make them more tab-like:
 
 ```css
 a {
-  ... padding: 4px 8px;
+  ... 
+  padding: 4px 8px;
   border: 1px solid #9b8748;
   margin: 0 6px 0 0;
 }
@@ -600,7 +650,8 @@ Although it may be a little difficult to discern, the same issue we had with col
 
 ```css
 a {
-  ... border-bottom: none;
+  ... 
+  border-bottom: none;
   float: left;
 }
 ```
