@@ -10,14 +10,11 @@
    - [querySelector](https://www.w3schools.com/jsref/met_document_queryselector.asp),
    - [querySelectorAll](https://www.w3schools.com/jsref/met_document_queryselectorall.asp), and
    - [classList](https://www.w3schools.com/jsref/prop_element_classlist.asp).
+1. Upload your homework to the server ([See session one](https://github.com/front-end-foundations/session1))
 
 ## Reading
 
 - If you bought the text: HTML5 and CSS3: Building Responsive Websites, Module 1 - chapters 1 and 2, Module 2 - chapters 1 to 4
-
-## Server Accounts
-
-[See session one](https://github.com/front-end-foundations/session1)
 
 ## Sushi - Converting to Standards (continued)
 
@@ -147,15 +144,17 @@ article h2 {
 ```
 -->
 
-### Highlight One Tab
+### Highlighting Tabs
 
-This is a simple way to create color coded navigation on a web site.
+A simple way to create opportunities for section differentiation across a web site is to add a class at a high level of the pages.
 
 Add a class to body tag so we know what kind of page this is.
 
 ```html
 <body class="p-review"></body>
 ```
+
+('p-' stands for page.)
 
 Edit the nav so it uses classes on the tabs and 'real' links:
 
@@ -167,6 +166,8 @@ Edit the nav so it uses classes on the tabs and 'real' links:
   <li class="t-delivery"><a href="delivery.html">Delivery</a></li>
 </ul>
 ```
+
+('t-' stands for tab.)
 
 Click on the tabs to test.
 
