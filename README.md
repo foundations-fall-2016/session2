@@ -456,8 +456,6 @@ Events "bubble up" from the targeted element to their parent elements and all th
 
 So instead of listening to specific elements, we’ll listen for all click events on the page, and then test to see if the clicked item has a specific name before running the function.
 
-We will use [matches](https://developer.mozilla.org/en-US/docs/Web/API/Element/matches) and an `if` statement to test for the item being clicked on.
-
 Start by looking at the event targets:
 
 ```js
@@ -465,22 +463,210 @@ document.addEventListener('click', show);
 
 function show() {
   console.log(event.target)
+  // 'event.target' is the clicked element
   event.preventDefault();
 }
 ```
 
-Then use the event target to toggle a class:
+Note: `preventDefault()` here disables all our links - even those on our navbar.
+
+We will use [element.matches](https://developer.mozilla.org/en-US/docs/Web/API/Element/matches) and an `if` statement to test for the item being clicked on, then use `classList` to toggle a class:
 
 ```js
-document.addEventListener('click', show);
+document.addEventListener('click', handleClicks);
 
-function show() {
+function handleClicks() {
   if (event.target.matches('.map')) {
     document.querySelector('body').classList.toggle('showme');
+    event.preventDefault();
   }
+}
+```
+
+## HomeWork
+### A Close (✖︎) Button
+
+<!-- 1. We will use [Font Awesome](https://fontawesome.com/cheatsheet) for icons
+1. Examine some usage samples from [Font Awesome](http://fontawesome.io/examples/)
+1. Load Font Awesome with:
+
+```html
+<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+```
+
+Use it once to add an icon to the web site link:
+
+```html
+<li><a href="#"><i class="fa fa-external-link-square-alt"></i>Web site</a></li>
+```
+
+Use the inspector to examine it.
+
+1. [Examine](http://fontawesome.io/icons/) looks like `fa-times` will work.
+
+Add a link to the popover:
+
+```html
+<div class="popover">
+	<a class="closer"><i class="fa fa-times" aria-hidden="true"></i></a>
+	<iframe>...</iframe>
+</div>
+```
+
+```css
+.popover .closer {
+	float: right;
+}
+``` -->
+
+In the `popover` div:
+
+```html
+<li><a class="closer" href="#">✖︎</a></li>
+```
+
+To format the close button, temporarily disable the `display: none` property on the popover's CSS and add:
+
+```css
+.popover .closer {
+  position: absolute;
+  top: -11px;
+  right: -14px;
+  color: #600;
+  cursor: pointer;
+}
+```
+
+The close button will be positioned relative to its nearest positioned ancestor - which, in this case, is the popover div which has a `position: static` property.
+
+Note the `cursor` property. Here is a [list of available cursors](https://www.w3schools.com/cssref/tryit.asp?filename=trycss_cursor) in CSS.
+
+Add some additional formatting to the button:
+
+```css
+.popover .closer {
+  ...
+  text-decoration: none;
+  background-color: #fff;
+  padding: 0.25rem;
+  border: 2px solid #600;
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+}
+```
+
+Note: `border-radius: 50%` creates a circle - as long as the box is perfectly square.
+
+Re-enable the `display:none` property on the popover div.
+
+Create a new script at the bottom of `scripts.js` to include a reference to the new close button:
+
+```js
+var closeButton = document.querySelector('.closer');
+closeButton.addEventListener('click', close);
+
+function close(){
+  var body = document.querySelector('body');
+  body.classList.toggle('showme');
   event.preventDefault();
 }
 ```
+
+Note that the close function is identical to the show function we currently have.
+
+Let's refactor the script by using an 'or' operator `||` in JavaScript:
+
+```js
+if (event.target.classList.contains('map') || event.target.classList.contains('closer')) {
+	...
+}
+```
+
+We will use [element.matches](https://developer.mozilla.org/en-US/docs/Web/API/Element/matches) and an `if` statement to test for the item being clicked on, then use `classList` to add or remove a class:
+
+```js
+document.addEventListener('click', handleClicks);
+
+function handleClicks() {
+  if (event.target.matches('.map')) {
+    document.querySelector('body').classList.add('showme');
+    event.preventDefault();
+  }
+  if (event.target.matches('.closer')) {
+    document.querySelector('body').classList.remove('showme');
+    event.preventDefault();
+  }
+}
+```
+
+
+<!-- Try a [recipe](http://fontawesome.io/examples/) from font-awesome:
+
+```html
+<a class="closer">
+	<span class="fa-stack fa-md">
+		<i class="fa fa-square fa-stack-2x"></i>
+		<i class="fa fa-times fa-stack-1x fa-inverse" aria-hidden="true"></i>
+	</span>
+</a>
+``` -->
+
+
+
+<!-- Add a shadow to the popover:
+
+```css
+box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
+``` -->
+
+<!-- Add an overlay for effect:
+
+```html
+<body>
+<div class="overlay"></div>
+<div id="wrapper">
+``` -->
+
+<!-- ```css
+.overlay {
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 10;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+```
+
+Note that it blocks all the clicks.
+
+...and turn it on:
+
+```js
+...
+var overlay = document.querySelector('.overlay')
+...
+
+function show(){
+	popOver.classList.toggle('showme')
+	overlay.classList.toggle('showme')
+	event.preventDefault()
+}
+```
+
+We used the z-index css property to control stacking order for the menu (review).
+
+We need to control z-index in this case by giving the popover a hight number than the overlay.
+
+Note that there is no possibility of animating this because we are using `display: block` and `display: none`. These are binary states and cannot be used for effects like fading on etc. More on this in a later class. -->
+######################################
+
+
 
 <!-- Event delegation allows us to listen for click events anywhere on the page and then do different things depending on which item is clicked on. It also improves code organization.
 
