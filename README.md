@@ -4,7 +4,7 @@
 
 1. Install [NodeJS](https://nodejs.org/en/) and [Git](https://git-scm.com/) on your personal computer
 1. Add a JavaScript/CSS powered popover window to your homework from session one
-1. Add a close button ("X") to the popover div and add JavaScript so it closes the popover when clicked on
+1. Add a close button ("X") to the popover div and add JavaScript so it closes the popover when clicked
 1. Review the documentation for
    - [addEventListener](https://www.w3schools.com/jsref/met_element_addeventlistener.asp),
    - [querySelector](https://www.w3schools.com/jsref/met_document_queryselector.asp),
@@ -181,7 +181,7 @@ Add the following to our CSS block:
 
 The Reviews tab is now highlighted but only on the reviews page.
 
-Expand the css tabs selector to allow the tabs to display highlighted as well.
+Expand the css rule to allow the other tabs to display highlighted as well.
 
 ```css
 .p-review .t-review a,
@@ -196,6 +196,8 @@ Expand the css tabs selector to allow the tabs to display highlighted as well.
 Note that we could use these top level page classes and some CSS to customize other items on the page.
 
 ## DOM Scripting
+
+There is a finished version of this exercise [here](http://oit2.scps.nyu.edu/~devereld/session2/Sushi/). 
 
 "DOM" is an acronym for [Document Object Model](https://en.wikipedia.org/wiki/Document_Object_Model). 
 
@@ -444,30 +446,24 @@ Placing the new class at a high level allows us to manipulate the display of oth
 
 Note - you must refresh the page manually to reset it. (See the homework assignment above.)
 
-Here's a hint:
-
-```js
-if (event.target.classList.contains('closer')) {
-  var body = document.querySelector('body');
-  body.classList.toggle('showme');
-  event.preventDefault();
-}
-```
-
 ### Using Event Delegation
 
-Events "bubble up" from the targeted element to their parent elements and all the way up to the document and window.
+This will be the final iteration of this script. It is something of a standard to use event delegation in JavaScript.
 
-Instead of listening to specific elements, we’ll listen instead for all click events on the page, and then check to see if the clicked item has a matching selector before running the function.
+Events "bubble up" from the targeted element to their parent elements and all the way up to the document. Everything on your page can be made aware of an event such as click.
+
+So instead of listening to specific elements, we’ll listen for all click events on the page, and then test to see if the clicked item has a specific name before running the function.
+
+We will use [matches](https://developer.mozilla.org/en-US/docs/Web/API/Element/matches) and an `if` statement to test for the item being clicked on.
 
 ```js
 document.addEventListener('click', show);
 
 function show() {
-  if (event.target.classList.contains('map')) {
+  if (event.target.matches('map')) {
     document.querySelector('body').classList.toggle('showme');
-    event.preventDefault();
   }
+  event.preventDefault();
 }
 ```
 
