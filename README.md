@@ -197,6 +197,8 @@ Note that we could use these top level page classes and some CSS to customize ot
 
 ## DOM Scripting
 
+An example of [mobile first design](https://www.nytimes.com/interactive/2018/12/28/nyregion/nyc-property-tax-photos.html?fallback=0&recId=1GuXvkf8n9fJPZ4Orme791unw08&locked=0&geoContinent=NA&geoRegion=CA&recAlloc=story-desks&geoCountry=US&blockId=signature-journalism-vi&imp_id=986464160&action=click&module=editorsPicks&pgtype=Article&region=Footer).
+
 There is a finished version of this exercise [here](http://oit2.scps.nyu.edu/~devereld/session2/Sushi/). 
 
 "DOM" is an acronym for [Document Object Model](https://en.wikipedia.org/wiki/Document_Object_Model). 
@@ -414,6 +416,8 @@ function show(e) {
 }
 ```
 
+Take a look at [the power](https://www.nytimes.com/interactive/2019/01/07/nyregion/output-closing-brooklyn-memories.html) of `classList`.
+
 If we want to manipulate the display of other items based on the presence of the popover we need to add the showme class higher up in the DOM.
 
 ```js
@@ -562,7 +566,7 @@ Note: `border-radius: 50%` creates a circle - as long as the box is perfectly sq
 
 Re-enable the `display:none` property on the popover div.
 
-Create a new script at the bottom of `scripts.js` to include a reference to the new close button:
+<!-- Create a new script at the bottom of `scripts.js` to include a reference to the new close button:
 
 ```js
 var closeButton = document.querySelector('.closer');
@@ -575,15 +579,7 @@ function close(){
 }
 ```
 
-Note that the close function is identical to the show function we currently have.
-
-Let's refactor the script by using an 'or' operator `||` in JavaScript:
-
-```js
-if (event.target.classList.contains('map') || event.target.classList.contains('closer')) {
-	...
-}
-```
+Note that the close function is identical to the show function we currently have. -->
 
 We will use [element.matches](https://developer.mozilla.org/en-US/docs/Web/API/Element/matches) and an `if` statement to test for the item being clicked on, then use `classList` to add or remove a class:
 
@@ -597,6 +593,27 @@ function handleClicks() {
   }
   if (event.target.matches('.closer')) {
     document.querySelector('body').classList.remove('showme');
+    event.preventDefault();
+  }
+}
+```
+
+Let's refactor the script by using an 'or' operator `||` in JavaScript:
+
+```js
+if (event.target.classList.contains('map') || event.target.classList.contains('closer')) {
+	...
+}
+```
+
+With a toggle, e.g.:
+
+```js
+document.addEventListener('click', handleClicks);
+
+function handleClicks() {
+  if (event.target.matches('.map') || event.target.matches('.closer')) {
+    document.querySelector('body').classList.toggle('showme');
     event.preventDefault();
   }
 }
