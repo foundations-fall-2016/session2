@@ -450,17 +450,32 @@ Note - you must refresh the page manually to reset it. (See the homework assignm
 
 This will be the final iteration of this script. It is something of a standard to use event delegation in JavaScript.
 
-Events "bubble up" from the targeted element to their parent elements and all the way up to the document. Everything on your page can be made aware of an event such as click.
+Event Delegation refers to the process of using event propagation or bubbling to handle events at a higher level in the DOM than the element on which the event originated.
+
+Events "bubble up" from the targeted element to their parent elements and all the way up through their ancestors and eventually to the document and window - the highest levels of a page. 
 
 So instead of listening to specific elements, we’ll listen for all click events on the page, and then test to see if the clicked item has a specific name before running the function.
 
 We will use [matches](https://developer.mozilla.org/en-US/docs/Web/API/Element/matches) and an `if` statement to test for the item being clicked on.
 
+Start by looking at the event targets:
+
 ```js
 document.addEventListener('click', show);
 
 function show() {
-  if (event.target.matches('map')) {
+  console.log(event.target)
+  event.preventDefault();
+}
+```
+
+Then use the event target to toggle a class:
+
+```js
+document.addEventListener('click', show);
+
+function show() {
+  if (event.target.matches('.map')) {
     document.querySelector('body').classList.toggle('showme');
   }
   event.preventDefault();
