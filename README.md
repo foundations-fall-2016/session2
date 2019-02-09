@@ -7,8 +7,8 @@ This semester we will observe how the three pillars of web development come toge
 1. Add a popover window to your homework from session one using a link to your favorite restaurant from Google maps
 1. Add a close button ("X") to the popover div and add JavaScript so it closes the popover when clicked. Upload your homework to the server. ([See session one](https://github.com/front-end-foundations/session1)) for access instructions.
 1. Review the documentation for
-   - [addEventListener](https://www.w3schools.com/jsref/met_element_addeventlistener.asp),
    - [querySelector](https://www.w3schools.com/jsref/met_document_queryselector.asp),
+   - [addEventListener](https://www.w3schools.com/jsref/met_element_addeventlistener.asp),
    - [querySelectorAll](https://www.w3schools.com/jsref/met_document_queryselectorall.asp), and
    - [classList](https://www.w3schools.com/jsref/prop_element_classlist.asp).
 1. Install [NodeJS](https://nodejs.org/en/) (the latest version) and [Git](https://git-scm.com/) on your personal computer. Create a free account on [Github](http://github.com)
