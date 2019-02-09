@@ -13,7 +13,7 @@
 
 ## Reading
 
-- Read MDNs [Intro to JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/A_first_splash) to learn how to create [this game](Homework/).
+- Read MDNs [Intro to JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/A_first_splash) to learn how to create [this game](Homework/index.html).
 
 ## Sushi - Converting to Standards (continued)
 
