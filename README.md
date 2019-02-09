@@ -1,9 +1,11 @@
 # II Intro to DOM Scripting
 
+This semester we will observe how the three pillars of web development come together to create the modern web. Even though we have just begun learning HTML and CSS, I will briefly introduce JavaScript so that we can cover all three as a cohesive system.
+
 ## Homework
 
-1. Add a JavaScript/CSS powered popover window to your homework from session one
-1. Add a close button ("X") to the popover div and add JavaScript so it closes the popover when clicked. Upload your homework to the server ([See session one](https://github.com/front-end-foundations/session1)) for access instructions.
+1. Add a popover window to your homework from session one using Google maps in an iframe for content
+1. Add a close button ("X") to the popover div and add JavaScript so it closes the popover when clicked. Upload your homework to the server. ([See session one](https://github.com/front-end-foundations/session1)) for access instructions.
 1. Review the documentation for
    - [addEventListener](https://www.w3schools.com/jsref/met_element_addeventlistener.asp),
    - [querySelector](https://www.w3schools.com/jsref/met_document_queryselector.asp),
