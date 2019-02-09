@@ -4,155 +4,31 @@ This semester we will observe how the three pillars of web development come toge
 
 ## Homework
 
-1. Add a popover window to your homework from session one using Google maps in an iframe for content
+1. Add a popover window to your homework from session one using a link to your favorite restaurant from Google maps
 1. Add a close button ("X") to the popover div and add JavaScript so it closes the popover when clicked. Upload your homework to the server. ([See session one](https://github.com/front-end-foundations/session1)) for access instructions.
 1. Review the documentation for
    - [addEventListener](https://www.w3schools.com/jsref/met_element_addeventlistener.asp),
    - [querySelector](https://www.w3schools.com/jsref/met_document_queryselector.asp),
    - [querySelectorAll](https://www.w3schools.com/jsref/met_document_queryselectorall.asp), and
    - [classList](https://www.w3schools.com/jsref/prop_element_classlist.asp).
-1. Install [NodeJS](https://nodejs.org/en/) and [Git](https://git-scm.com/) on your personal computer
+1. Install [NodeJS](https://nodejs.org/en/) (the latest version) and [Git](https://git-scm.com/) on your personal computer. Create a free account on [Github](http://github.com)
 
 ## Reading
 
-- Read MDNs [Intro to JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/A_first_splash) to learn how to create [this game](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/A_first_splash#Example_%E2%80%94_Guess_the_number_game).
+- Read MDNs [Intro to JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript) to learn how to create [this game](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/A_first_splash#Example_%E2%80%94_Guess_the_number_game).
 
 ## Sushi - Converting to Standards (continued)
-
-<!-- Recall - we added a bit of responsiveness to our page.
-
-Add `background-color` to the nav and test:
-
-```css
-@media all and (max-width: 800px) {
-  body {
-    margin: 0;
-  }
-
-  .nav {
-    ... background-color: #600;
-  }
-  ...;
-}
-``` -->
-
-<!-- ### Floats
-
-The float property is used for positioning and layout on web pages.
-
-Format the pull quote and image In `Sushi/css/styles.css`:
-
-```css
-article img {
-  float: right;
-}
-
-blockquote {
-  float: right;
-  width: 40%;
-  padding: 16px;
-  font-size: 24px;
-}
-```
-
-By default, a floated element shrinks to the width determined by the content.
-
-### Adding Color to Our Layout
-
-Edit the CSS body rule.
-
-```css
-body {
-  ... background-color: #ddd;
-}
-```
-
-Note that the wrapper's background is transparent and shows through to the gray applied to the body.
-
-Let's add a white background to wrapper and a bit of padding.
-
-```css
-#wrapper {
-  ... background-color: #fff;
-  padding: 1rem;
-}
-```
-
-Add a box shadow to the wrapper CSS:
-
-```css
-#wrapper {
-  box-shadow: 6px 6px 10px #999;
-  ...;
-}
-```
-
-Make it a glow:
-
-```css
-#wrapper {
-  box-shadow: 0px 0px 20px #999;
-  ...;
-}
-```
-
-Add a drop shadow and rounded corners to the CSS for the info div using the inspector.
-
-```css
-aside {
-  ... box-shadow: 3px 3px 3px #ddd;
-  border-radius: 4px;
-}
-```
-
-Format the text in the list and table
-
-```css
-aside {
-  ... font-size: 0.875rem;
-}
-
-aside th {
-  text-align: right;
-}
-
-aside ul {
-  list-style: none;
-  padding: 0;
-}
-```
-
-### Formatting the content
-
-Note the h1's margin outside the containing elements (not part of the box model).
-
-```css
-header h1,
-header h2 {
-  font-weight: normal;
-  font-size: 3rem;
-  margin: 8px 0;
-  color: #600;
-}
-header h2 {
-  font-size: 2rem;
-}
-article h2 {
-  font-weight: 400;
-  color: #600;
-  border-bottom: 1px dotted #600;
-}
-```
--->
 
 ### Highlighting Tabs
 
 A simple way to create opportunities for section differentiation across a web site is to add a class at a high level of the pages.
 
-Add a class to body tag so we know what kind of page this is.
+Add a class to body tag in `index.html` so we know what section of the site this is.
 
 ```html
-<body class="p-review"></body>
+<body class="p-review">
+  ...
+</body>
 ```
 
 ('p-' stands for page.)
@@ -170,7 +46,7 @@ Edit the nav so it uses classes on the tabs and 'real' links:
 
 ('t-' stands for tab.)
 
-Click on the tabs to test.
+I have placed a series of placeholder HTML pages in today's directory. Click on the tabs to test.
 
 Add the following to our CSS block:
 
@@ -181,7 +57,7 @@ Add the following to our CSS block:
 }
 ```
 
-The Reviews tab is now highlighted but only on the reviews page.
+The Reviews tab is now highlighted - but only on the reviews section.
 
 Expand the css rule to allow the other tabs to display highlighted as well.
 
@@ -199,9 +75,9 @@ Note that we could use these top level page classes and some CSS to customize ot
 
 ## DOM Scripting
 
-An example of [mobile first design](https://www.nytimes.com/interactive/2018/12/28/nyregion/nyc-property-tax-photos.html?fallback=0&recId=1GuXvkf8n9fJPZ4Orme791unw08&locked=0&geoContinent=NA&geoRegion=CA&recAlloc=story-desks&geoCountry=US&blockId=signature-journalism-vi&imp_id=986464160&action=click&module=editorsPicks&pgtype=Article&region=Footer).
-
 There is a finished version of this exercise [here](http://oit2.scps.nyu.edu/~devereld/session2/Sushi/). 
+
+An example of [mobile first design](https://www.nytimes.com/interactive/2018/12/28/nyregion/nyc-property-tax-photos.html?fallback=0&recId=1GuXvkf8n9fJPZ4Orme791unw08&locked=0&geoContinent=NA&geoRegion=CA&recAlloc=story-desks&geoCountry=US&blockId=signature-journalism-vi&imp_id=986464160&action=click&module=editorsPicks&pgtype=Article&region=Footer).
 
 "DOM" is an acronym for [Document Object Model](https://en.wikipedia.org/wiki/Document_Object_Model). 
 
