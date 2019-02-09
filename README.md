@@ -2,19 +2,18 @@
 
 ## Homework
 
-1. Install [NodeJS](https://nodejs.org/en/) and [Git](https://git-scm.com/) on your personal computer
 1. Add a JavaScript/CSS powered popover window to your homework from session one
-1. Add a close button ("X") to the popover div and add JavaScript so it closes the popover when clicked
+1. Add a close button ("X") to the popover div and add JavaScript so it closes the popover when clicked. Upload your homework to the server ([See session one](https://github.com/front-end-foundations/session1)) for access instructions.
 1. Review the documentation for
    - [addEventListener](https://www.w3schools.com/jsref/met_element_addeventlistener.asp),
    - [querySelector](https://www.w3schools.com/jsref/met_document_queryselector.asp),
    - [querySelectorAll](https://www.w3schools.com/jsref/met_document_queryselectorall.asp), and
    - [classList](https://www.w3schools.com/jsref/prop_element_classlist.asp).
-1. Upload your homework to the server ([See session one](https://github.com/front-end-foundations/session1))
+1. Install [NodeJS](https://nodejs.org/en/) and [Git](https://git-scm.com/) on your personal computer
 
 ## Reading
 
-- If you bought the text: HTML5 and CSS3: Building Responsive Websites, Module 1 - chapters 1 and 2, Module 2 - chapters 1 to 4
+- Read MDNs [Intro to JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/A_first_splash) to learn how to create [this game](Homework/).
 
 ## Sushi - Converting to Standards (continued)
 
