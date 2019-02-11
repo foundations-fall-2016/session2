@@ -1,7 +1,7 @@
 // EXAMINING AND CHANGING THE DOCUMENT  //
 
 // console.log(window);
-// console.dir(document); // console.dir() displays the element DOM properties
+// console.log(document); // console.dir(document) displays the element DOM properties
 // console.log(document.URL);
 // console.log(document.title);
 // document.title = 123;
@@ -18,32 +18,16 @@
 /* GET ELEMENT BY ID - uncomment in sequence */
 // console.log(document.getElementById('wrapper'));
 // var wrapper = document.getElementById('wrapper');
-// wrapper.textContent = 'Hello';
+// wrapper.textContent = 'Text content set in JavaScript';
 // wrapper.style.borderBottom = 'solid 30px red';
 
-// GET ELEMENTS BY CLASS NAME //
-// var nav = document.getElementsByClassName('nav');
-// console.log(nav);
-
-// GET ELEMENTS BY TAG NAME //
-// var listItems = document.getElementsByTagName('li');
-
-// Gives BLOCKING error - the console log command never runs
-// listItems.style.backgroundColor = '#f4f4f4';
-// console.log(listItems);
-
-// HERE'S how you would have to do it
-// for (var i = 0; i < listItems.length; i++) {
-//   listItems[i].style.backgroundColor = 'green';
-// }
-
-// QUERY SELECTOR ALL - replaces 90% of jQuery //
+// QUERY SELECTOR ALL //
 // var listItems = document.querySelectorAll('li');
 // NOTE - returns a NodeList
 
 // Gives BLOCKING error - the console log command never runs
 // listItems.style.backgroundColor = '#f4f4f4';
-// console.log('test');
+// console.log('This will not run b/c the line about causes a blocking error');
 
 // HERE'S how you would have to do it
 // NODELIST has a method called FOREACH
@@ -52,18 +36,18 @@
 // });
 
 // QUERYSELECTOR //
-// make sure you add a class of 'map' and a Google map link to the map anchor tag in the sidebar
+// make sure you have a class of 'map' and a Google map link to the map anchor tag in the sidebar
 // var mapLink = document.querySelector('.map');
 // mapLink.style.borderBottom = 'solid 8px red';
-// document.querySelector('.map').style.borderBottom = 'solid 8px red';
 
 // EVENTS //
 
+// ADDEVENTLISTENER
 // mapLink.addEventListener('click', function() {
 //   console.log('It works!');
 // });
 
-// mapLink.addEventListener('click', function() {
+// mapLink.addEventListener('click', function(event) {
 //   console.log('It works!');
 //   event.preventDefault();
 // });
@@ -74,6 +58,8 @@
 // 	console.log(event);
 // 	event.preventDefault();
 // });
+
+// CALLING A FUNCTION
 
 // mapLink.addEventListener('click', buttonClick);
 
@@ -106,7 +92,7 @@
 // // Add text to div
 // newDiv.appendChild(newDivText);
 // newDiv.style.fontSize = '40px';
-// newDiv.style.color = 'red';
+// newDiv.style.color = '#600';
 
 // // Store a reference to the H1
 // var headerOne = document.querySelector('header h1');

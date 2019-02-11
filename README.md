@@ -19,11 +19,141 @@ This semester we will observe how the three pillars of web development come toge
 
 ## Sushi - Converting to Standards (continued)
 
+Note: pick from [session one](https://github.com/front-end-foundations/session1#adding-more-design-to-our-layout) before continuing.
+
+<!-- Recall - we added a bit of responsiveness to our page.
+
+Add `background-color` to the nav and test:
+
+```css
+@media all and (max-width: 800px) {
+  body {
+    margin: 0;
+  }
+
+  .nav {
+    ... background-color: #600;
+  }
+  ...;
+}
+``` -->
+
+<!-- ### Floats
+
+The float property is used for positioning and layout on web pages.
+
+Format the pull quote and image In `Sushi/css/styles.css`:
+
+```css
+article img {
+  float: right;
+}
+
+blockquote {
+  float: right;
+  width: 40%;
+  padding: 16px;
+  font-size: 24px;
+}
+```
+
+By default, a floated element shrinks to the width determined by the content.
+
+### Adding Color to Our Layout
+
+Edit the CSS body rule.
+
+```css
+body {
+  ... background-color: #ddd;
+}
+```
+
+Note that the wrapper's background is transparent and shows through to the gray applied to the body.
+
+Let's add a white background to wrapper and a bit of padding.
+
+```css
+#wrapper {
+  ... background-color: #fff;
+  padding: 1rem;
+}
+```
+
+Add a box shadow to the wrapper CSS:
+
+```css
+#wrapper {
+  box-shadow: 6px 6px 10px #999;
+  ...;
+}
+```
+
+Make it a glow:
+
+```css
+#wrapper {
+  box-shadow: 0px 0px 20px #999;
+  ...;
+}
+```
+
+Add a drop shadow and rounded corners to the CSS for the info div using the inspector.
+
+```css
+aside {
+  ... box-shadow: 3px 3px 3px #ddd;
+  border-radius: 4px;
+}
+```
+
+Format the text in the list and table
+
+```css
+aside {
+  ... font-size: 0.875rem;
+}
+
+aside th {
+  text-align: right;
+}
+
+aside ul {
+  list-style: none;
+  padding: 0;
+}
+```
+
+### Formatting the content
+
+Note the h1's margin outside the containing elements (not part of the box model).
+
+```css
+header h1,
+header h2 {
+  font-weight: normal;
+  font-size: 3rem;
+  margin: 8px 0;
+  color: #600;
+}
+header h2 {
+  font-size: 2rem;
+}
+article h2 {
+  font-weight: 400;
+  color: #600;
+  border-bottom: 1px dotted #600;
+}
+```
+-->
+
 ### Highlighting Tabs
 
 A simple way to create opportunities for section differentiation across a web site is to add a class at a high level of the pages.
 
-Add a class to body tag in `index.html` so we know what section of the site this is.
+Note: before continuing note the behavior of the navigation tabs in the device simulator. Remember - there is no such thing as `:hover` on devices.
+
+Add a class to body tag so we know what kind of page this is.
 
 ```html
 <body class="p-review">
@@ -36,12 +166,14 @@ Add a class to body tag in `index.html` so we know what section of the site this
 Edit the nav so it uses classes on the tabs and 'real' links:
 
 ```html
-<ul class="nav">
-  <li class="t-cuisine"><a href="cuisines.html">Cuisines</a></li>
-  <li class="t-recipe"><a href="recipes.html">Recipes</a></li>
-  <li class="t-review"><a href="index.html">Reviews</a></li>
-  <li class="t-delivery"><a href="delivery.html">Delivery</a></li>
-</ul>
+<nav>
+  <ul class="nav">
+    <li class="t-cuisine"><a href="cuisines.html">Cuisines</a></li>
+    <li class="t-recipe"><a href="recipes.html">Recipes</a></li>
+    <li class="t-review"><a href="index.html">Reviews</a></li>
+    <li class="t-delivery"><a href="delivery.html">Delivery</a></li>
+  </ul>
+</nav>
 ```
 
 ('t-' stands for tab.)
@@ -75,13 +207,15 @@ Note that we could use these top level page classes and some CSS to customize ot
 
 ## DOM Scripting
 
-There is a finished version of this exercise [here](http://oit2.scps.nyu.edu/~devereld/session2/Sushi/). 
+An example of [mobile first design](https://www.nytimes.com/interactive/2018/12/28/nyregion/nyc-property-tax-photos.html?fallback=0&recId=1GuXvkf8n9fJPZ4Orme791unw08&locked=0&geoContinent=NA&geoRegion=CA&recAlloc=story-desks&geoCountry=US&blockId=signature-journalism-vi&imp_id=986464160&action=click&module=editorsPicks&pgtype=Article&region=Footer).
+
+A finished version of this exercise is available [here](http://oit2.scps.nyu.edu/~devereld/session2/Sushi/). Be sure to test the Map link.
 
 An example of [mobile first design](https://www.nytimes.com/interactive/2018/12/28/nyregion/nyc-property-tax-photos.html?fallback=0&recId=1GuXvkf8n9fJPZ4Orme791unw08&locked=0&geoContinent=NA&geoRegion=CA&recAlloc=story-desks&geoCountry=US&blockId=signature-journalism-vi&imp_id=986464160&action=click&module=editorsPicks&pgtype=Article&region=Footer).
 
 "DOM" is an acronym for [Document Object Model](https://en.wikipedia.org/wiki/Document_Object_Model). 
 
-It is a cross-platform and language-independent application programming interface (API) that treats an HTML document as a tree structure wherein each node is an object representing a part of the document. 
+The DOM is a cross-platform and language-independent application programming interface (API) that treats an HTML document as a tree structure wherein each node is an object representing a part of the document. 
 
 <!-- ### Variable Assignment and Types
 
@@ -108,7 +242,9 @@ typeof testString;
 Link `scripts.js` to `index.html` before the closing body tag:
 
 ```html
-<script src="js/scripts.js"></script>
+...
+  <script src="js/scripts.js"></script>
+</body>
 ```
 
 Currenty we have this list item in the aside region of `index.html`:
@@ -133,7 +269,7 @@ Add a link to a [Google map](https://www.google.com/maps/place/Geido/@40.6778979
 
 Note the target attribute for the anchor tag. We have also used `class="map"` to identify the href.
 
-Note the contents of `scripts.js`. Display the Console in the developer tools. 
+Note the contents of `scripts.js`. Open the developer tools in Chrome and display the JavaScript Console. 
 
 In order to gain insight into the DOM and some central concepts we will uncomment and recomment lines in `scripts.js` and examine the output in the console. If you are interested in an additional run through of this content please see [Travery's video series](https://youtu.be/0ik6X4DJKCc) on DOM scripting. 
 
@@ -143,6 +279,9 @@ The most important DOM scripting techniques we will be using are:
 - [querySelectorAll()](https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/querySelectorAll)
 - [addEventListener()](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
 - [classList](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList)
+
+You will also be introduced to:
+
 - [event types](https://developer.mozilla.org/en-US/docs/Web/Events)
 - [functions](https://developer.mozilla.org/en-US/docs/Glossary/Function)
 
