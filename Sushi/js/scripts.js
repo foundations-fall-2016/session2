@@ -86,11 +86,10 @@
 // // Add class
 // newDiv.className = 'popover';
 
-// // Create text node
-// var newDivText = document.createTextNode('Hello World');
+// // Add text
+// newDiv.innerHTML = 'Hello World'
 
 // // Add text to div
-// newDiv.appendChild(newDivText);
 // newDiv.style.fontSize = '40px';
 // newDiv.style.color = '#600';
 
