@@ -201,9 +201,9 @@ mapClicker.addEventListener('click', function() {
 
 A function is a list of commands that, in this case, are run when the event occurs.
 
-Try:
+<!-- Try:
 
-- Click on elements on the page with the Console open
+- Click on elements on the page with the Console open -->
 
 Call the `show` function to run when the event (the user clicks on `mapClicker`) occurs:
 
@@ -311,12 +311,12 @@ var popOver = document.querySelector('.popover');
 mapClicker.addEventListener('click', show);
 
 function show(e) {
-  popOver.classList.toggle('showme');
+  popOver.classList.toggle('showme'); // NEW
   e.preventDefault();
 }
 ```
 
-Take a look at [the power](https://www.nytimes.com/interactive/2019/01/07/nyregion/output-closing-brooklyn-memories.html) of `classList`. Compare this to [http://www.w3schools.com/jquery/jquery_animate.asp](http://www.w3schools.com/jquery/jquery_animate.asp). The latter is an example of JavaScript animation, the former is CSS animation. Generally speaking, CSS animation is smoother than JavaScript animation due to GPU optimization..
+Take a look at [the power](https://www.nytimes.com/interactive/2019/01/07/nyregion/output-closing-brooklyn-memories.html) of `classList`.
 
 If we want to manipulate the display of other items based on the presence of the popover we need to add the showme class higher up in the DOM.
 
@@ -378,12 +378,17 @@ function show() {
 
 Note: `preventDefault()` here disables all our links - even those on our navbar.
 
+Try:
+
+- clicking elsewhere on the page with the Console open.
+
 We will use [element.matches](https://developer.mozilla.org/en-US/docs/Web/API/Element/matches) and an `if` statement to test for the item being clicked on, then use `classList` to toggle a class:
 
 ```js
 document.addEventListener('click', handleClicks);
 
 function handleClicks() {
+  console.log(event.target)
   if (event.target.matches('.map')) {
     document.querySelector('body').classList.toggle('showme');
     event.preventDefault();
@@ -547,7 +552,7 @@ function handleClicks(e) {
 }
 ```
 
-
+See the samples on CodePen for [querySelector](https://codepen.io/DannyBoyNYC/pen/wNXPKY) and [querySelectorAll(https://codepen.io/DannyBoyNYC/pen/exKegp)].
 
 <!-- Try a [recipe](http://fontawesome.io/examples/) from font-awesome:
 
