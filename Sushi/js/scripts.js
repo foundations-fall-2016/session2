@@ -63,17 +63,17 @@
 
 // mapLink.addEventListener('click', buttonClick);
 
-// function buttonClick(e) {
+// function buttonClick() {
 // console.log('Map link clicked');
-// console.log(e);
-// console.log(e.target);
-// console.log(e.type);
-// console.log(e.target.className);
-// console.log(e.target.classList);
-// console.log(e.clientX);
-// console.log(e.clientY);
-// console.log(e.offsetX);
-// console.log(e.offsetY);
+// console.log(event);
+// console.log(event.target);
+// console.log(event.type);
+// console.log(event.target.className);
+// console.log(event.target.classList);
+// console.log(event.clientX);
+// console.log(event.clientY);
+// console.log(event.offsetX);
+// console.log(event.offsetY);
 // event.preventDefault();
 // }
 

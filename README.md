@@ -22,7 +22,7 @@ Read MDNs [Intro to JavaScript](https://developer.mozilla.org/en-US/docs/Learn/J
 
 ## Sushi - Converting to Standards (continued)
 
-Note: we need to pick from the end of [session one](https://github.com/front-end-foundations/session1#adding-more-design-to-our-layout) before continuing with the material below.
+Note: we need to pick up from the end of [session one](https://github.com/front-end-foundations/session1#adding-more-design-to-our-layout) before continuing with the material below.
 
 ### Highlighting Tabs
 
@@ -87,8 +87,6 @@ Note that we could use these top level page classes and some CSS to customize ot
 An example of [mobile first design](https://www.nytimes.com/interactive/2018/12/28/nyregion/nyc-property-tax-photos.html?fallback=0&recId=1GuXvkf8n9fJPZ4Orme791unw08&locked=0&geoContinent=NA&geoRegion=CA&recAlloc=story-desks&geoCountry=US&blockId=signature-journalism-vi&imp_id=986464160&action=click&module=editorsPicks&pgtype=Article&region=Footer).
 
 A finished version of this exercise is available [here](http://oit2.scps.nyu.edu/~devereld/session2/Sushi/). Be sure to test the Map link.
-
-An example of [mobile first design](https://www.nytimes.com/interactive/2018/12/28/nyregion/nyc-property-tax-photos.html?fallback=0&recId=1GuXvkf8n9fJPZ4Orme791unw08&locked=0&geoContinent=NA&geoRegion=CA&recAlloc=story-desks&geoCountry=US&blockId=signature-journalism-vi&imp_id=986464160&action=click&module=editorsPicks&pgtype=Article&region=Footer).
 
 "DOM" is an acronym for [Document Object Model](https://en.wikipedia.org/wiki/Document_Object_Model). 
 
