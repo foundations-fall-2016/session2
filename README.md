@@ -4,152 +4,29 @@ This semester we will observe how the three pillars of web development come toge
 
 ## Homework
 
-1. Add a popover window to your homework from session one using a link to your favorite restaurant from Google maps
-1. Add a close button ("X") to the popover div and add JavaScript so it closes the popover when clicked. Upload your homework to the server. ([See session one](https://github.com/front-end-foundations/session1)) for access instructions.
-1. Review the documentation for
+1. Add a popover window to your homework from session one using a link to _your_ favorite restaurant
+1. Add a close button ("X") to the popover div 
+1. Use CSS to style the close button
+1. Add JavaScript to make the close button close the popover when clicked
+1. Upload your homework to the NYU server. ([See session one](https://github.com/front-end-foundations/session1)) for access instructions
+<!-- 1. Review the documentation for
    - [querySelector](https://www.w3schools.com/jsref/met_document_queryselector.asp),
    - [addEventListener](https://www.w3schools.com/jsref/met_element_addeventlistener.asp),
    - [querySelectorAll](https://www.w3schools.com/jsref/met_document_queryselectorall.asp), and
    - [classList](https://www.w3schools.com/jsref/prop_element_classlist.asp).
-1. Install [NodeJS](https://nodejs.org/en/) (the latest version) and [Git](https://git-scm.com/) on your personal computer. Create a free account on [Github](http://github.com)
+1. Install [NodeJS](https://nodejs.org/en/) (the latest version) and [Git](https://git-scm.com/) on your personal computer. Create a free account on [Github](http://github.com) -->
 
 ## Reading
 
-- Read MDNs [Intro to JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript) to learn how to create [this game](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/A_first_splash#Example_%E2%80%94_Guess_the_number_game).
+Read MDNs [Intro to JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript) to learn how to create [this game](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/A_first_splash#Example_%E2%80%94_Guess_the_number_game).
 
 ## Sushi - Converting to Standards (continued)
 
-Note: pick from [session one](https://github.com/front-end-foundations/session1#adding-more-design-to-our-layout) before continuing.
-
-<!-- Recall - we added a bit of responsiveness to our page.
-
-Add `background-color` to the nav and test:
-
-```css
-@media all and (max-width: 800px) {
-  body {
-    margin: 0;
-  }
-
-  .nav {
-    ... background-color: #600;
-  }
-  ...;
-}
-``` -->
-
-<!-- ### Floats
-
-The float property is used for positioning and layout on web pages.
-
-Format the pull quote and image In `Sushi/css/styles.css`:
-
-```css
-article img {
-  float: right;
-}
-
-blockquote {
-  float: right;
-  width: 40%;
-  padding: 16px;
-  font-size: 24px;
-}
-```
-
-By default, a floated element shrinks to the width determined by the content.
-
-### Adding Color to Our Layout
-
-Edit the CSS body rule.
-
-```css
-body {
-  ... background-color: #ddd;
-}
-```
-
-Note that the wrapper's background is transparent and shows through to the gray applied to the body.
-
-Let's add a white background to wrapper and a bit of padding.
-
-```css
-#wrapper {
-  ... background-color: #fff;
-  padding: 1rem;
-}
-```
-
-Add a box shadow to the wrapper CSS:
-
-```css
-#wrapper {
-  box-shadow: 6px 6px 10px #999;
-  ...;
-}
-```
-
-Make it a glow:
-
-```css
-#wrapper {
-  box-shadow: 0px 0px 20px #999;
-  ...;
-}
-```
-
-Add a drop shadow and rounded corners to the CSS for the info div using the inspector.
-
-```css
-aside {
-  ... box-shadow: 3px 3px 3px #ddd;
-  border-radius: 4px;
-}
-```
-
-Format the text in the list and table
-
-```css
-aside {
-  ... font-size: 0.875rem;
-}
-
-aside th {
-  text-align: right;
-}
-
-aside ul {
-  list-style: none;
-  padding: 0;
-}
-```
-
-### Formatting the content
-
-Note the h1's margin outside the containing elements (not part of the box model).
-
-```css
-header h1,
-header h2 {
-  font-weight: normal;
-  font-size: 3rem;
-  margin: 8px 0;
-  color: #600;
-}
-header h2 {
-  font-size: 2rem;
-}
-article h2 {
-  font-weight: 400;
-  color: #600;
-  border-bottom: 1px dotted #600;
-}
-```
--->
+Note: we need to pick from the end of [session one](https://github.com/front-end-foundations/session1#adding-more-design-to-our-layout) before continuing with the material below.
 
 ### Highlighting Tabs
 
-A simple way to create opportunities for section differentiation across a web site is to add a class at a high level of the pages.
+A simple way to create opportunities for section differentiation or themeing across a web site is to add a class at a high level of the pages.
 
 Note: before continuing note the behavior of the navigation tabs in the device simulator. Remember - there is no such thing as `:hover` on devices.
 
