@@ -285,6 +285,10 @@ You will also be introduced to:
 - [event types](https://developer.mozilla.org/en-US/docs/Web/Events)
 - [functions](https://developer.mozilla.org/en-US/docs/Glossary/Function)
 
+### A Quick Note on jQuery
+
+[jQuery](https://jquery.com) is an incredibly popular JavaScript library that has been in use for over a decade. When you search for information about various aspects of JavaScript your results will likely contain a multitude of references to it. For the purposes of this course, you should try to ignore these as we focus solely on "vanilla JavaScript." The rational for using jQuery has dramatically decreased in recent years due to the rapid evolution of JavaScript as well as increasing standardization.
+
 ### Creating the Popover
 
 Make sure everything in `scripts.js` is commented. Add this to `scripts.js`:
@@ -322,7 +326,11 @@ mapClicker.addEventListener('click', function() {
 
 A function is a list of commands that, in this case, are run when the event occurs.
 
-We can call a function to run when the event occurs:
+Try:
+
+- Click on elements on the page with the Console open
+
+Call the `show` function to run when the event (the user clicks on `mapClicker`) occurs:
 
 ```js
 var mapClicker = document.querySelector('.map');
@@ -351,9 +359,9 @@ Add to the bottom of the html (but before `<script>`) so it appears at the botto
 </div>
 ```
 
-The div and iframne will be visible at the bottom of the page.
+The div and iframe will be visible at the bottom of the page.
 
-Note that it uses an [iframe](https://www.w3schools.com/tags/tag_iframe.asp). An inline frame is used to embed another document within the current HTML document.
+Note that it uses an [iframe](https://www.w3schools.com/tags/tag_iframe.asp). An inline frame is used to embed another document within the current HTML document. It is most often used in advertising.
 
 Style the popover div:
 
@@ -363,7 +371,7 @@ Style the popover div:
   width: 300px;
   height: 225px;
   background: #fff;
-  border: 1px solid #600;
+  border: 2px solid #600;
   border-radius: 4px;
   position: fixed;
   top: calc(50% - 100px);
@@ -374,7 +382,7 @@ Style the popover div:
 
 Note the `position: fixed` as well as the `top` and `left` properties - we center the div with 50% and then use calc to subtract half the width and height of the div.
 
-If we were using the alternate box model our CSS would look like this:
+Note: if we were using the alternate box model our CSS would look like this:
 
 ```css
 .popover {
@@ -394,7 +402,7 @@ If we were using the alternate box model our CSS would look like this:
 
 Uncomment `display: none` so the popover div is initially hidden.
 
-Add a new rule to the css:
+Add a new utility rule to the css:
 
 ```css
 .showme {
@@ -404,7 +412,7 @@ Add a new rule to the css:
 
 Try:
 
-- In the Elements inspector, try adding the showme class to the div with the popover class.
+- In the Elements inspector, try adding the `showme` class to the popover.
 
 Create a new variable with a reference to the popover div.
 
@@ -433,18 +441,20 @@ function show(e) {
 }
 ```
 
-Take a look at [the power](https://www.nytimes.com/interactive/2019/01/07/nyregion/output-closing-brooklyn-memories.html) of `classList`.
+Take a look at [the power](https://www.nytimes.com/interactive/2019/01/07/nyregion/output-closing-brooklyn-memories.html) of `classList`. Compare this to [http://www.w3schools.com/jquery/jquery_animate.asp](http://www.w3schools.com/jquery/jquery_animate.asp). The latter is an example of JavaScript animation, the former is CSS animation. Generally speaking, CSS animation is smoother than JavaScript animation due to GPU optimization..
 
 If we want to manipulate the display of other items based on the presence of the popover we need to add the showme class higher up in the DOM.
 
+We'll go all the way to the top by adding the class on the body tag:
+
 ```js
 var mapClicker = document.querySelector('.map');
-var body = document.querySelector('body');
+var body = document.querySelector('body'); // NEW
 
 mapClicker.addEventListener('click', show);
 
 function show(e) {
-  body.classList.toggle('showme');
+  body.classList.toggle('showme'); // NEW
   e.preventDefault();
 }
 ```
@@ -465,19 +475,21 @@ Placing the new class at a high level allows us to manipulate the display of oth
 }
 ```
 
-Note - you must refresh the page manually to reset it. (See the homework assignment above.)
+Note - it becomes more difficult for the user to close the popover.
+
+Note - we cannot animate the popover by, say, fading it in becuase we are using `display:none/block` which is binary and is not a property capable of being tweened.
 
 ### Using Event Delegation
 
-This will be the final iteration of this script. It is something of a standard to use event delegation in JavaScript.
+This will be the final iteration of this script. It is something of a standard to use what is known as  _event delegation_ in JavaScript.
 
-Event Delegation refers to the process of using event propagation or bubbling to handle events at a higher level in the DOM than the element on which the event originated.
+Event Delegation refers to the process of using the browser's native event propagation or "bubbling" to handle events at a higher level in the DOM than the element on which the event originated.
 
 Events "bubble up" from the targeted element to their parent elements and all the way up through their ancestors and eventually to the document and window - the highest levels of a page. 
 
 So instead of listening to specific elements, we’ll listen for all click events on the page, and then test to see if the clicked item has a specific name before running the function.
 
-Start by looking at the event targets:
+Start by looking again at the event targets:
 
 ```js
 document.addEventListener('click', show);
@@ -500,6 +512,21 @@ function handleClicks() {
   if (event.target.matches('.map')) {
     document.querySelector('body').classList.toggle('showme');
     event.preventDefault();
+  }
+}
+```
+
+This is somewhat analogous to using a class at a high level - see for example the first part of today's exercise - as it allows us to control things at a higher level.
+
+Note that the `event` is passed automagically to the function. If we wanted to explicitly declare it - and make our code a bit more concise - we could do so by using `e`:
+
+```js
+document.addEventListener('click', handleClicks);
+
+function handleClicks(e) {
+  if (e.target.matches('.map')) {
+    document.querySelector('body').classList.toggle('showme');
+    e.preventDefault();
   }
 }
 ```
@@ -540,10 +567,20 @@ Add a link to the popover:
 }
 ``` -->
 
-In the `popover` div:
+Add to the top of the `popover` div:
 
 ```html
-<li><a class="closer" href="#">✖︎</a></li>
+<a class="closer" href="#">✖︎</a>
+```
+
+E.g.:
+
+```html
+  <div class="popover">
+    <a class="closer" href="#">✖︎</a>
+    <iframe>
+      ...
+  </div>
 ```
 
 To format the close button, temporarily disable the `display: none` property on the popover's CSS and add:
@@ -558,9 +595,9 @@ To format the close button, temporarily disable the `display: none` property on 
 }
 ```
 
-The close button will be positioned relative to its nearest positioned ancestor - which, in this case, is the popover div which has a `position: static` property.
+The close button will be positioned relative to its nearest positioned ancestor which, in this case, is the popover div which already has a `position: static` property.
 
-Note the `cursor` property. Here is a [list of available cursors](https://www.w3schools.com/cssref/tryit.asp?filename=trycss_cursor) in CSS.
+Note the (here superfluous) `cursor` property. Here is a [list of available cursors](https://www.w3schools.com/cssref/tryit.asp?filename=trycss_cursor) in CSS.
 
 Add some additional formatting to the button:
 
@@ -598,19 +635,19 @@ function close(){
 
 Note that the close function is identical to the show function we currently have. -->
 
-We will use [element.matches](https://developer.mozilla.org/en-US/docs/Web/API/Element/matches) and an `if` statement to test for the item being clicked on, then use `classList` to add or remove a class:
+We will use a new JavaScript utility - [element.matches](https://developer.mozilla.org/en-US/docs/Web/API/Element/matches) and an `if` statement to test for the item being clicked on, then use `classList` to add or remove a class:
 
 ```js
 document.addEventListener('click', handleClicks);
 
-function handleClicks() {
-  if (event.target.matches('.map')) {
+function handleClicks(e) {
+  if (e.target.matches('.map')) {
     document.querySelector('body').classList.add('showme');
-    event.preventDefault();
+    e.preventDefault();
   }
-  if (event.target.matches('.closer')) {
+  if (e.target.matches('.closer')) {
     document.querySelector('body').classList.remove('showme');
-    event.preventDefault();
+    e.preventDefault();
   }
 }
 ```
@@ -619,22 +656,22 @@ Let's refactor the script by using an 'or' operator `||` in JavaScript:
 
 ```js
 if (event.target.classList.contains('map') || event.target.classList.contains('closer')) {
-	...
 }
 ```
 
-With a toggle, e.g.:
+With our toggle, e.g.:
 
 ```js
 document.addEventListener('click', handleClicks);
 
-function handleClicks() {
-  if (event.target.matches('.map') || event.target.matches('.closer')) {
+function handleClicks(e) {
+  if (e.target.matches('.map') || e.target.matches('.closer')) {
     document.querySelector('body').classList.toggle('showme');
-    event.preventDefault();
+    e.preventDefault();
   }
 }
 ```
+
 
 
 <!-- Try a [recipe](http://fontawesome.io/examples/) from font-awesome:
@@ -698,7 +735,7 @@ We used the z-index css property to control stacking order for the menu (review)
 We need to control z-index in this case by giving the popover a hight number than the overlay.
 
 Note that there is no possibility of animating this because we are using `display: block` and `display: none`. These are binary states and cannot be used for effects like fading on etc. More on this in a later class. -->
-######################################
+
 
 
 
@@ -722,7 +759,7 @@ document.addEventListener(
 
 ### End Sushi
 
-## Styling a List with Floats vs Flexbox
+## Styling a List: Floats vs Flexbox
 
 <img src="Tabs/tabs-image.jpg">
 
@@ -793,7 +830,8 @@ Remove the bullets from the `<ul>`:
 
 ```css
 .nav {
-  ... list-style: none;
+  ... 
+  list-style: none;
 }
 ```
 
@@ -819,7 +857,8 @@ Try adding a float to the 'collapsed' element:
 
 ```css
 .nav {
-  ... float: left;
+  ... 
+  float: left;
 }
 ```
 
@@ -829,7 +868,8 @@ Since we want the `<ul>` to extend the width of the window let's fix the width.
 
 ```css
 .nav {
-  ... width: 100%;
+  ... 
+  width: 100%;
 }
 ```
 
@@ -839,7 +879,8 @@ Extend the [background property](https://www.w3schools.com/css/css_background.as
 
 ```css
 .nav {
-  ... background-color: #ffcb2d;
+  ... 
+  background-color: #ffcb2d;
   background-image: url(i/nav_bg.gif);
 }
 ```
@@ -850,7 +891,8 @@ Add positioning to the background.
 
 ```css
 .nav {
-  ... background-color: #ffcb2d;
+  ... 
+  background-color: #ffcb2d;
   background-image: url(i/nav_bg.gif);
   background-repeat: repeat-x;
   background-position: bottom left;
