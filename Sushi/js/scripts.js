@@ -88,6 +88,7 @@
 
 // // Add text
 // newDiv.innerHTML = 'Hello World'
+// newDiv.innerText = 'Hello World'
 
 // // Add text to div
 // newDiv.style.fontSize = '40px';
