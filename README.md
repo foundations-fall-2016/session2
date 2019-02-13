@@ -639,11 +639,11 @@ document.addEventListener(
 
 ### End Sushi
 
-## Styling a List: Floats vs Flexbox
+<!-- ## Styling a List: Floats vs Flexbox
 
 <img src="Tabs/tabs-image.jpg">
 
-In this exercise we will focus on list styling and navigation but instead of using `display: inline` or `display: inline-block` to create horizontal navigation we will use floats.
+In this exercise we will focus on list styling and navigation but instead of using `display: inline` or `display: inline-block` to create horizontal navigation we will use floats. -->
 
 <!-- ## Demo in Sublime
 
@@ -663,7 +663,7 @@ ul>li*4>a[href="#"]{link}
 nav>ul>li.t-cuisines*4>a[href="cuisines.html"]{cuisines}
 ``` -->
 
-Create an HTML file and save it as `cuisines.html` into the `Tabs` folder.
+<!-- Create an HTML file and save it as `cuisines.html` into the `Tabs` folder. -->
 
 <!-- * duplicate lines `cmd-d` and
 * use multiple cursors `cmd` to complete the classes and links so you end up with: -->
