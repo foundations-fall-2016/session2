@@ -148,3 +148,28 @@ blockquote::before {
     float: none;
   }
 }
+
+.p-review .t-review a,
+.p-cuisines .t-cuisine a,
+.p-delivery .t-delivery a,
+.p-recipes .t-recipe a {
+  color: #600;
+  background: #f0dfb4;
+}
+
+.popover {
+  padding: 1rem;
+  width: 300px;
+  height: 225px;
+  background: #fff;
+  border: 2px solid #600;
+  border-radius: 4px;
+  position: fixed;
+  top: calc(50% - 112px);
+  left: calc(50% - 150px);
+  display: none;
+}
+
+.showme .popover {
+  display: block;
+}
