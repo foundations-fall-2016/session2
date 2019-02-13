@@ -668,7 +668,7 @@ nav>ul>li.t-cuisines*4>a[href="cuisines.html"]{cuisines}
 <!-- * duplicate lines `cmd-d` and
 * use multiple cursors `cmd` to complete the classes and links so you end up with: -->
 
-```html
+<!-- ```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -981,16 +981,16 @@ li {
 }
 ```
 
-Remove the float and underline from the anchors:
+Remove the float and underline from the anchors: -->
 
-```css
+<!-- ```css
 a {
   ...
   /* border-bottom: none; */ /* float: left; */ ;;
 }
-```
+``` -->
 
-Add `border-bottom: none;` to the active state:
+<!-- Add `border-bottom: none;` to the active state:
 
 ```css
 a:hover,
@@ -1003,4 +1003,4 @@ a:hover,
 
 ## Looking Forward
 
-Examine the other demos in the `demo` folder.
+Examine the other demos in the `demo` folder. -->
