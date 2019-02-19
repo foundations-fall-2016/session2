@@ -552,7 +552,7 @@ function handleClicks(e) {
 }
 ```
 
-See the samples on CodePen for [querySelector](https://codepen.io/DannyBoyNYC/pen/wNXPKY) and [querySelectorAll](https://codepen.io/DannyBoyNYC/pen/exKegp)].
+See the samples on CodePen for [querySelector](https://codepen.io/DannyBoyNYC/pen/wNXPKY) and [querySelectorAll](https://codepen.io/DannyBoyNYC/pen/exKegp).
 
 <!-- Try a [recipe](http://fontawesome.io/examples/) from font-awesome:
 
